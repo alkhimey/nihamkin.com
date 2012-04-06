@@ -2,7 +2,6 @@ import os, shutil, errno, re, time
 
 
 
-
 ### Configuration
 #####################################
 PAGES_DIR	= "_pages"
