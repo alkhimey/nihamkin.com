@@ -6,12 +6,13 @@ import os, shutil, errno, re, time
 PAGES_DIR	= "_pages"
 SITE_DIR	= "_site"
 TEMPLATE_PATH 	= "site.template"
-
+IGNORE_TOC_PATTERNS = ["^images$", "^files$", "^css$"]
 
 
 ### Substitution patterns
 #####################################
 root = None
+toc_root_cache = None
 patterns = {
     "title" 	:	lambda x : x.title,
     "keywords"	:	lambda x : x.keywords,
@@ -20,7 +21,7 @@ patterns = {
     "bgcolor"	: 	lambda x : x.bgcolor,
     "textcolor" : 	lambda x : x.textcolor,
     "buildtime" : 	lambda _ : time.asctime(time.localtime()),
-    "toc"	:	lambda _ : root.gen_toc(2)
+    "toc"	:	lambda _ : root.gen_toc(10, True)
 }
 
     
@@ -31,25 +32,46 @@ class Directory:
         self.index = None
 
     def has_children(self):
-        return len(self.children) == 0 #TODO: Find more pythonic way to express this.
+        return len(self.children) == 0
    
-    def gen_toc(self, depth): # TODO: Fix this!
-        print "gen_toc dir", self.rel_path
+    def gen_toc(self, depth, is_root=False): # TODO: Fix this!
         """ Generate an html table of contents out of the directory hierarchy """
-        if depth == 0:
-            return
+        global toc_root_cache
 
+        if is_root and toc_root_cache:
+            return toc_root_cache
+        
+        if depth == 0:
+            return ""
+        
+        for pattern in IGNORE_TOC_PATTERNS:
+            if re.match(pattern, self.rel_path.split('/')[-1]):
+                return ""
+        
+        print "gen_toc dir", self.rel_path, depth, is_root
+            
         result = ""
+        if is_root:
+            result += "<ul>\n"
+
         try: 
-            result += "<ul>\n<li><a href=\"%s\">%s</a><li>\n" % (self.index.html_rel_path(), self.index.title)
+            result += "<li><a href=\"%s\">%s</a>\n" % (self.index.html_rel_path(), self.index.title)
+            print  "!!!!!", self.index.html_rel_path(), self.index.title
         except:
             print "Warning: Directory %s has no index file, using directory name instead" % self.rel_path
-            result += "<ul>\n<li>%s<li>\n" % (self.rel_path.split('/')[-1])
+            result += "<li>%s\n" % (self.rel_path.split('/')[-1])
         
+        child_results = "" 
         for c in self.children:
-            result += c.gen_toc(depth - 1)
-       
-        result += "</ul>"
+            child_results += c.gen_toc(depth - 1)
+        if child_results:
+            result += "<ul>%s</ul>" % child_results
+
+        result += "</li>\n"
+
+        if is_root:
+            result += "</ul>\n"
+            toc_root_cache = result
         return result
     
     def fill_template(self, template):
@@ -84,8 +106,8 @@ class File:
         f.close()
         
     def gen_toc(self, depth):
-        print "a"
-        return "<li><a href=\"%s\">%s</a><li>\n" % (self.rel_path, self.title)
+        print "      file", self.rel_path, depth
+        return "<li><a href=\"%s\">%s</a></li>\n" % (self.rel_path, self.title)
 
     def fill_template(self, template):
         global patterns
@@ -94,9 +116,9 @@ class File:
         for p in patterns:
             try:
                 result = re.sub('\[%[ \t]'+p+'[ \t]*%\]', (patterns[p])(self), result)
-            except:
+            except IndexError:
                 print "Warning: file", self.rel_path, "does not contain attribute", p
-
+            
         f = open(SITE_DIR + "/" + self.html_rel_path(), 'w')
         f.write(result)
         f.close()
@@ -158,4 +180,14 @@ f = open(TEMPLATE_PATH)
 template = f.read()
 f.close()
 
-root.fill_template(template)
+print root
+
+for c in root.children:
+    print c.rel_path
+    try:
+        print ">", c.index.title
+    except:
+        print ">", None
+
+
+#root.fill_template(template)
