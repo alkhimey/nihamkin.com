@@ -1,6 +1,6 @@
 bgcolor = black
 textcolor = white
-title = 
+title = Links
 description = Links to favourite websites and friends' homepages
 keywords = links
 

@@ -5,16 +5,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="description" content="[% description %]" />
 <meta name="keywords" content="[% keywords %]" />
-<link rel="Shortcut icon" href="/~sartium/favicon.ico">
+<link rel="Shortcut icon" href="[% root %]/favicon.ico">
 
 <title>[% title %]</title>
 
 <!--
-<style media="all" type="text/css">@import "/~sartium/menu/menu_style.css";</style>
-<style media="all" type="text/css">@import "/~sartium/style.css";</style>
+<style media="all" type="text/css">@import "[% root %]/menu/menu_style.css";</style>
+<style media="all" type="text/css">@import "[% root %]/style.css";</style>
 -->
-<link href="/~sartium/menu/menu_style.css" rel="stylesheet" type="text/css" />
-<link href="/~sartium/style.css" rel="stylesheet" type="text/css" />
+<link href="[% root %]/menu/menu_style.css" rel="stylesheet" type="text/css" />
+<link href="[% root %]/style.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript">
 
@@ -43,9 +43,11 @@
 
 <!-- Menu Start -->
 
-
+<div id="framecontent">
+<div class="menu">
 [% toc %]
-
+</div>
+</div>
 
 <!--
 <div id="framecontent">

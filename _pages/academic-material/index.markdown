@@ -1,6 +1,6 @@
 bgcolor = #49a849
 textcolor = black
-title = Academic Material Links
+title = Academic Material
 description = Academic material
 keywords = links
 
