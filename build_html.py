@@ -21,7 +21,7 @@ patterns = {
     "bgcolor"	: 	lambda x : x.bgcolor,
     "textcolor" : 	lambda x : x.textcolor,
     "buildtime" : 	lambda _ : time.asctime(time.localtime()),
-    "toc"	:	lambda _ : root.gen_toc(10, True)
+    "toc"	:	lambda _ : root.gen_toc_root()
 }
 
 ### Globals and utility functions
@@ -69,57 +69,47 @@ class Directory:
 
     def has_children(self):
         return len(self.children) > 0 or self.index
-   
-    def gen_toc(self, depth, is_root=False): # TODO: Fix this!
+
+    def gen_toc_root(self):
         """ Generate an html table of contents out of the directory hierarchy """
         global toc_root_cache
 
-        if is_root and toc_root_cache:
-            return toc_root_cache
-        
-        if depth == 0:
-            return ""
-        
+        if not toc_root_cache:
+            toc_root_cache = "<ul>\n"
+            for c in [self.index] + self.children:
+                toc_root_cache += c.gen_toc()
+            toc_root_cache += "</ul>\n"
+        return toc_root_cache
+
+    def gen_toc(self): # TODO: Fix this!?
         for pattern in IGNORE_TOC_PATTERNS:
             if re.match(pattern, self.rel_path.split('/')[-1]):
                 return ""
             
         result = ""
-        if is_root:
-            result += "<ul>\n"
 
-        try: 
-            result += "<li><a href=\"%s\">%s</a>\n" % (self.index.html_rel_path(), self.index.title)
-        except:
+        if self.index: 
+            result += "<li><a href=\"%s\">%s</a>\n" % (self.index.html_path(), self.index.title)
+        else:
             print "Warning: Directory %s has no index file, using directory name instead" % self.rel_path
-            result += "<li>%s\n" % (self.rel_path.split('/')[-1])
+            result += "<li><a>%s</a>\n" % (self.rel_path.split('/')[-1])
         
         child_results = "" 
         for c in self.children:
-            child_results += c.gen_toc(depth - 1)
+            child_results += c.gen_toc()
         if child_results:
-            result += "<ul>%s</ul>" % child_results
+            result += "<ul>\n%s\n</ul>\n" % child_results
 
         result += "</li>\n"
 
-        if is_root:
-            result += "</ul>\n"
-            toc_root_cache = result
         return result
     
     def fill_template(self, template):
-        try: 
+        if self.index: 
             self.index.fill_template(template)
-        except:
-            pass
         
         for c in self.children:
             c.fill_template(template)
-        
-
-    def __str__(self):
-        return self.rel_path #+ "\n" +  "".join((c.__str__() for c in [self.children] + [self.index]))
-
 
 class File:
     def __init__(self, rel_path):
@@ -138,12 +128,11 @@ class File:
         
         f.close()
         
-    def gen_toc(self, depth):
-        print "      file", self.rel_path, depth
-        return "<li><a href=\"%s\">%s</a></li>\n" % (self.html_rel_path(), self.title)
+    def gen_toc(self):
+        return "<li><a href=\"%s\">%s</a></li>\n" % (self.html_path(), self.title)
 
     def fill_template(self, template):
-        """ Fills the template with valuies according to the patterns and the fields of the file. Outputs the file
+        """ Fills the template with values according to the patterns and the fields of the file. Outputs the file
             to it's destinateion.
         """
         global patterns
@@ -163,8 +152,8 @@ class File:
         """ Substitutes file extension to html. """
         return '.'.join((self.rel_path).split('.')[0:-1]) + ".html"
 
-    def __str__(self):
-        return self.rel_path
+    def html_path(self):
+        return conc_path(WEB_ROOT, self.html_rel_path())
 
 ### Main
 ################################
@@ -180,14 +169,5 @@ root = Directory("")
 f = open(TEMPLATE_PATH)
 template = f.read()
 f.close()
-print root
-
-# for c in root.children:
-#     print c.rel_path
-#     try:
-#         print ">", c.index.title
-#     except:
-#         print ">", None
-
 
 root.fill_template(template)
