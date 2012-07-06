@@ -46,7 +46,9 @@ class Directory:
         self.children = []
         self.index = None
         
-        for c in os.listdir(pages_path(rel_path)):        
+        lst =  os.listdir(pages_path(rel_path))
+        lst.sort()
+        for c in lst:        
             if c[0] == "_":
                 continue  
 
@@ -89,7 +91,10 @@ class Directory:
         result = ""
 
         if self.index: 
-            result += "<li><a href=\"%s\">%s</a>\n" % (self.index.html_path(), self.index.title)
+            if self.index.should_display():
+                result += "<li><a href=\"%s\">%s</a>\n" % (self.index.html_path(), self.index.title)
+            else:
+                result += "<li><a>%s</a>\n" % (self.index.title)
         else:
             print "Warning: Directory %s has no index file, using directory name instead" % self.rel_path
             result += "<li><a>%s</a>\n" % (self.rel_path.split('/')[-1])
@@ -136,6 +141,9 @@ class File:
             to it's destinateion.
         """
         global patterns
+        
+        if not self.should_display():
+            return
 
         result = template
         for p in patterns:
@@ -154,6 +162,14 @@ class File:
 
     def html_path(self):
         return conc_path(WEB_ROOT, self.html_rel_path())
+
+    def should_display(self):
+        try:
+            if self.display == '0':
+                return False
+        except:
+            pass
+        return True
 
 ### Main
 ################################

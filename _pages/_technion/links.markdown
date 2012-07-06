@@ -6,7 +6,7 @@ keywords = links
 
 
 
-<h1>Academic Material</h1>
+<h1>Links</h1>
 This page is devoted to usefull academic material sources. The target audiance are Technion studends, specifically those who study computer science.
 
 <h2>Reference sites</h2>

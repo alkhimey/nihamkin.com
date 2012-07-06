@@ -12,9 +12,11 @@
 <!--
 <style media="all" type="text/css">@import "[% root %]/menu/menu_style.css";</style>
 <style media="all" type="text/css">@import "[% root %]/style.css";</style>
+<style media="all" type="text/css">@import "[% root %]/syntax.css";</style>
 -->
 <link href="[% root %]/menu/menu_style.css" rel="stylesheet" type="text/css" />
 <link href="[% root %]/style.css" rel="stylesheet" type="text/css" />
+<link href="[% root %]/syntax.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript">
 
@@ -33,12 +35,15 @@
 
 <body style="color: [% textcolor %]; background: [% bgcolor %]">
 
+<!-- Content Start -->
+
 <div id="maincontent">
 <div class="innertube">
 [% content %]
 </div>
 </div>
 
+<!-- Content Start -->
 
 
 <!-- Menu Start -->
@@ -49,41 +54,6 @@
 </div>
 </div>
 
-<!--
-<div id="framecontent">
-<div class="menu">
-<ul>
-<li><a href="/~sartium/index.html" >Home</a>
-</li>
-
-
-
-<li><a>My Stuff</a>
-<ul>
-<li><a href="/~sartium/content/projects/website.html">This Website</a></li>
-<li><a href="/~sartium/content/projects/crosswords.html">Crosswords</a></li>
-</ul>
-</li>
-
-<li><a>Interests</a>
-<ul>
-<li><a href="/~sartium/under-construction.html">Web Development</a></li>
-<li><a href="/~sartium/under-construction.html">Web Security</a></li>
-</ul>
-</li>
-
-<li><a href="/~sartium/content/technion-academics/">Technion Academics</a>
-<ul>
-<li><a href="/~sartium/content/technion-academics/234319-programming-languages.html">234319 Programming Languages</a></li>
-<li><a href="/~sartium/content/technion-academics/234325-computer-graphics-1.html">234325 Computer Graphics 1</a></li>
-</ul>
-</li>
-
-</ul>
-
-</div>
-</div>
--->
 <!-- Menu End -->
 
 </body>
