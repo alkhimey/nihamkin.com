@@ -38,7 +38,7 @@ blog.path = "/blog"
 
 ## blog_name -- Your Blog's name.
 # This is used repeatedly in default blog templates
-blog.name = "Your Blog's Name"
+blog.name = "Artium's Blog"
 
 ## blog_description -- A short one line description of the blog
 # used in the RSS/Atom feeds.

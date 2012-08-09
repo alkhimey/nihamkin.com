@@ -1,32 +1,30 @@
 
-<!-- Menu Start -->
 
-<div id="framecontent">
-<div class="menu">
-<ul>
-<li><a href="/home/artium/Documents/Website/_site/index.html">Home</a></li>
-<li><a>Projects</a>
-<ul>
-<li><a href="/home/artium/Documents/Website/_site/0-projects/website.html">Static Website Generator</a></li>
 
-</ul>
-</li>
-<li><a>CG</a>
-<ul>
-<li><a href="/home/artium/Documents/Website/_site/2-CG/test.html">Static Website Generator</a></li>
-
-</ul>
-</li>
-<li><a>Robotics</a>
-</li>
-<li><a href="/home/artium/Documents/Website/_site/9-links/index.html">Links</a>
-</li>
-</ul>
-
-</div>
-</div>
-
-<!-- Menu End -->
+<div id="framecontent"><!-- Menu Start -->
+  <div class="menu">
+	<ul>
+	  <li><a href="/home/artium/Documents/Website/_site/index.html">Home</a></li>
+	  <li><a>Projects</a>
+		<ul>
+		  <li><a href="/home/artium/Documents/Website/_site/0-projects/website.html">Static Website Generator</a></li>
+		  
+		</ul>
+	  </li>
+	  <li><a>CG</a>
+		<ul>
+		  <li><a href="/home/artium/Documents/Website/_site/2-CG/test.html">Static Website Generator</a></li>
+		  
+		</ul>
+	  </li>
+	  <li><a>Robotics</a>
+	  </li>
+	  <li><a href="/home/artium/Documents/Website/_site/9-links/index.html">Links</a>
+	  </li>
+	</ul>
+	
+  </div>
+</div> <!-- Menu End -->
 
 <!--
 <p id="credits">

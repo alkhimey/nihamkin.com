@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>Artium's Blog</title>
+    <link>http://www.yoursite.com/blog</link>
+    <description>Your Blog's short description</description>
+    <pubDate>Thu, 09 Aug 2012 23:46:50 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Why I Chose Blogofile as my Blogging Platform</title>
+      <link>http://www.yoursite.com/blog/2012/08/09/why-i-chose-blogofile-as-my-blogging-platform</link>
+      <pubDate>Thu, 09 Aug 2012 01:00:00 EDT</pubDate>
+      <category><![CDATA[About]]></category>
+      <category><![CDATA[Blogofile]]></category>
+      <category><![CDATA[Web Development]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2012/08/09/why-i-chose-blogofile-as-my-blogging-platform</guid>
+      <description>Why I Chose Blogofile as my Blogging Platform</description>
+      <content:encoded><![CDATA[<p>First of all, what if "Blogofile"? The definition from the original <a href="http://www.blogofile.com/">website</a> says:</p>
+<blockquote>
+<p><strong>Definition: Blogofile (n):</strong> A static website compiler and blog engine, written and extended in Python.</p>
+</blockquote>
+<p>Static website compiler means that each time we want to make an change to the website I have to recompile it, which is a big word for saying that I have to regenerate the html files. The advantage of this, if it is not obvious yet is that we host only the produced html files. No special web framework is need. No need for CGI, php or java access on the server. All you need is a web server that can serve static content.</p>
+<p>When I studied at the Technion, students received small space where they could host a website. The server was very limited, and could serve static content only. So in such situations Blogofile is prefect.<br />
+</p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -8,13 +8,21 @@
   </head>
   <body>
     <div id="content">
-      ${self.header()}
-      <div id="main_block">
-        <div id="prose_block">
-          ${next.body()}
-        </div><!-- End Prose Block -->
-      </div><!-- End Main Block -->
-      <div id="footer">
+      
+	  <div id="maincontent">
+		<div class="innertube">
+		  
+		  ${self.header()}
+		  <div id="main_block">
+			<div id="prose_block">
+			  ${next.body()}
+			</div>
+		  </div>
+		</div>
+		
+	</div>
+
+	  <div id="footer">
         ${self.footer()}
       </div> <!-- End Footer -->
     </div> <!-- End Content -->
@@ -27,7 +35,5 @@
   <%include file="header.mako" />
 </%def>
 <%def name="footer()">
-  <hr/>
-  This is a footer that appears on every page.
   <%include file="footer.mako" />
 </%def>
