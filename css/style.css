@@ -52,8 +52,6 @@ width: 100%;
 
 
 
-
-
 /* This element contains all the main content. 
    It might be good to merge it with #maincontent or similar in the future */
 #prose_block {
@@ -75,3 +73,12 @@ width: 100%;
 .post_prose {
 	font-family: Verdana, sans-serif;
 }
+
+
+/* blockquote */
+
+blockquote {
+	background-color:#5e5e5e;	
+	padding: 1px 15px 1px 15px;
+}
+

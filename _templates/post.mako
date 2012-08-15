@@ -1,4 +1,10 @@
 <%page args="post"/>
+
+<%def name="filter(chain)">
+ ${bf.filter.run_chain(chain, capture(caller.body))}
+</%def>
+
+
 <div class="blog_post">
   <a name="${post.slug}"></a>
   <h2 class="blog_post_title"><a href="${post.permapath()}" rel="bookmark" title="Permanent Link to ${post.title}">${post.title}</a></h2>
@@ -18,7 +24,9 @@ ${", ".join(category_links)}
 % endif
 </small><p/>
   <div class="post_prose">
-    ${self.post_prose(post)}
+    <%self:filter chain="spoiler">
+	    ${self.post_prose(post)}
+	</%self:filter>
   </div>
 </div>
 

@@ -10,178 +10,51 @@
     <title>Artium's Blog</title>
     <link>http://www.yoursite.com/blog</link>
     <description>Your Blog's short description</description>
-    <pubDate>Thu, 09 Aug 2012 23:46:50 GMT</pubDate>
+    <pubDate>Wed, 15 Aug 2012 00:17:52 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
+      <title>Testing Page</title>
+      <link>http://www.yoursite.com/blog/2012/08/09/testing-page</link>
+      <pubDate>Thu, 09 Aug 2012 01:00:00 IDT</pubDate>
+      <category><![CDATA[Test]]></category>
+      <guid isPermaLink="true">http://www.yoursite.com/blog/2012/08/09/testing-page</guid>
+      <description>Testing Page</description>
+      <content:encoded><![CDATA[<div class="pygments_monokai"><pre><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s">&quot;Hello, Python!&quot;</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
+    <span class="k">print</span> <span class="s">&quot;done&quot;</span>
+</pre></div>
+
+<p>$$/code</p>
+<p>$ not good 
+$</p>]]></content:encoded>
+    </item>
+    <item>
       <title>Why I Chose Blogofile as my Blogging Platform</title>
       <link>http://www.yoursite.com/blog/2012/08/09/why-i-chose-blogofile-as-my-blogging-platform</link>
-      <pubDate>Thu, 09 Aug 2012 01:00:00 EDT</pubDate>
+      <pubDate>Thu, 09 Aug 2012 01:00:00 IDT</pubDate>
       <category><![CDATA[About]]></category>
       <category><![CDATA[Blogofile]]></category>
       <category><![CDATA[Web Development]]></category>
       <guid isPermaLink="true">http://www.yoursite.com/blog/2012/08/09/why-i-chose-blogofile-as-my-blogging-platform</guid>
       <description>Why I Chose Blogofile as my Blogging Platform</description>
-      <content:encoded><![CDATA[<p>First of all, what if "Blogofile"? The definition from the original <a href="http://www.blogofile.com/">website</a> says:</p>
+      <content:encoded><![CDATA[<p>First of all, what is "Blogofile"? The definition from the original <a href="http://www.blogofile.com/">website</a> says:</p>
 <blockquote>
 <p><strong>Definition: Blogofile (n):</strong> A static website compiler and blog engine, written and extended in Python.</p>
 </blockquote>
-<p>Static website compiler means that each time we want to make an change to the website I have to recompile it, which is a big word for saying that I have to regenerate the html files. The advantage of this, if it is not obvious yet is that we host only the produced html files. No special web framework is need. No need for CGI, php or java access on the server. All you need is a web server that can serve static content.</p>
-<p>When I studied at the Technion, students received small space where they could host a website. The server was very limited, and could serve static content only. So in such situations Blogofile is prefect.<br />
-</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Post 1</title>
-      <link>http://www.yoursite.com/blog/2012/07/23/post-1</link>
-      <pubDate>Mon, 23 Jul 2012 15:22:00 EDT</pubDate>
-      <category><![CDATA[Computational Geometry]]></category>
-      <category><![CDATA[Computer Graphics]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2012/07/23/post-1</guid>
-      <description>Post 1</description>
-      <content:encoded><![CDATA[<p>This is a long post
-This is a long post
-This is a long post
-This is a long post
-This is a long post
-This is a long post
-This is a long post
-This is a long post
-This is a long post
-This is a long post aaa
-This is a long post aaa
-This is a long post aaa
-This is a long post aaa
-This is a long post aaa
-y
-This is a long post aaa
-yThis is a long post aaa
-This is a long post aaa
-This is a long post aaa
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bbb
-This is a long post bcc
-This is a long post bbb
-This is a long post bbb
-This is a long post baaa
-This is a long post bbb
-This is a long post bbb
-This is a long post bbbsdsds
-sadfsdf
-sdfsdfsgas
-asdagd
-dsgadgasdg
-asdgasdgasdgasd</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis urna sit amet dolor ultrices luctus eu vestibulum ante. Cras bibendum sagittis justo et facilisis. Cras tristique eros nec justo tincidunt ut porta nisi commodo. Morbi quis libero lectus. In euismod euismod condimentum. Integer pellentesque cursus orci sit amet ornare. Curabitur malesuada dapibus mi, quis pulvinar urna iaculis quis. Nam eu ante magna, quis posuere nunc. In auctor ipsum eu odio ultrices feugiat. Fusce mauris ipsum, pretium sit amet fringilla sit amet, sollicitudin a neque. Cras ante urna, volutpat ut porta at, malesuada at eros. Donec ante est, tempor in mollis id, vehicula sed nisl. Vivamus elit arcu, condimentum a dictum sit amet, pharetra et ipsum. Aliquam pretium mauris ac leo scelerisque eget ullamcorper magna euismod. Nulla quis elit sit amet odio vestibulum rutrum elementum eu lacus. Nam elit lorem, ullamcorper in feugiat et, porta quis leo.</p>
-<p>Praesent convallis, magna et rhoncus accumsan, mauris massa ornare libero, id gravida elit purus ac justo. Etiam quis lacinia orci. Nulla tristique, purus vitae posuere interdum, dui orci aliquam urna, quis sodales nunc purus sed mi. Vivamus dictum interdum ipsum, ut vehicula orci fermentum vel. Nulla vel est id lacus tincidunt suscipit vel id leo. Phasellus dapibus dui non tellus sodales ut malesuada nunc dignissim. Proin ut nibh mauris, quis sollicitudin erat. Aenean pulvinar tortor non mi volutpat quis malesuada tellus rutrum.</p>
-<p>Suspendisse imperdiet feugiat tempor. In at iaculis nisi. Vivamus non magna lacus, nec porta massa. Suspendisse porta gravida urna, non consectetur nisi euismod ac. Aliquam lobortis, ligula et laoreet blandit, dolor nulla vulputate ligula, nec consectetur dolor enim ac augue. Duis tortor massa, commodo a mollis et, placerat eu lorem. Etiam nec purus quam. Cras tincidunt quam sed elit tristique ac mattis elit dignissim. Integer tincidunt gravida metus. Etiam sagittis dignissim feugiat. Etiam at lectus diam. Proin molestie ornare tincidunt.</p>
-<p>Etiam ante erat, adipiscing quis auctor a, luctus eget enim. Duis sem justo, tincidunt ut pellentesque sit amet, dictum sed neque. Quisque nec sapien et tellus consectetur rutrum. Morbi adipiscing consectetur tortor. Nulla rutrum mauris velit, ut auctor turpis. Vestibulum suscipit ultrices facilisis. Vestibulum ac neque eget diam vestibulum pharetra id blandit purus. Etiam semper egestas dui at feugiat. Vestibulum sit amet massa lacus, eget scelerisque orci. Duis dapibus vulputate dolor sit amet porttitor.</p>
-<blockquote>
-<p>Cras sit amet augue risus, a consectetur tortor. Ut sed lorem purus. Vivamus nec feugiat lorem. Integer luctus condimentum dui, a convallis enim porta vitae. Cras imperdiet gravida aliquam. Phasellus volutpat, metus nec venenatis luctus, tellus dui lobortis nibh, sit amet fringilla ipsum justo quis augue. Vestibulum et orci orci. Duis rutrum, dolor id ullamcorper vehicula, nisl neque pretium velit, vel molestie magna diam ut velit. Suspendisse potenti. Nulla volutpat, tellus nec hendrerit consectetur, augue augue mattis mi, quis porttitor est elit a eros. </p>
-</blockquote>]]></content:encoded>
-    </item>
-    <item>
-      <title>Test Post</title>
-      <link>http://www.yoursite.com/blog/2012/07/23/test-post</link>
-      <pubDate>Mon, 23 Jul 2012 01:34:00 EDT</pubDate>
-      <category><![CDATA[Computational Geometry]]></category>
-      <category><![CDATA[Computer Graphics]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2012/07/23/test-post</guid>
-      <description>Test Post</description>
-      <content:encoded><![CDATA[<p>This is a test post.</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Post 7</title>
-      <link>http://www.yoursite.com/blog/2009/08/29/post-7</link>
-      <pubDate>Sat, 29 Aug 2009 15:25:00 EDT</pubDate>
-      <category><![CDATA[General Stuff]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/post-7</guid>
-      <description>Post 7</description>
-      <content:encoded><![CDATA[<p>This is post #7</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Syntax highlight test</title>
-      <link>http://www.yoursite.com/blog/2009/08/29/syntax-highlight-test</link>
-      <pubDate>Sat, 29 Aug 2009 15:25:00 EDT</pubDate>
-      <category><![CDATA[General Stuff]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/syntax-highlight-test</guid>
-      <description>Syntax highlight test</description>
-      <content:encoded><![CDATA[<p>This post contains some highlighted python code:</p>
-<div class="pygments_murphy"><pre><span class="kn">import</span> <span class="nn">this</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;main&quot;</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&quot;Hello, World!&quot;</span>
-</pre></div>]]></content:encoded>
-    </item>
-    <item>
-      <title>Post 6</title>
-      <link>http://www.yoursite.com/blog/2009/08/29/post-6</link>
-      <pubDate>Sat, 29 Aug 2009 15:24:00 EDT</pubDate>
-      <category><![CDATA[General Stuff]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/post-6</guid>
-      <description>Post 6</description>
-      <content:encoded><![CDATA[<p>This is post #6</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Post 5</title>
-      <link>http://www.yoursite.com/blog/2009/08/29/post-5</link>
-      <pubDate>Sat, 29 Aug 2009 15:23:00 EDT</pubDate>
-      <category><![CDATA[General Stuff]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/post-5</guid>
-      <description>Post 5</description>
-      <content:encoded><![CDATA[<p>This is post #5</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Post 4</title>
-      <link>http://www.yoursite.com/blog/2009/08/29/post-4</link>
-      <pubDate>Sat, 29 Aug 2009 15:22:00 EDT</pubDate>
-      <category><![CDATA[General Stuff]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/29/post-4</guid>
-      <description>Post 4</description>
-      <content:encoded><![CDATA[<p>This is post #4</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Post 3 - Unicode Test - How about some 日本語テスト</title>
-      <link>http://www.yoursite.com/blog/2009/08/22/post-3---unicode-test---how-about-some-日本語テスト</link>
-      <pubDate>Sat, 22 Aug 2009 15:22:00 EDT</pubDate>
-      <category><![CDATA[Unicode]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/08/22/post-3---unicode-test---how-about-some-日本語テスト</guid>
-      <description>Post 3 - Unicode Test - How about some 日本語テスト</description>
-      <content:encoded><![CDATA[<p>Anglo-Saxon Rune Poem:</p>
-<p>ᚠᛇᚻ᛫ᛒᛦᚦ᛫ᚠᚱᚩᚠᚢᚱ᛫ᚠᛁᚱᚪ᛫ᚷᛖᚻᚹᛦᛚᚳᚢᛗ
-ᛋᚳᛖᚪᛚ᛫ᚦᛖᚪᚻ᛫ᛗᚪᚾᚾᚪ᛫ᚷᛖᚻᚹᛦᛚᚳ᛫ᛗᛁᚳᛚᚢᚾ᛫ᚻᛦᛏ᛫ᛞᚫᛚᚪᚾ
-ᚷᛁᚠ᛫ᚻᛖ᛫ᚹᛁᛚᛖ᛫ᚠᚩᚱ᛫ᛞᚱᛁᚻᛏᚾᛖ᛫ᛞᚩᛗᛖᛋ᛫ᚻᛚᛇᛏᚪᚾ᛬</p>
-<p>Tamil poetry:</p>
-<p>யாமறிந்த மொழிகளிலே தமிழ்மொழி போல் இனிதாவது எங்கும் காணோம்,
-பாமரராய் விலங்குகளாய், உலகனைத்தும் இகழ்ச்சிசொலப் பான்மை கெட்டு,
-நாமமது தமிழரெனக் கொண்டு இங்கு வாழ்ந்திடுதல் நன்றோ? சொல்லீர்!
-தேமதுரத் தமிழோசை உலகமெலாம் பரவும்வகை செய்தல் வேண்டும்.</p>
-<p>I can eat glass:
-私はガラスを食べられます。それは私を傷つけません。
-Կրնամ ապակի ուտել և ինծի անհանգիստ չըներ։
-I kå Glas frässa, ond des macht mr nix!
-᚛᚛ᚉᚑᚅᚔᚉᚉᚔᚋ ᚔᚈᚔ ᚍᚂᚐᚅᚑ ᚅᚔᚋᚌᚓᚅᚐ᚜
-אני יכול לאכול זכוכית וזה לא מזיק לי
-काचं शक्नोम्यत्तुम् । नोपहिनस्ति माम् ॥ </p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Post 2</title>
-      <link>http://www.yoursite.com/blog/2009/07/24/post-2</link>
-      <pubDate>Fri, 24 Jul 2009 16:20:00 EDT</pubDate>
-      <category><![CDATA[Category 2]]></category>
-      <category><![CDATA[Category 1]]></category>
-      <guid isPermaLink="true">http://www.yoursite.com/blog/2009/07/24/post-2</guid>
-      <description>Post 2</description>
-      <content:encoded><![CDATA[<p>This is post #2</p>]]></content:encoded>
+<p>Blogofile creates a static, full featured blog out of bunch posts that are stored in text files. This static website then can be copied to any web server capable of serving static content. No need for PHP, python, .NET or CGI installed.
+This is contrary to blogs that use dynamic platforms. In these platform, pages are generated on demand, each time a user tries to access them (caching may apply).</p>
+<p>There are some pros/cons for using static website generator for blogging. These have already been discussed on many blog posts by bloggers that switched to Blogofile. If you are interested in reading more just google it.</p>
+<p>I will provide several reasons that bought me in. Please excuse me if those are duplicates of things that others have already noticed.</p>
+<ol>
+<li>Currently this website is hosted as a personal home page my university provides for students. For security reasons, students can host only static content, so using static content is the only option I got.</li>
+<li>When I will not be able to host my blog on my university's server, I will be able to move to any other server independently of available technology, eventually making the hosting cheaper.</li>
+<li>I do not have worry about security.</li>
+<li>Bologofile can be easily customized. It is easy to learn and setup and beginner friendly.</li>
+</ol>
+<p>Hopefully in the future I will write more posts about way to use and costumize Blogofile.</p>]]></content:encoded>
     </item>
   </channel>
 </rss>

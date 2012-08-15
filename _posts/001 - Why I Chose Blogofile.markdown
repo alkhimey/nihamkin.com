@@ -7,6 +7,17 @@ title: Why I Chose Blogofile as my Blogging Platform
 First of all, what is "Blogofile"? The definition from the original [website](http://www.blogofile.com/) says:
 > **Definition: Blogofile (n):** A static website compiler and blog engine, written and extended in Python.
 
-Static website compiler means that each time we want to make an change to the website, it must recompiled, which means to regenerate the html files. The advantage of this is that we host only the generated html files. No special web framework is need. No need for CGI, php or java access on the server. All you need is a web server that can serve static content.
+Blogofile creates a static, full featured blog out of bunch posts that are stored in text files. This static website then can be copied to any web server capable of serving static content. No need for PHP, python, .NET or CGI installed.
+This is contrary to blogs that use dynamic platforms. In these platform, pages are generated on demand, each time a user tries to access them (caching may apply).
 
-When I studied at the Technion, students received small hosting space where they could host a static only website. Blogofile is perfect for such situations.
+There are some pros/cons for using static website generator for blogging. These have already been discussed on many blog posts by bloggers that switched to Blogofile. If you are interested in reading more just google it.
+
+I will provide several reasons that bought me in. Please excuse me if those are duplicates of things that others have already noticed.
+
+1. Currently this website is hosted as a personal home page my university provides for students. For security reasons, students can host only static content, so using static content is the only option I got.
+2. When I will not be able to host my blog on my university's server, I will be able to move to any other server independently of available technology, eventually making the hosting cheaper.
+3. I do not have worry about security.
+4. Bologofile can be easily customized. It is easy to learn and setup and beginner friendly.
+
+
+Hopefully in the future I will write more posts about way to use and costumize Blogofile.

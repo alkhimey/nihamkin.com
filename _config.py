@@ -45,4 +45,10 @@ blog.name = "Artium's Blog"
 blog.description = "Your Blog's short description"
 
 ## blog_timezone -- the timezone that you normally write your blog posts from
-blog.timezone = "US/Eastern"
+# For a list look here: http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+blog.timezone = "Asia/Tel_Aviv"
+
+
+
+
+filters.syntax_highlight.style = "monokai"
