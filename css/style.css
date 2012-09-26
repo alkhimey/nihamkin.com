@@ -76,9 +76,15 @@ width: 100%;
 
 
 /* blockquote */
-
 blockquote {
 	background-color:#5e5e5e;	
 	padding: 1px 15px 1px 15px;
 }
+
+/* Adjustment for syntax highlighting  */
+.post_prose pre {
+    padding: 5px;
+    margin: 15px 0px 15px 5px;
+}
+
 

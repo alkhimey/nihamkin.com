@@ -19,7 +19,7 @@
 #  If you're hosting a blogofile powered site as a subdirectory of a larger
 #  non-blogofile site, then you would set the site_url to the full URL
 #  including that subdirectory: "http://www.yoursite.com/path/to/blogofile-dir"
-site.url = "http://www.yoursite.com"
+site.url = "http://t2.technion.ac.il/~sartium"
 
 #### Blog Settings ####
 blog = controllers.blog
@@ -34,7 +34,7 @@ blog.enabled = True
 #  and you set blog_path to "/blog" your full blog URL would be
 #  "http://www.yoursite.com/~ryan/blog"
 #  Leave blank "" to set to the root of site_url
-blog.path = "/blog"
+blog.path = ""
 
 ## blog_name -- Your Blog's name.
 # This is used repeatedly in default blog templates
@@ -42,7 +42,7 @@ blog.name = "Artium's Blog"
 
 ## blog_description -- A short one line description of the blog
 # used in the RSS/Atom feeds.
-blog.description = "Your Blog's short description"
+blog.description = "Artium Nihamkin's Blog"
 
 ## blog_timezone -- the timezone that you normally write your blog posts from
 # For a list look here: http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -50,5 +50,5 @@ blog.timezone = "Asia/Tel_Aviv"
 
 
 
-
+## style -- the css theme used for the syntax highlighting
 filters.syntax_highlight.style = "monokai"

@@ -1,30 +1,24 @@
-
-
-
-<div id="framecontent"><!-- Menu Start -->
+<!-- Menu Start -->
+<div id="framecontent">
   <div class="menu">
 	<ul>
-	  <li><a href="/home/artium/Documents/Website/_site/index.html">Home</a></li>
+	  <li><a href="${bf.config.blog.path}">Home</a></li>
+	  <li><a href="${bf.util.site_path_helper(bf.config.blog.path, 'category/about/')}">About</a></li>
 	  <li><a>Projects</a>
 		<ul>
-		  <li><a href="/home/artium/Documents/Website/_site/0-projects/website.html">Static Website Generator</a></li>
-		  
+		  <li><a href="${bf.util.site_path_helper(bf.config.blog.path, 'category/blogofile')}">Blogofile Extension</a></li>
 		</ul>
 	  </li>
-	  <li><a>CG</a>
-		<ul>
-		  <li><a href="/home/artium/Documents/Website/_site/2-CG/test.html">Static Website Generator</a></li>
-		  
-		</ul>
-	  </li>
-	  <li><a>Robotics</a>
-	  </li>
-	  <li><a href="/home/artium/Documents/Website/_site/9-links/index.html">Links</a>
+	  <li><a href="${bf.util.site_path_helper(bf.config.blog.path, 'category/cg/')}">CG</a></li>
+	  <li><a href="${bf.util.site_path_helper(bf.config.blog.path, 'category/robotics/')}">Robotics</a></li>
 	  </li>
 	</ul>
 	
   </div>
-</div> <!-- Menu End -->
+</div> 
+<!-- Menu End -->
+
+
 
 <!--
 <p id="credits">
@@ -53,5 +47,5 @@ href="http://${bf.config.blog.disqus.name}.disqus.com/latest.rss">Comments</a>.
 //]]>
 </script>
 % endif
-
 -->
+

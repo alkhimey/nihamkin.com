@@ -1,11 +1,15 @@
 <%page args="post"/>
 
-<%def name="filter(chain)">
- ${bf.filter.run_chain(chain, capture(caller.body))}
-</%def>
+
+<%
+category_styles = {"Special" : "background-color: gold;",
+                   "Another Example" : "border: 3px dashed black;" }
+category_names = [x.name for x in post.categories]
+style = "".join([v for k,v in category_styles.items() if k in category_names])
+%>
 
 
-<div class="blog_post">
+<div class="blog_post" style="${style}">
   <a name="${post.slug}"></a>
   <h2 class="blog_post_title"><a href="${post.permapath()}" rel="bookmark" title="Permanent Link to ${post.title}">${post.title}</a></h2>
   <small>${post.date.strftime("%B %d, %Y at %I:%M %p")} | categories: 
@@ -24,9 +28,7 @@ ${", ".join(category_links)}
 % endif
 </small><p/>
   <div class="post_prose">
-    <%self:filter chain="spoiler">
-	    ${self.post_prose(post)}
-	</%self:filter>
+	${self.post_prose(post)}
   </div>
 </div>
 

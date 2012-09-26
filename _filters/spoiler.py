@@ -1,23 +1,41 @@
-import markdown
-import re
+""" An extension for markdown that will recognize spoiler tags. 
+	author: Artium Nihamkin
+	version: 1
+"""
 
-config = {
-    'name': "Spoiler",
-    'description': "Generates HTML that with appropriate CSS will hide spoiler text.",
-    'author' : "Artium Nihamkin",
-    }
-
-
-
-pattern = re.compile(
-  r"\$.*\$",
-  re.IGNORECASE and re.DOTALL)
+"""
+from markdown import Extension, Markdown, preprocessors
+from markdown.inlinepatterns import Pattern
 
 
-def run(content):
-    print content 
-    print "-----------------------------------------"
 
 
-    return pattern.sub('<span class="spoiler"><span>XXXXX</span></span>', content)
 
+
+
+class SpoilerExtension(markdown.Extension):
+    def add_inline(self, md, name, klass, re):
+        pattern = klass(re)
+        pattern.md = md
+        pattern.ext = self
+        md.inlinePatterns.add(name, pattern, "<reference")
+
+    def extendMarkdown(self, md, md_globals):
+        self.add_inline(md, 'bliptv', Bliptv,
+            r'([^(]|^)http://(\w+\.|)blip.tv/file/get/(?P<bliptvfile>\S+.flv)')
+     
+
+
+
+
+
+
+
+class SpoilerPattern(markdown.inlinepatterns.Pattern):
+    def handleMatch(self, m):
+        pass
+
+
+def makeExtension(configs=None) :
+    return SpoilerExtension(configs=configs)
+"""
