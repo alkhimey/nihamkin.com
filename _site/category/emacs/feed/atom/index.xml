@@ -4,29 +4,29 @@
   xmlns:thr="http://purl.org/syndication/thread/1.0"
   xml:lang="en"
    >
-  <title type="text">Artium's Blog</title>
-  <subtitle type="text">Artium Nihamkin's Blog</subtitle>
+  <title type="text">Artium Nihamkin's Blog</title>
+  <subtitle type="text">Just anhother personal blog.</subtitle>
 
-  <updated>2012-10-13T13:23:49Z</updated>
+  <updated>2012-11-19T11:28:08Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
 
-  <link rel="alternate" type="text/html" href="http://t2.technion.ac.il/~sartium" />
-  <id>http://t2.technion.ac.il/~sartium/feed/atom/</id>
-  <link rel="self" type="application/atom+xml" href="http://t2.technion.ac.il/~sartium/feed/atom/" />
+  <link rel="alternate" type="text/html" href="http://www.nihamkin.com" />
+  <id>http://www.nihamkin.com/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://www.nihamkin.com/feed/atom/" />
   <entry>
     <author>
       <name></name>
-      <uri>http://t2.technion.ac.il/~sartium</uri>
+      <uri>http://www.nihamkin.com</uri>
     </author>
     <title type="html"><![CDATA[Strange Blogofile IO Error]]></title>
-    <link rel="alternate" type="text/html" href="http://t2.technion.ac.il/~sartium/2012/10/13/strange-blogofile-io-error" />
-    <id>http://t2.technion.ac.il/~sartium/2012/10/13/strange-blogofile-io-error</id>
+    <link rel="alternate" type="text/html" href="http://www.nihamkin.com/2012/10/13/strange-blogofile-io-error" />
+    <id>http://www.nihamkin.com/2012/10/13/strange-blogofile-io-error</id>
     <updated>2012-10-13T15:00:00Z</updated>
     <published>2012-10-13T15:00:00Z</published>
-    <category scheme="http://t2.technion.ac.il/~sartium" term="Emacs" />
-    <category scheme="http://t2.technion.ac.il/~sartium" term="Blogofile" />
+    <category scheme="http://www.nihamkin.com" term="Emacs" />
+    <category scheme="http://www.nihamkin.com" term="Blogofile" />
     <summary type="html"><![CDATA[Strange Blogofile IO Error]]></summary>
-    <content type="html" xml:base="http://t2.technion.ac.il/~sartium/2012/10/13/strange-blogofile-io-error"><![CDATA[<p>Sometimes when building a blogofile site I encounter the following IO error (excuse me for the text spill):</p>
+    <content type="html" xml:base="http://www.nihamkin.com/2012/10/13/strange-blogofile-io-error"><![CDATA[<p>Sometimes when building a blogofile site I encounter the following IO error (excuse me for the text spill):</p>
 <div class="pygments_monokai"><pre><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
   <span class="n">File</span> <span class="s">&quot;/usr/local/bin/blogofile&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">9</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
     <span class="n">load_entry_point</span><span class="p">(</span><span class="s">&#39;Blogofile==0.7.1&#39;</span><span class="p">,</span> <span class="s">&#39;console_scripts&#39;</span><span class="p">,</span> <span class="s">&#39;blogofile&#39;</span><span class="p">)()</span>

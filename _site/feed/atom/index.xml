@@ -4,29 +4,124 @@
   xmlns:thr="http://purl.org/syndication/thread/1.0"
   xml:lang="en"
    >
-  <title type="text">Artium's Blog</title>
-  <subtitle type="text">Artium Nihamkin's Blog</subtitle>
+  <title type="text">Artium Nihamkin's Blog</title>
+  <subtitle type="text">Just anhother personal blog.</subtitle>
 
-  <updated>2012-10-13T13:30:31Z</updated>
+  <updated>2012-11-19T11:28:08Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
 
-  <link rel="alternate" type="text/html" href="http://t2.technion.ac.il/~sartium" />
-  <id>http://t2.technion.ac.il/~sartium/feed/atom/</id>
-  <link rel="self" type="application/atom+xml" href="http://t2.technion.ac.il/~sartium/feed/atom/" />
+  <link rel="alternate" type="text/html" href="http://www.nihamkin.com" />
+  <id>http://www.nihamkin.com/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://www.nihamkin.com/feed/atom/" />
   <entry>
     <author>
       <name></name>
-      <uri>http://t2.technion.ac.il/~sartium</uri>
+      <uri>http://www.nihamkin.com</uri>
+    </author>
+    <title type="html"><![CDATA[How to Install an Acer Scanner Under Linux]]></title>
+    <link rel="alternate" type="text/html" href="http://www.nihamkin.com/2012/11/12/how-to-install-an-acer-scanner-under-linux" />
+    <id>http://www.nihamkin.com/2012/11/12/how-to-install-an-acer-scanner-under-linux</id>
+    <updated>2012-11-12T14:00:00Z</updated>
+    <published>2012-11-12T14:00:00Z</published>
+    <category scheme="http://www.nihamkin.com" term="Linux" />
+    <summary type="html"><![CDATA[How to Install an Acer Scanner Under Linux]]></summary>
+    <content type="html" xml:base="http://www.nihamkin.com/2012/11/12/how-to-install-an-acer-scanner-under-linux"><![CDATA[<p>I own an old Acer szw4300U scanner. Making it work with Linux is not exactly a plug and play, but not very complex either. Here is how it is done.</p>
+<h4>Drivers</h4>
+<p>An easy way is to use <a href="http://www.sane-project.org/">SANE</a> which is a framework that connects scanning software (frontends) with the scanners' drivers (backends). </p>
+<p>On the <a href="http://www.sane-project.org/sane-mfgs.html">following page</a> you can find a list of supported scanners with reference to their drivers. My scanner uses a "snapscan" driver.</p>
+<p>Both SANE and the drivers are already installed by default on most Linux distributions. To verify that SANE is installed use the following command:</p>
+<div class="pygments_monokai"><pre>~$ scanimage -V
+scanimage (sane-backends) 1.0.22; backend version 1.0.22
+</pre></div>
+
+<p><em>scanimage</em> is a defualt frontend that is bundled with SANE. Let's try to scan something with it. Do not forget to plug your scanner into the computer:</p>
+<div class="pygments_monokai"><pre>~$ scanimage
+[snapscan] Cannot open firmware file /usr/share/sane/snapscan/your-firmwarefile.bin.
+[snapscan] Edit the firmware file entry in snapscan.conf.
+scanimage: open of device snapscan:libusb:006:002 failed: Invalid argument
+</pre></div>
+
+<p>The issue here is that my driver is a generic one, meaning it can handle different models of scanners depending on a provided firmware file. A firmware file has .bin extension and can be found on the windows driver installation disc. The disc usually contains several firmware files, to find out which is the firmware file for your scanner model please refer to this <a href="http://snapscan.sourceforge.net/#supported">table at the snapscan homepage</a>. Notice that the number after the V in the name of the file is the version number, so you might find that your disc contains an older version than the one listed on the website. Nevertheless, the firmware will still fit.</p>
+<h4>Configuration</h4>
+<p>The next step is to configure snapscan to use the firmware. For example my file is 
+<em>U176V042.BIN</em>. We need to copy it into /usr/share/sane/snapscan/ (create the directory if it does not exist). </p>
+<p>Now open <em>/etc/sane.d/snapscan.conf</em> and do the following:</p>
+<p>Uncomment the line </p>
+<div class="pygments_monokai"><pre>/dev/usb/scanner0 bus=usb
+</pre></div>
+
+<p>and then replace</p>
+<div class="pygments_monokai"><pre>firmware /usr/share/sane/snapscan/your-firmware.bin
+</pre></div>
+
+<p>with</p>
+<div class="pygments_monokai"><pre>firmware /usr/share/sane/snapscan/U176V042.BIN
+</pre></div>
+
+<h4>Frontend</h4>
+<p>Finally we can test the scanner:</p>
+<div class="pygments_monokai"><pre>~$ scanimage &gt; test.pnm
+[snapscan] Scanner warming up - waiting 20 seconds.
+[snapscan] Scanner warming up - waiting 20 seconds.
+~$ pnmtojpeg test.pnm &gt; test.jpeg
+</pre></div>
+
+<p>If you want a GUI frontend you can see the <a href="http://www3.sane-project.org/sane-frontends.html">list here</a>. I personaly use XSane and it is quite good.</p>
+<h4>Common Problems</h4>
+<p>If you get an error similar to </p>
+<div class="pygments_monokai"><pre>[snapscan] Cannot open firmware file /usr/share/sane/snapscan/U176V042.BIN
+</pre></div>
+
+<p>And absolutely sure that there are no typos in the conf file, I would suggest to look into the permissions of <em>U176V042.BIN</em> file. The permissions should allow reading for "all". Here is a reminder of how to do it:</p>
+<div class="pygments_monokai"><pre>/usr/share/sane/snapscan$ sudo chmod a+r U176V042.BIN
+</pre></div>]]></content>
+  </entry>
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://www.nihamkin.com</uri>
+    </author>
+    <title type="html"><![CDATA[Strange Blogofile IO Error]]></title>
+    <link rel="alternate" type="text/html" href="http://www.nihamkin.com/2012/10/13/strange-blogofile-io-error" />
+    <id>http://www.nihamkin.com/2012/10/13/strange-blogofile-io-error</id>
+    <updated>2012-10-13T15:00:00Z</updated>
+    <published>2012-10-13T15:00:00Z</published>
+    <category scheme="http://www.nihamkin.com" term="Emacs" />
+    <category scheme="http://www.nihamkin.com" term="Blogofile" />
+    <summary type="html"><![CDATA[Strange Blogofile IO Error]]></summary>
+    <content type="html" xml:base="http://www.nihamkin.com/2012/10/13/strange-blogofile-io-error"><![CDATA[<p>Sometimes when building a blogofile site I encounter the following IO error (excuse me for the text spill):</p>
+<div class="pygments_monokai"><pre><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/bin/blogofile&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">9</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">load_entry_point</span><span class="p">(</span><span class="s">&#39;Blogofile==0.7.1&#39;</span><span class="p">,</span> <span class="s">&#39;console_scripts&#39;</span><span class="p">,</span> <span class="s">&#39;blogofile&#39;</span><span class="p">)()</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/lib/python2.7/dist-packages/Blogofile-0.7.1-py2.7.egg/blogofile/main.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">135</span><span class="p">,</span> <span class="ow">in</span> <span class="n">main</span>
+    <span class="n">args</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/lib/python2.7/dist-packages/Blogofile-0.7.1-py2.7.egg/blogofile/main.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">201</span><span class="p">,</span> <span class="ow">in</span> <span class="n">do_build</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">write_site</span><span class="p">()</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/lib/python2.7/dist-packages/Blogofile-0.7.1-py2.7.egg/blogofile/writer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">53</span><span class="p">,</span> <span class="ow">in</span> <span class="n">write_site</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__write_files</span><span class="p">()</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/lib/python2.7/dist-packages/Blogofile-0.7.1-py2.7.egg/blogofile/writer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">103</span><span class="p">,</span> <span class="ow">in</span> <span class="n">__write_files</span>
+    <span class="n">t_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">t_fn_path</span><span class="p">)</span>
+<span class="ne">IOError</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">2</span><span class="p">]</span> <span class="n">No</span> <span class="n">such</span> <span class="nb">file</span> <span class="ow">or</span> <span class="n">directory</span><span class="p">:</span> <span class="s">&#39;./.#index.html.mako&#39;</span>
+</pre></div>
+
+<p>This error was a bit confusing. Why does it say that index.html.mako does not exist when it is open right here in my editor? </p>
+<p>Well the editor, specifically Emacs is the cause of problem here. If you do not save your files immediately before running <em>blogofile build</em> there is a chance that an Emacs auto-save file will appear in your directory. The file looks like <em>#index.html.mako#</em> and blogofile probably have problems with the unusual file name. Once you save your files with <em>C-x C-s</em> the file will be gone.</p>
+<p>Alternatively you can make Emacs save the auto-save files in one dedicated directory. Here is an <a href="http://emacswiki.org/emacs/AutoSave">emacswiki article</a> that explains how to achieve this.</p>]]></content>
+  </entry>
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://www.nihamkin.com</uri>
     </author>
     <title type="html"><![CDATA[Highlighting Special Posts in Blogofile]]></title>
-    <link rel="alternate" type="text/html" href="http://t2.technion.ac.il/~sartium/2012/09/25/highlighting-special-posts-in-blogofile" />
-    <id>http://t2.technion.ac.il/~sartium/2012/09/25/highlighting-special-posts-in-blogofile</id>
+    <link rel="alternate" type="text/html" href="http://www.nihamkin.com/2012/09/25/highlighting-special-posts-in-blogofile" />
+    <id>http://www.nihamkin.com/2012/09/25/highlighting-special-posts-in-blogofile</id>
     <updated>2012-09-25T17:00:00Z</updated>
     <published>2012-09-25T17:00:00Z</published>
-    <category scheme="http://t2.technion.ac.il/~sartium" term="Blogofile" />
-    <category scheme="http://t2.technion.ac.il/~sartium" term="Special" />
+    <category scheme="http://www.nihamkin.com" term="Blogofile" />
+    <category scheme="http://www.nihamkin.com" term="Special" />
     <summary type="html"><![CDATA[Highlighting Special Posts in Blogofile]]></summary>
-    <content type="html" xml:base="http://t2.technion.ac.il/~sartium/2012/09/25/highlighting-special-posts-in-blogofile"><![CDATA[<p>This simple but use-full blogofile hack will allow you to alter the style of posts which are marked as special. 
+    <content type="html" xml:base="http://www.nihamkin.com/2012/09/25/highlighting-special-posts-in-blogofile"><![CDATA[<p>This simple but use-full blogofile hack will allow you to alter the style of posts which are marked as special. 
 For example the post you are reading belongs to the "Special" category and therefore has a golden background instead of the gray default one.</p>
 <p>This is quite straightforward hack, all you have to do is to modify the "_templates/site.mako" template (assuming version 0.7.1). </p>
 <p>Replace the line:</p>
@@ -61,18 +156,18 @@ If this name exists we output the div element with custom style.</p>
   <entry>
     <author>
       <name></name>
-      <uri>http://t2.technion.ac.il/~sartium</uri>
+      <uri>http://www.nihamkin.com</uri>
     </author>
     <title type="html"><![CDATA[Why I Chose Blogofile as my Blogging Platform]]></title>
-    <link rel="alternate" type="text/html" href="http://t2.technion.ac.il/~sartium/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform" />
-    <id>http://t2.technion.ac.il/~sartium/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform</id>
+    <link rel="alternate" type="text/html" href="http://www.nihamkin.com/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform" />
+    <id>http://www.nihamkin.com/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform</id>
     <updated>2012-09-02T01:00:00Z</updated>
     <published>2012-09-02T01:00:00Z</published>
-    <category scheme="http://t2.technion.ac.il/~sartium" term="About" />
-    <category scheme="http://t2.technion.ac.il/~sartium" term="Blogofile" />
-    <category scheme="http://t2.technion.ac.il/~sartium" term="Web Development" />
+    <category scheme="http://www.nihamkin.com" term="About" />
+    <category scheme="http://www.nihamkin.com" term="Blogofile" />
+    <category scheme="http://www.nihamkin.com" term="Web Development" />
     <summary type="html"><![CDATA[Why I Chose Blogofile as my Blogging Platform]]></summary>
-    <content type="html" xml:base="http://t2.technion.ac.il/~sartium/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform"><![CDATA[<p>Blogofile is the blogging engine behind this blog.</p>
+    <content type="html" xml:base="http://www.nihamkin.com/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform"><![CDATA[<p>Blogofile is the blogging engine behind this blog.</p>
 <p>First of all, what is "Blogofile"? The definition from the original <a href="http://www.blogofile.com/">website</a> says:</p>
 <blockquote>
 <p><strong>Definition: Blogofile (n):</strong> A static website compiler and blog engine, written and extended in Python.</p>
@@ -92,16 +187,16 @@ This is contrary to blogs that use dynamic platforms. In these platform, pages a
   <entry>
     <author>
       <name></name>
-      <uri>http://t2.technion.ac.il/~sartium</uri>
+      <uri>http://www.nihamkin.com</uri>
     </author>
     <title type="html"><![CDATA[About this Blog]]></title>
-    <link rel="alternate" type="text/html" href="http://t2.technion.ac.il/~sartium/2012/09/01/about-this-blog" />
-    <id>http://t2.technion.ac.il/~sartium/2012/09/01/about-this-blog</id>
+    <link rel="alternate" type="text/html" href="http://www.nihamkin.com/2012/09/01/about-this-blog" />
+    <id>http://www.nihamkin.com/2012/09/01/about-this-blog</id>
     <updated>2012-09-01T17:00:00Z</updated>
     <published>2012-09-01T17:00:00Z</published>
-    <category scheme="http://t2.technion.ac.il/~sartium" term="About" />
+    <category scheme="http://www.nihamkin.com" term="About" />
     <summary type="html"><![CDATA[About this Blog]]></summary>
-    <content type="html" xml:base="http://t2.technion.ac.il/~sartium/2012/09/01/about-this-blog"><![CDATA[<h2>Welcome!</h2>
+    <content type="html" xml:base="http://www.nihamkin.com/2012/09/01/about-this-blog"><![CDATA[<h2>Welcome!</h2>
 <p>My name is Artium Nihamkin and I am a software engineer from Israel.</p>
 <p>This is my personal blog where I plan to publish cool stuff that I encounter during my endeavor in the world wide web. </p>
 <p>Some of the things you might find here are:</p>
@@ -114,6 +209,6 @@ This is contrary to blogs that use dynamic platforms. In these platform, pages a
 </ul>
 <p>I do not expect people to follow my blog closely. My expectations are that people will discover individual posts through a google search. </p>
 <p>You always can reach me by the following email:
-<a href="http://captchanim.cs.technion.ac.il"><img alt="email captcha" src="/~sartium/files/email2.gif" /></a></p>]]></content>
+<a href="http://captchanim.cs.technion.ac.il"><img alt="email captcha" src="/files/email2.gif" /></a></p>]]></content>
   </entry>
 </feed>

@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     
-  <title>Artium's Blog</title>
-<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/~sartium/feed" />
-<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/~sartium/feed/atom" />
+  <title>Artium Nihamkin's Blog</title>
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feed/atom" />
 
-<link rel="stylesheet" href="/~sartium/css/pygments_monokai.css" type="text/css" />
-<link rel="stylesheet" href="/~sartium/css/menu.css" type="text/css" />
-<link rel="stylesheet" href="/~sartium/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/css/pygments_monokai.css" type="text/css" />
+<link rel="stylesheet" href="/css/menu.css" type="text/css" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" />
 
 <script type="text/javascript">
 
@@ -37,36 +37,16 @@
 		<div class="innertube">
 		  
 		  
-  <center><h1><a href="/~sartium">Artium's Blog</a></h1></center>
+  <center><a href="/">
+<img src="/files/title.gif" alt="Artium Nihamkin's Blog" />
+</a></center>
 
 
 		  <div id="main_block">
 			<div id="prose_block">
 			  
 
-
-
-
-
-
-
-<div class="blog_post" style="background-color: gold;">
-  <a name="highlighting-special-posts-in-blogofile"></a>
-  <h2 class="blog_post_title"><a href="/~sartium/2012/09/25/highlighting-special-posts-in-blogofile" rel="bookmark" title="Permanent Link to Highlighting Special Posts in Blogofile">Highlighting Special Posts in Blogofile</a></h2>
-  <small>September 25, 2012 at 05:00 PM | categories: 
-
-<a href='/~sartium/category/blogofile'>Blogofile</a>, <a href='/~sartium/category/special'>Special</a>
-</small><p/>
-  <div class="post_prose">
-	
-  This simple but use-full blogofile hack will allow you to alter the style of posts which are marked as special. For example the post you...
-
-  </div>
-</div>
-
-
-
-<!--  
+    
 
 
 
@@ -74,57 +54,47 @@
 
 <div class="blog_post" style="background-color: gold;">
   <a name="highlighting-special-posts-in-blogofile"></a>
-  <h2 class="blog_post_title"><a href="/~sartium/2012/09/25/highlighting-special-posts-in-blogofile" rel="bookmark" title="Permanent Link to Highlighting Special Posts in Blogofile">Highlighting Special Posts in Blogofile</a></h2>
+  <h2 class="blog_post_title"><a href="/2012/09/25/highlighting-special-posts-in-blogofile" rel="bookmark" title="Permanent Link to Highlighting Special Posts in Blogofile">Highlighting Special Posts in Blogofile</a></h2>
   <small>September 25, 2012 at 05:00 PM | categories: 
 
-<a href='/~sartium/category/blogofile'>Blogofile</a>, <a href='/~sartium/category/special'>Special</a>
+<a href='/category/blogofile'>Blogofile</a>, <a href='/category/special'>Special</a>
+
+<!---
+-->
 </small><p/>
   <div class="post_prose">
 	
-  <p>This simple but use-full blogofile hack will allow you to alter the style of posts which are marked as special. 
-For example the post you are reading belongs to the "Special" category and therefore has a golden background instead of the gray default one.</p>
-<p>This is quite straightforward hack, all you have to do is to modify the "_templates/site.mako" template (assuming version 0.7.1). </p>
-<p>Replace the line:</p>
-<div class="pygments_monokai"><pre><span class="x">&lt;div class=&quot;blog_post&quot;&gt;</span>
-</pre></div>
-
-<p>with the following snippet:</p>
-<div class="pygments_monokai"><pre><span class="cp">%</span> <span class="k">if</span> <span class="s">&quot;Special&quot;</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">categories</span><span class="p">]:</span><span class="x"></span>
-<span class="x">&lt;div class=&quot;blog_post&quot; style=&quot;background-color: gold;&quot;&gt;</span>
-<span class="cp">%</span> <span class="k">else</span><span class="p">:</span><span class="x"></span>
-<span class="x">&lt;div class=&quot;blog_post&quot;&gt;</span>
-<span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
-</pre></div>
-
-<p>As can be seen, we check for the existence of the category name "Style" in a list that contains the names of all the categories of the current post. 
-If this name exists we output the div element with custom style.</p>
-<p>This is enough for simple usage, but the idea can be extended for multiple category names and styles, allowing us to style each category differently.</p>
-<p>Add the following code at the top of "_templates/site.mako":</p>
-<div class="pygments_monokai"><pre><span class="cp">&lt;%</span>
-<span class="n">category_styles</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Special&quot;</span> <span class="p">:</span> <span class="s">&quot;background-color: gold;&quot;</span><span class="p">,</span>
-                   <span class="s">&quot;Another Example&quot;</span> <span class="p">:</span> <span class="s">&quot;border: 3px dashed black;&quot;</span> <span class="p">}</span>
-<span class="n">category_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">categories</span><span class="p">]</span>
-<span class="n">style</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">category_styles</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">category_names</span><span class="p">])</span>
-<span class="cp">%&gt;</span><span class="x"></span>
-</pre></div>
-
-<p>As you can see, it is possible to add more category-style pairs into the "category_styles" dictionary. Ideally we would like to put this into the _config.py file , but currently I do not know how to do it.</p>
-<p>And finally, we need to update the div element to look like this:</p>
-<div class="pygments_monokai"><pre><span class="x">&lt;div class=&quot;blog_post&quot; style=&quot;</span><span class="cp">${</span><span class="n">style</span><span class="cp">}</span><span class="x">&quot;&gt;</span>
-</pre></div>
+  This simple but use-full blogofile hack will allow you to alter the style of posts which are marked as special. For example the post you are reading belongs to the...
 
   </div>
+  
+  
+
+  
 </div>
 
 
- -->
-  <!--<hr class="interblog" />-->
+
+
+
 
 
 			</div>
 		  </div>
 		</div>
-	  </div>
+
+
+
+
+		<!---<p id="credits">
+		  Powered by <a href="http://www.blogofile.com">Blogofile</a>.<br/>
+		  <br/>
+		  RSS feeds for <a href="/feed">Entries</a>
+		  <br>
+		</p>--->
+		</div>
+	
+
 	  <div id="footer">
         
   <!-- Menu Start -->
@@ -132,14 +102,14 @@ If this name exists we output the div element with custom style.</p>
   <div class="menu">
 	<ul>
 	  <li><a href="">Home</a></li>
-	  <li><a href="/~sartium/category/about">About</a></li>
+	  <li><a href="/category/about">About</a></li>
 	  <li><a>Projects</a>
 		<ul>
-		  <li><a href="/~sartium/category/blogofile">Blogofile Extension</a></li>
+		  <li><a href="/category/blogofile">Blogofile Extension</a></li>
 		</ul>
 	  </li>
-	  <li><a href="/~sartium/category/cg">CG</a></li>
-	  <li><a href="/~sartium/category/robotics">Robotics</a></li>
+	  <li><a href="/category/cg">CG</a></li>
+	  <li><a href="/category/robotics">Robotics</a></li>
 	  </li>
 	</ul>
 	
@@ -149,14 +119,9 @@ If this name exists we output the div element with custom style.</p>
 
 
 
-<!--
-<p id="credits">
-Powered by <a href="http://www.blogofile.com">Blogofile</a>.<br/>
-<br/>
-RSS feeds for <a href="/~sartium/feed">Entries</a>
-<br>
-</p>
--->
+
+
+
 
 
 

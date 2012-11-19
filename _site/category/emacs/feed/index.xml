@@ -7,20 +7,20 @@
      xmlns:wfw="http://wellformedweb.org/CommentAPI/"
      >
   <channel>
-    <title>Artium's Blog</title>
-    <link>http://t2.technion.ac.il/~sartium</link>
-    <description>Artium Nihamkin's Blog</description>
-    <pubDate>Sat, 13 Oct 2012 13:23:49 GMT</pubDate>
+    <title>Artium Nihamkin's Blog</title>
+    <link>http://www.nihamkin.com</link>
+    <description>Just anhother personal blog.</description>
+    <pubDate>Mon, 19 Nov 2012 11:28:08 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>Strange Blogofile IO Error</title>
-      <link>http://t2.technion.ac.il/~sartium/2012/10/13/strange-blogofile-io-error</link>
+      <link>http://www.nihamkin.com/2012/10/13/strange-blogofile-io-error</link>
       <pubDate>Sat, 13 Oct 2012 15:00:00 IST</pubDate>
       <category><![CDATA[Emacs]]></category>
       <category><![CDATA[Blogofile]]></category>
-      <guid isPermaLink="true">http://t2.technion.ac.il/~sartium/2012/10/13/strange-blogofile-io-error</guid>
+      <guid isPermaLink="true">http://www.nihamkin.com/2012/10/13/strange-blogofile-io-error</guid>
       <description>Strange Blogofile IO Error</description>
       <content:encoded><![CDATA[<p>Sometimes when building a blogofile site I encounter the following IO error (excuse me for the text spill):</p>
 <div class="pygments_monokai"><pre><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>

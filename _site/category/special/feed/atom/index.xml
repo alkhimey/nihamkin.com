@@ -4,29 +4,29 @@
   xmlns:thr="http://purl.org/syndication/thread/1.0"
   xml:lang="en"
    >
-  <title type="text">Artium's Blog</title>
-  <subtitle type="text">Artium Nihamkin's Blog</subtitle>
+  <title type="text">Artium Nihamkin's Blog</title>
+  <subtitle type="text">Just anhother personal blog.</subtitle>
 
-  <updated>2012-10-13T13:30:31Z</updated>
+  <updated>2012-11-19T11:28:08Z</updated>
   <generator uri="http://blogofile.com/">Blogofile</generator>
 
-  <link rel="alternate" type="text/html" href="http://t2.technion.ac.il/~sartium" />
-  <id>http://t2.technion.ac.il/~sartium/feed/atom/</id>
-  <link rel="self" type="application/atom+xml" href="http://t2.technion.ac.il/~sartium/feed/atom/" />
+  <link rel="alternate" type="text/html" href="http://www.nihamkin.com" />
+  <id>http://www.nihamkin.com/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://www.nihamkin.com/feed/atom/" />
   <entry>
     <author>
       <name></name>
-      <uri>http://t2.technion.ac.il/~sartium</uri>
+      <uri>http://www.nihamkin.com</uri>
     </author>
     <title type="html"><![CDATA[Highlighting Special Posts in Blogofile]]></title>
-    <link rel="alternate" type="text/html" href="http://t2.technion.ac.il/~sartium/2012/09/25/highlighting-special-posts-in-blogofile" />
-    <id>http://t2.technion.ac.il/~sartium/2012/09/25/highlighting-special-posts-in-blogofile</id>
+    <link rel="alternate" type="text/html" href="http://www.nihamkin.com/2012/09/25/highlighting-special-posts-in-blogofile" />
+    <id>http://www.nihamkin.com/2012/09/25/highlighting-special-posts-in-blogofile</id>
     <updated>2012-09-25T17:00:00Z</updated>
     <published>2012-09-25T17:00:00Z</published>
-    <category scheme="http://t2.technion.ac.il/~sartium" term="Blogofile" />
-    <category scheme="http://t2.technion.ac.il/~sartium" term="Special" />
+    <category scheme="http://www.nihamkin.com" term="Blogofile" />
+    <category scheme="http://www.nihamkin.com" term="Special" />
     <summary type="html"><![CDATA[Highlighting Special Posts in Blogofile]]></summary>
-    <content type="html" xml:base="http://t2.technion.ac.il/~sartium/2012/09/25/highlighting-special-posts-in-blogofile"><![CDATA[<p>This simple but use-full blogofile hack will allow you to alter the style of posts which are marked as special. 
+    <content type="html" xml:base="http://www.nihamkin.com/2012/09/25/highlighting-special-posts-in-blogofile"><![CDATA[<p>This simple but use-full blogofile hack will allow you to alter the style of posts which are marked as special. 
 For example the post you are reading belongs to the "Special" category and therefore has a golden background instead of the gray default one.</p>
 <p>This is quite straightforward hack, all you have to do is to modify the "_templates/site.mako" template (assuming version 0.7.1). </p>
 <p>Replace the line:</p>

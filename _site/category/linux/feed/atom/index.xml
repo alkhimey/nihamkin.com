@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed
+  xmlns="http://www.w3.org/2005/Atom"
+  xmlns:thr="http://purl.org/syndication/thread/1.0"
+  xml:lang="en"
+   >
+  <title type="text">Artium Nihamkin's Blog</title>
+  <subtitle type="text">Just anhother personal blog.</subtitle>
+
+  <updated>2012-11-19T11:28:08Z</updated>
+  <generator uri="http://blogofile.com/">Blogofile</generator>
+
+  <link rel="alternate" type="text/html" href="http://www.nihamkin.com" />
+  <id>http://www.nihamkin.com/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://www.nihamkin.com/feed/atom/" />
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://www.nihamkin.com</uri>
+    </author>
+    <title type="html"><![CDATA[How to Install an Acer Scanner Under Linux]]></title>
+    <link rel="alternate" type="text/html" href="http://www.nihamkin.com/2012/11/12/how-to-install-an-acer-scanner-under-linux" />
+    <id>http://www.nihamkin.com/2012/11/12/how-to-install-an-acer-scanner-under-linux</id>
+    <updated>2012-11-12T14:00:00Z</updated>
+    <published>2012-11-12T14:00:00Z</published>
+    <category scheme="http://www.nihamkin.com" term="Linux" />
+    <summary type="html"><![CDATA[How to Install an Acer Scanner Under Linux]]></summary>
+    <content type="html" xml:base="http://www.nihamkin.com/2012/11/12/how-to-install-an-acer-scanner-under-linux"><![CDATA[<p>I own an old Acer szw4300U scanner. Making it work with Linux is not exactly a plug and play, but not very complex either. Here is how it is done.</p>
+<h4>Drivers</h4>
+<p>An easy way is to use <a href="http://www.sane-project.org/">SANE</a> which is a framework that connects scanning software (frontends) with the scanners' drivers (backends). </p>
+<p>On the <a href="http://www.sane-project.org/sane-mfgs.html">following page</a> you can find a list of supported scanners with reference to their drivers. My scanner uses a "snapscan" driver.</p>
+<p>Both SANE and the drivers are already installed by default on most Linux distributions. To verify that SANE is installed use the following command:</p>
+<div class="pygments_monokai"><pre>~$ scanimage -V
+scanimage (sane-backends) 1.0.22; backend version 1.0.22
+</pre></div>
+
+<p><em>scanimage</em> is a defualt frontend that is bundled with SANE. Let's try to scan something with it. Do not forget to plug your scanner into the computer:</p>
+<div class="pygments_monokai"><pre>~$ scanimage
+[snapscan] Cannot open firmware file /usr/share/sane/snapscan/your-firmwarefile.bin.
+[snapscan] Edit the firmware file entry in snapscan.conf.
+scanimage: open of device snapscan:libusb:006:002 failed: Invalid argument
+</pre></div>
+
+<p>The issue here is that my driver is a generic one, meaning it can handle different models of scanners depending on a provided firmware file. A firmware file has .bin extension and can be found on the windows driver installation disc. The disc usually contains several firmware files, to find out which is the firmware file for your scanner model please refer to this <a href="http://snapscan.sourceforge.net/#supported">table at the snapscan homepage</a>. Notice that the number after the V in the name of the file is the version number, so you might find that your disc contains an older version than the one listed on the website. Nevertheless, the firmware will still fit.</p>
+<h4>Configuration</h4>
+<p>The next step is to configure snapscan to use the firmware. For example my file is 
+<em>U176V042.BIN</em>. We need to copy it into /usr/share/sane/snapscan/ (create the directory if it does not exist). </p>
+<p>Now open <em>/etc/sane.d/snapscan.conf</em> and do the following:</p>
+<p>Uncomment the line </p>
+<div class="pygments_monokai"><pre>/dev/usb/scanner0 bus=usb
+</pre></div>
+
+<p>and then replace</p>
+<div class="pygments_monokai"><pre>firmware /usr/share/sane/snapscan/your-firmware.bin
+</pre></div>
+
+<p>with</p>
+<div class="pygments_monokai"><pre>firmware /usr/share/sane/snapscan/U176V042.BIN
+</pre></div>
+
+<h4>Frontend</h4>
+<p>Finally we can test the scanner:</p>
+<div class="pygments_monokai"><pre>~$ scanimage &gt; test.pnm
+[snapscan] Scanner warming up - waiting 20 seconds.
+[snapscan] Scanner warming up - waiting 20 seconds.
+~$ pnmtojpeg test.pnm &gt; test.jpeg
+</pre></div>
+
+<p>If you want a GUI frontend you can see the <a href="http://www3.sane-project.org/sane-frontends.html">list here</a>. I personaly use XSane and it is quite good.</p>
+<h4>Common Problems</h4>
+<p>If you get an error similar to </p>
+<div class="pygments_monokai"><pre>[snapscan] Cannot open firmware file /usr/share/sane/snapscan/U176V042.BIN
+</pre></div>
+
+<p>And absolutely sure that there are no typos in the conf file, I would suggest to look into the permissions of <em>U176V042.BIN</em> file. The permissions should allow reading for "all". Here is a reminder of how to do it:</p>
+<div class="pygments_monokai"><pre>/usr/share/sane/snapscan$ sudo chmod a+r U176V042.BIN
+</pre></div>]]></content>
+  </entry>
+</feed>

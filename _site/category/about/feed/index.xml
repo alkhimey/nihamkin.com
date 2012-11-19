@@ -7,21 +7,21 @@
      xmlns:wfw="http://wellformedweb.org/CommentAPI/"
      >
   <channel>
-    <title>Artium's Blog</title>
-    <link>http://t2.technion.ac.il/~sartium</link>
-    <description>Artium Nihamkin's Blog</description>
-    <pubDate>Sat, 13 Oct 2012 13:30:31 GMT</pubDate>
+    <title>Artium Nihamkin's Blog</title>
+    <link>http://www.nihamkin.com</link>
+    <description>Just anhother personal blog.</description>
+    <pubDate>Mon, 19 Nov 2012 11:28:08 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>Why I Chose Blogofile as my Blogging Platform</title>
-      <link>http://t2.technion.ac.il/~sartium/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform</link>
+      <link>http://www.nihamkin.com/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform</link>
       <pubDate>Sun, 02 Sep 2012 01:00:00 IDT</pubDate>
       <category><![CDATA[About]]></category>
       <category><![CDATA[Blogofile]]></category>
       <category><![CDATA[Web Development]]></category>
-      <guid isPermaLink="true">http://t2.technion.ac.il/~sartium/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform</guid>
+      <guid isPermaLink="true">http://www.nihamkin.com/2012/09/02/why-i-chose-blogofile-as-my-blogging-platform</guid>
       <description>Why I Chose Blogofile as my Blogging Platform</description>
       <content:encoded><![CDATA[<p>Blogofile is the blogging engine behind this blog.</p>
 <p>First of all, what is "Blogofile"? The definition from the original <a href="http://www.blogofile.com/">website</a> says:</p>
@@ -42,10 +42,10 @@ This is contrary to blogs that use dynamic platforms. In these platform, pages a
     </item>
     <item>
       <title>About this Blog</title>
-      <link>http://t2.technion.ac.il/~sartium/2012/09/01/about-this-blog</link>
+      <link>http://www.nihamkin.com/2012/09/01/about-this-blog</link>
       <pubDate>Sat, 01 Sep 2012 17:00:00 IDT</pubDate>
       <category><![CDATA[About]]></category>
-      <guid isPermaLink="true">http://t2.technion.ac.il/~sartium/2012/09/01/about-this-blog</guid>
+      <guid isPermaLink="true">http://www.nihamkin.com/2012/09/01/about-this-blog</guid>
       <description>About this Blog</description>
       <content:encoded><![CDATA[<h2>Welcome!</h2>
 <p>My name is Artium Nihamkin and I am a software engineer from Israel.</p>
@@ -60,7 +60,7 @@ This is contrary to blogs that use dynamic platforms. In these platform, pages a
 </ul>
 <p>I do not expect people to follow my blog closely. My expectations are that people will discover individual posts through a google search. </p>
 <p>You always can reach me by the following email:
-<a href="http://captchanim.cs.technion.ac.il"><img alt="email captcha" src="/~sartium/files/email2.gif" /></a></p>]]></content:encoded>
+<a href="http://captchanim.cs.technion.ac.il"><img alt="email captcha" src="/files/email2.gif" /></a></p>]]></content:encoded>
     </item>
   </channel>
 </rss>
