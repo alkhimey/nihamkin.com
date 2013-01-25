@@ -8,10 +8,12 @@
 <link rel="stylesheet" href="${bf.util.site_path_helper(bf.config.blog.path,'/css/menu.css')}" type="text/css" />
 <link rel="stylesheet" href="${bf.util.site_path_helper(bf.config.blog.path,'/css/style.css')}" type="text/css" />
 
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-20036869-1']);
+  _gaq.push(['_setAccount', 'UA-36977465-1']);
+  _gaq.push(['_setDomainName', 'nihamkin.com']);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -19,5 +21,5 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-</script>
 
+</script>

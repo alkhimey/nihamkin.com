@@ -21,4 +21,4 @@ Some of the things you might find here are:
 I do not expect people to follow my blog closely. My expectations are that people will discover individual posts through a google search. 
 
 You always can reach me by the following email:
-[![email captcha](/files/email2.gif)](http://captchanim.cs.technion.ac.il)
+[![email captcha](/files/email3.gif)](http://captchanim.cs.technion.ac.il)
