@@ -58,7 +58,7 @@ blog.timezone = "Asia/Tel_Aviv"
 
 ## blog_googleanaltics_id -- enable Google Analytics tracking
 ## TODO: move to plugin/filter?
-blog.googleanlytics_id = "UA-XXXXX-X"
+blog.googleanlytics_id = "UA-36977465-1"
 
 ## Markdown extensions
 ## These are turned off by default, but turned on
