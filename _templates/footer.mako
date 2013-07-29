@@ -1,27 +1,22 @@
-<!-- Menu Start -->
-<div id="framecontent">
-  <div class="menu">
-	<ul>
-	  <li><a href="${bf.config.blog.path}">Home</a></li>
-	  <li><a href="${bf.util.site_path_helper(bf.config.blog.path, 'category/about/')}">About</a></li>
-	  <li><a>Projects</a>
-		<ul>
-		  <li><a href="${bf.util.site_path_helper(bf.config.blog.path, 'category/blogofile')}">Blogofile Stuff</a></li>
-<li><a href="${bf.util.site_path_helper(bf.config.blog.path, '2013/03/09/spartanization-plug-in-for-eclipse')}">Spartanization Plug-In For Eclipse</a></li>
-		</ul>
-	  </li>
-	  <li><a href="${bf.util.site_path_helper(bf.config.blog.path, 'category/cg/')}">CG</a></li>
-	  <li><a href="${bf.util.site_path_helper(bf.config.blog.path, 'category/robotics/')}">Robotics</a></li>
-	  </li>
-	</ul>
-	
+<% import datetime %>
+<footer>
+  <div id="footer" class="grid_12">
+    <div class="grid_8">
+      <p>
+        <a href="${bf.util.site_path_helper(bf.config.blog.path,'feed','index.xml')}">RSS</a>
+        % if bf.config.blog.disqus.enabled:
+        <a href="http://${bf.config.blog.disqus.name}.disqus.com/latest.rss">Comments RSS Feed</a>.
+        % endif
+      </p>
+    </div>
+    <div class="grid_4" id="credits">
+      <p>
+        Copyright ${datetime.datetime.now().year}
+        ${bf.config.site.author}
+      </p>
+      <p>
+        Powered by <a href="http://www.blogofile.com">Blogofile</a>
+      </p>
+    </div>
   </div>
-</div> 
-<!-- Menu End -->
-
-
-
-
-
-
-
+</footer>
