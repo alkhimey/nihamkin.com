@@ -16,7 +16,7 @@ The dynamic library file _libOpenNI2.so_ is located in the Bin folder alongside 
 
 Well, it turns out that Linux's linker would search in the working directory but not in the directory of the executable.
 
-This can be easily fixed by copying the library into a directory that is on the search path of the linker. According to [this guide](http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html), the convention is to put libraries in _/usr/local/lib_. SO all that needs to be done are the following:
+This can be easily fixed by copying the library into a directory that is on the search path of the linker. According to [this guide](http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html), the convention is to put libraries in _/usr/local/lib_. So all that needs to be done are the following:
 $$code(lang=shell)
 ~$sudo cp OpenNI-Linux-x86-2.2 Samples/Redist/libOpenNI2.so /usr/local/lib
 ~$sudo ldconfig

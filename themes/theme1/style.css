@@ -291,7 +291,7 @@ div#credits p {
 
 .syntax_highlight {
     background: rgb(40,40,40);
-    margin: 15px 10px 15px 20px;
+    /*margin: 15px 10px 15px 20px;*/
     font-size: 0.8em;
     
 }
