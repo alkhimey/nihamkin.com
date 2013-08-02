@@ -293,11 +293,13 @@ div#credits p {
     background: rgb(40,40,40);
     margin: 15px 10px 15px 20px;
     font-size: 0.8em;
+    
 }
 
 /* Adjustment for syntax highlighting  */
 .syntax_highlight  pre {
     padding: 5px;
+    /*background-color: rgb(40,40,40);*/
 }
 
 
