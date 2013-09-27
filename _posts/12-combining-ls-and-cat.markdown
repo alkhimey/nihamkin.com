@@ -1,17 +1,18 @@
 ---
 categories: shell, sh, linux
 date: 2013/08/17 04:00:00
+updated: 2013/09/25 04:30:00
 title: Combining ls and cat Commands
 draft: False
 ---
 
         
 
-Quite often, when exploring contents of directory trees, I find myself confused between the the "ls" and "cat" commands. Both these commands are used pretty often and conceptually they have similar meanings. One says "print out a contents of directory". The other says "print out the contents of a file".
+Very often, when exploring contents of directory trees, I find myself confused between the the "ls" and "cat" commands and mistakenly type one instead of the other. Both these commands are used pretty often and conceptually they have similar meanings. One says "print out a content of directory". The other says "print out the content of a file".
      
-Therefore there is no reason that these commands would not be combined into a single one. So, I decided to write a shell script that would do exactly this.
+Therfore, it is natural for these commands to be combined into a single one. So, I decided to write a shell script that would do exactly this.
 
-The following shell script will choose to run "ls" or "cat" depending on if the provided parameter is a file or a directory.
+The following shell script will choose to run "ls" or "cat" depending on the type of the parameter (file or directory).
      
 $$code(lang=sh)
 
@@ -82,7 +83,7 @@ $$code(lang=sh)
 alias lc="/my/path/to/lc.sh"
 $$/code
      
-Add this line into *~/.cshrc* and it will run every time you start an interactive shell.
+Add this line into *~/.bashrc* and it will run every time you start an interactive shell.
      
 $$code(lang=shell) 
 $ ls
@@ -110,7 +111,7 @@ $$/code
      
 There two thing you need to know here :
 
-* If you ever need to run the original command, you can type an "\" before its name (for example *"\ls"*) and this will disregard any aliases and run the original command.
+* If for saome reason you will need to run the original command, you can type an "\" before it's name (for example *"\ls"*) and this will disregard any aliases and run the original command.
 
-* Aliases are not expanded inside non-interactive shell scripts. So if you write "ls" inside a script, it will call the original "ls". This is good bacuase we don't want to break existing scripts that might be relaying on some esoteric behavior of "ls" or "cat" which is not repeated in my script. This is true as long as those scripts did not run *shopt -s expand_aliases* which causes the expansion of aliases inside non-interactive scripts. Pretty rare and low risk, yet good to be aware.
+* Aliases are not expanded inside non-interactive shell scripts. So if you write "ls" inside a script, it will call the original "ls". This is good bacuase we don't want to break existing scripts that might be relaying on some esoteric behavior of "ls" or "cat" which is not imitated in my script. This is true as long as those scripts did not run *shopt -s expand_aliases* which causes the expansion of aliases inside non-interactive scripts. Pretty rare and low risk, yet good to be aware.
 

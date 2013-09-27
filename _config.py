@@ -24,7 +24,7 @@ site.url = "http://www.nihamkin.com"
 ## site.author -- Your name, the author of the website.
 # This is optional. If set to anything other than None, the
 # simple_blog template creates a meta tag for the site author.
-site.author = "Your Name"
+site.author = "Artium Nihamkin"
 
 #### Blog Settings ####
 blog = plugins.blog
@@ -77,3 +77,6 @@ filters.syntax_highlight.style = "monokai"
 blog.post_excerpts.enabled = True
 #blog.post_excerpts.method = ??? m(content, len)
 blog.post_excerpts.word_length = 30
+
+blog.disqus.enabled = True
+blog.disqus.name = "artiumsblog"

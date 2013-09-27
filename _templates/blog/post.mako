@@ -23,7 +23,7 @@
       <p><small><span class="blog_post_date">${post.date.strftime("%B %d, %Y at %I:%M %p")}</span> | categories: 
         <span class="blog_post_categories">${", ".join(category_links)}</span>
         % if bf.config.blog.disqus.enabled:
-        | <a href="${post.permalink}#disqus_thread">View Comments</a>
+        | <a class="comment_counter_link" href="${post.permalink}#disqus_thread">View Comments</a>
         % endif
       </small></p>
     </header>

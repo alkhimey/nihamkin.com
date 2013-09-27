@@ -16,7 +16,19 @@
   </script>
   % if bf.config.blog.disqus.enabled:
   <script>
-  (function() {
+
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'artiumsblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+
+  /*(function() {
       var links = document.getElementsByTagName('a');
       var query = '?';
       for(var i = 0; i < links.length; i++) {
@@ -24,7 +36,7 @@
               query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
           }
       }
-      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/${bf.config.blog.disqus.name}/get_num_replies.js' + query + '"></' + 'script>');
-  })();
+      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/artiumsblog/get_num_replies.js' + query + '"></' + 'script>');
+  })();*/  
   </script>
   % endif

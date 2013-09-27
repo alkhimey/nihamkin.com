@@ -22,9 +22,9 @@ ${self.head()}
     
 ##      ${self.sidebar()}
    
-##      ${self.footer()}
+        ${self.footer()}
     
-      ${self.body_scripts()}
+        ${self.body_scripts()}
     </div>
   </body>
 </html>

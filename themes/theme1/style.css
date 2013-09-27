@@ -107,6 +107,16 @@ div#navigation a.selected {
 /* Footer */
 /****************************/
 div#footer {
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+div#footer a {
+    text-decoration: none;
+}
+
+/* Footer is now basic_block
+div#footer {
     color: #fff;
     border-top: 1px solid #fff;
     background: #2A2A2A;
@@ -122,7 +132,7 @@ div#credits p {
     width: 100%;
     text-align: right;
 }
-
+*/
 
 /****************************/
 /* Content Block */
@@ -150,6 +160,7 @@ div#credits p {
 .blog_post {
 }
 
+
 .blog_post article {
     margin: 0 0 0px 0;
     padding-bottom: 0px;
@@ -157,6 +168,9 @@ div#credits p {
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;*/
 }
+
+/* Probably can eliminate some of this round corners junk */
+/*
 .blog_post article header {
     -webkit-border-top-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
@@ -186,6 +200,11 @@ div#credits p {
 
 .blog_post article header a {
     text-decoration: none;
+}*/
+
+/* No underline on links in the header part */
+.blog_post header a {
+      text-decoration: none;
 }
 
 .blog_post header .date {
@@ -247,9 +266,11 @@ div#credits p {
 
 .blog_post header .blog_post_categories a:hover {
       color: rgb(50,50,190);
-      text-decoration: none;
 }
 
+a.comment_counter_link {
+
+}
 
 .blog_post_title {
     font-size: 1.6em;
@@ -260,12 +281,10 @@ div#credits p {
 
 .blog_post_title a {
     color: rgb(50,50,50);
-    text-decoration: none;
-}
+ }
 
 .blog_post_title a:hover {
     color: rgb(20,20,70);
-
 }
 
 .post_body {
@@ -385,7 +404,7 @@ a:hover.bottom_navigation_link {
     border: 1px solid #ccc;
 }*/
 /****************************/
-/* Fonts */
+/* Fonts                    */
 /****************************/
 .theme_font, .theme_font * {
     font-family: 'Architects Daughter', arial, serif;    
@@ -400,4 +419,13 @@ a:hover.bottom_navigation_link {
 blockquote {
 	background-color:#5e5e5e;	
 	padding: 1px 15px 1px 15px;
+}
+
+
+
+/****************************/
+/* Disqus                   */
+/****************************/
+#disqus_thread {
+    background-color: rgb(200,200,200);
 }
