@@ -14,6 +14,7 @@
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
+
   % if bf.config.blog.disqus.enabled:
   <script>
 
@@ -37,6 +38,6 @@
           }
       }
       document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/artiumsblog/get_num_replies.js' + query + '"></' + 'script>');
-  })();*/  
+  })();*/
   </script>
   % endif
