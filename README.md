@@ -1,4 +1,3 @@
 nihamkin.com
 ============
-
-The source code behind the website.
+It is based on [Blogofile](http://blogofile.com) static blog generator.
