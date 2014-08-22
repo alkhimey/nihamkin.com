@@ -2,7 +2,7 @@
 categories: C++, Ada
 date: 2014/05/06 22:00:00
 title: Range Constrained Types in C++
-draft: False
+draft: True
 ---
 
 One of the first things a new Ada programmer will learn about Ada is it's type system. A feature I like very much, and is actually very usefull within Ada programs is the ability to create a subtype of a descreete type which has a subrange of the original type's range. For example:
