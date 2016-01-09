@@ -22,7 +22,7 @@ I do not expect people to follow my blog closely. My expectations are that indiv
 
 <a href="http://stackexchange.com/users/204340">
 <img src="http://stackexchange.com/users/flair/204340.png?theme=dark" width="208" height="58" alt="profile for Artium on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Artium on Stack Exchange, a network of free, community-driven Q&amp;A sites">
-</a>
+</a>    <a href="https://projecteuler.net/progress=Artium"><img src="https://projecteuler.net/profile/Artium.png" width="208" height="58" alt="Project Euler flair"></a>
 
 You always can reach me by the following email:
 [![email captcha](/files/email3.gif)](http://captchanim.cs.technion.ac.il)
