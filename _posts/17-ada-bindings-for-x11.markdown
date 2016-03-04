@@ -55,7 +55,7 @@ $$/code
 
 Being thin bindings, every *C* function of X11 library has an equivalent Ada function. Therefore example programs, documentation and tutorials that are aimed at C are suitable for Ada programmers as well.
 
-I used example program from the following (article)[http://www.linuxjournal.com/article/4879] of Linux Magazine.
+I used example program from the following [article](http://www.linuxjournal.com/article/4879) of Linux Magazine.
 
 
 $$code(lang=Ada)
