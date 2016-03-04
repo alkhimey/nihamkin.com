@@ -1,6 +1,6 @@
 ---
 categories: esp8266, arduino, embedded, ili9341
-date: 2016/02/24 17:00:00
+date: 2016/03/04 15:00:00
 title: Connecting ESP8266 with ILI9341 TFT Display
 draft: False
 ---
