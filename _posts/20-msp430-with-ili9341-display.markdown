@@ -21,6 +21,8 @@ As Energia is an Arduino-like environment, therefore not many [changes](https://
 
 Now [download](https://github.com/alkhimey/Adafruit_ILI9341/tree/msp430-support) the modified library and place it in the [library](http://energia.nu/Guide_Environment.html#libraries) folder of Energia. If you are cloning the repo, make sure to checkout "*msp430-support*" branch. After restarting Energia, you will be able to see the *Adafruit_ILI9341* examples in the *Examples* list.
 
+You will also need to download and place the [Adafruit_GFX_Library](https://github.com/adafruit/Adafruit-GFX-Library).
+
 Make the following connections. Those connections are specific to *msp430g32553* launchpad. Other launchpads in this family have different pins for hardware SPI, so be careful and look it up in the reference.
 
 <center>
