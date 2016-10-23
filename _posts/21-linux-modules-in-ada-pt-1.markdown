@@ -1,6 +1,6 @@
 ---
 categories: ada, linux, kernel, os
-date: 2016/11/23 13:30:00
+date: 2016/10/23 13:30:00
 title: Writing Linux Modules in Ada - Part 1
 draft: False
 ---
