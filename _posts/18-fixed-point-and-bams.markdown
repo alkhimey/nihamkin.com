@@ -1,18 +1,22 @@
 ---
 categories: Ada, C++, Math 
-date: 2014/11/29 22:00:00
+date: 2016/06/12 02:00:00
 title: Fixed Point Types and BAMs
 draft: True
 ---
 
-Floating point is the most widely used representation of real numbers. It is so common that some programmers synonimize real with float, unaware that there are other ways of reperesenting real numbers on a computer.
+Floating point is the most widely used representation of real numbers. It is so common that some programmers synonimize **real** with **float**, unaware that there are other ways of reperesenting real numbers on a computer.
 
-One such representation is the _fixed point_ representation.
+One such representation is the **fixed point** representation.
 
 
 ## What is a "Representaion"
 
-Representation is a translation between some state of unit of memory to a numeric value.
+Representation is a translation between some state of a unit of a memory to a numeric value.
+
+For example, it is natural to represent unsigned integers as a seriese of bits, each bit having a weight $$latex 2^{0}, latex 2^{1}, latex 2^{2} $ etc. The numeric value is the weighted sum of the bits.
+
+When approaching to signed integer representation the picture is not as straighforward. The common way is two's complement but one can also use one's complement representation as well as using the leading bit as sign bit and treating the rest of the sequense as unsigned integer.
 
 
 
@@ -52,9 +56,11 @@ Some facts about this representation:
 
 ## Implementation
 
-Some langages like Ada have fixed point types build in.
+Some langages like Ada have sophisticated typing systems that have fixed point types build in.
 
-In ada it is possible to declare type and specify its's [delta](http://en.wikibooks.org/wiki/Ada_Programming/Keywords/delta) - the difference between two consequtive values of this type. It is also possible to specify the range of the type.
+In Ada it is possible to declare type and specify its's [delta](http://en.wikibooks.org/wiki/Ada_Programming/Keywords/delta) - the difference between two consequtive values of this type.
+
+It is also possible to specify the range of the type.
 
 For example, instances of the following type T:
 
@@ -98,9 +104,9 @@ Another situation where one might prefer to use fixed point representation is wh
 
 ### Binary Angular Measure (BAM) 
 
-Bams are a special and very usefull case of fixed point types that is used to represent angles.
+Bam, also know as Rads and various other names, is a special and very usefull case of fixed point type that is used to represent angles.
 
-Bams is a two's complement number between -1 to 1 (excluding 1). To represent an angle between -180 to 180 (excluding 180) in Bams, one needs to scale the angle by  1/180.
+Bam is a two's complement number between -1 to 1 (excluding 1). To represent an angle between -180 to 180 (excluding 180) in Bams, one needs to scale the angle by 1/180.
 
 In ada the definition of such type might look like this:
 
