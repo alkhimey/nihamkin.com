@@ -1,8 +1,6 @@
----
-categories: About
+Tags: About
 date: 2012/09/01 17:00:00
 title: About this Blog
----
 
 ## Welcome!
 

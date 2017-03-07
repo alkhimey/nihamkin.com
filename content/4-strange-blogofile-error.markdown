@@ -1,9 +1,7 @@
----
-categories: Blogofile, Emacs
+Tags: Blogofile, Emacs
 date: 2012/10/13 15:00:00
 title: Strange Blogofile IO Error
 draft: false
----
 
 Sometimes when building a blogofile site I encounter the following IO error (excuse me for the text spill):
 $$code(lang=python)

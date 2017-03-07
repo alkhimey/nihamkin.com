@@ -1,9 +1,7 @@
----
-categories:  ili9341, msp430, embedded
+Tags:  ili9341, msp430, embedded
 date: 2016/04/30 20:00:00
 title: Connecting MSP430 with ILI9341 TFT Display
 draft: False
----
 
 <center>
 ![msp430 launcpad connected to ili9341 display](/files/msp430photo.jpg)

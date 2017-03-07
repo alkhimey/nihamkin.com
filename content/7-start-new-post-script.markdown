@@ -1,9 +1,7 @@
----
-categories: Blogofile
+Tags: Blogofile
 date: 2013/02/22 20:00:00
 title: Start New Blogofile Post With a Single Command
 draft: False
----
 
 
 
@@ -29,12 +27,10 @@ TEXT_EDITOR=emacs
 SOURCE_CONTROL_CMD="git add"
 
 read -d '' TEMPLATE <<"EOF"
----
-categories: 
+Tags: 
 date: 
 title: 
 draft: True
----
 
 EOF
 

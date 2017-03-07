@@ -1,9 +1,7 @@
----
-categories: esp8266, arduino, embedded, ili9341
+Tags: esp8266, arduino, embedded, ili9341
 date: 2016/03/04 15:00:00
 title: Connecting ESP8266 with ILI9341 TFT Display
 draft: False
----
 
 
 ESP8266 was popular with hobbyists for a long time. Recently I decided to join the hype and bought this module along with a super cheap color TFT display (ILI9341). In this post I will describe the process of connecting those two, using already available code written for Arduino.

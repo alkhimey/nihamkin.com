@@ -1,9 +1,7 @@
----
-categories: C++, Ada
+Tags: C++, Ada
 date: 2014/09/05 22:00:00
 title: Range Constrained Types in C++
 draft: False
----
 
 One of the first things a new Ada programmer will learn is the ability to define constrained type. Which means that one can restrict the values that can be assigned to a variable of this specific type.
 

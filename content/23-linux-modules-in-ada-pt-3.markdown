@@ -1,9 +1,7 @@
----
-categories: ada, linux, kernel, os
+Tags: ada, linux, kernel, os
 date: 2016/11/25 20:00:00
 title: Writing Linux Modules in Ada - Part 3
 draft: False
----
 
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/"  data-style="mega" aria-label="View alkhimey/Ada_Kernel_Module_Toolkit on GitHub">View on Github</a>
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit" data-icon="octicon-star" data-style="mega" data-count-href="/alkhimey/Ada_Kernel_Module_Toolkit/stargazers" data-count-api="/repos/alkhimey/Ada_Kernel_Module_Toolkit#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star alkhimey/Ada_Kernel_Module_Toolkit on GitHub">Star on Github</a>

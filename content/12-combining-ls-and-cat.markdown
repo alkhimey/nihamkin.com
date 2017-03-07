@@ -1,10 +1,8 @@
----
-categories: shell, sh, linux
+Tags: shell, sh, linux
 date: 2013/08/17 04:00:00
 updated: 2013/09/25 04:30:00
 title: Combining ls and cat Commands
 draft: False
----
 
         
 

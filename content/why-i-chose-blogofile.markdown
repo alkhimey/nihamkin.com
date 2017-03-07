@@ -1,8 +1,6 @@
----
-categories: Blogofile, Web Development, About
+Tags: Blogofile, Web Development, About
 date: 2012/09/02 01:00:00
 title: Why I Chose Blogofile as my Blogging Platform
----
 
 Blogofile is the blogging engine behind this blog.
 

@@ -1,9 +1,7 @@
----
-categories: Blogofile, Special
+Tags: Blogofile, Special
 date: 2012/09/25 17:00:00
 title: Highlighting Special Posts in Blogofile
 draft: false
----
 
 This simple but use-full blogofile hack will allow you to alter the style of posts which are marked as special. 
 For example the post you are reading belongs to the "Special" category and therefore has a golden background instead of the gray default one.

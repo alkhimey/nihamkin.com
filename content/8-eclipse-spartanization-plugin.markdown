@@ -1,9 +1,7 @@
----
-categories: Eclipse, Software Engineering, Spartanization Plugin
+Tags: Eclipse, Software Engineering, Spartanization Plugin
 date: 2013/03/09 02:00:00
 title: Spartanization Plug-In For Eclipse
 draft: False
----
 
 I would like to share an Eclipse plug-in that I have recently developed. It possible to install it from the following  update site: [http://update.nihamkin.com/spartan/](http://update.nihamkin.com/spartan/). 
 

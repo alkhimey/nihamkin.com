@@ -1,9 +1,7 @@
----
-categories: Ada, X11
+Tags: Ada, X11
 date: 2015/09/01 17:00:00
 title: Trying Ada Bindings for X11
 draft: False
----
 
 Ada bindings for X11 were written Intermentics company and sponsored by Ada Joint Program Office (AJPO).
 

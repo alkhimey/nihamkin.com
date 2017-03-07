@@ -1,9 +1,7 @@
----
-categories: Emacs
+Tags: Emacs
 date: 2013/12/04 14:00:00
 title: How to Enable Logging of Chat Sessions in ERC
 draft: False
----
 
 
 [ERC](http://www.emacswiki.org/emacs/ERC) is an irc client that runs inside emacs. I sometimes use it to ask question or read interesting discussions. 
