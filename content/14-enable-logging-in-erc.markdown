@@ -14,17 +14,16 @@ For such cases ERC provide an ability to log chat sessions that the user is part
 
 I have the following configuration in my _.emacs_, it took me some time to figure how to do it correctly, so I hope this information will help somebody else who is struggling as well:
 
-$$code(lang=cl)
-;; it is not possible to set erc-log-mode variable directly 
-(erc-log-mode) 
-;; The directory should be created by user.
-(setq erc-log-channels-directory "~/.erc/logs/")
-(setq erc-generate-log-file-name-function (quote erc-generate-log-file-name-with-date))
-(setq erc-save-buffer-on-part nil)
-(setq erc-save-queries-on-quit nil)
-(setq erc-log-write-after-insert t)
-(setq erc-log-write-after-send t)
-$$/code
+    :::emacs-lisp
+    ;; it is not possible to set erc-log-mode variable directly 
+    (erc-log-mode) 
+    ;; The directory should be created by user.
+    (setq erc-log-channels-directory "~/.erc/logs/")
+    (setq erc-generate-log-file-name-function (quote erc-generate-log-file-name-with-date))
+    (setq erc-save-buffer-on-part nil)
+    (setq erc-save-queries-on-quit nil)
+    (setq erc-log-write-after-insert t)
+    (setq erc-log-write-after-send t)
 
 There are few tricky thing to consider here. Firstly, the logs directory should exist, if ERC does not find the provided path, it will do nothing.
 
@@ -39,9 +38,8 @@ Secondly, the call to _erc_log_mode_ enables logging. It can be confusing becaus
 
 There are more ERC related customization options available. It is possible to see them with the following emacs sequence:
 
-$$code(lang=cl)
-M-x customize-group RET erc RET
-$$/code
+    :::emacs-lisp
+    M-x customize-group RET erc RET
 
 This will display a nice GUI-like editor for those options and also will group them according to functionality. 
 

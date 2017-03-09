@@ -13,96 +13,82 @@ The following code snippets are simplified representations of what happened in o
 
 The base version of a certain file contained the following lines:
 
-$$code(lang=Ada)
 
-if    Msg_1.Id = 1 then
-   -- Do stuff 1
-elsif Msg_1.Id = 2 then
-   -- Do stuff 2
-elsif Msg_1.Id = 3 then
-   -- Do stuff 3
-end if;
+    :::ada
+    if    Msg_1.Id = 1 then
+       -- Do stuff 1
+    elsif Msg_1.Id = 2 then
+       -- Do stuff 2
+    elsif Msg_1.Id = 3 then
+       -- Do stuff 3
+    end if;
 
-$$/code
 
 One of the developers added ```Msg_2```:
 
-$$code(lang=Ada)
-
-procedure Proc_Msg( Msg : Msg_Type ) is
-begin
-   if    Msg.Id = 1 then
-      -- Do stuff 1
-   elsif Msg.Id = 2 then
-      -- Do stuff 2
-   elsif Msg.Id = 3 then
-      -- Do stuff 3
-   end if;
-end;
-
--- ...
-
-Proc_Msg( Msg_1 );
-Proc_Msg( Msg_2 );
-
-$$/code
+    :::ada
+    procedure Proc_Msg( Msg : Msg_Type ) is
+    begin
+       if    Msg.Id = 1 then
+          -- Do stuff 1
+       elsif Msg.Id = 2 then
+          -- Do stuff 2
+       elsif Msg.Id = 3 then
+          -- Do stuff 3
+       end if;
+    end;
+    
+    -- ...
+    
+    Proc_Msg( Msg_1 );
+    Proc_Msg( Msg_2 );
 
 In the meantime, another developer was busy implementing a new message ID number:
 
-$$code(lang=Ada)
-
-if    Msg_1.Id = 1 then
-   -- Do stuff 1
-elsif Msg_1.Id = 2 then
-   -- Do stuff 2
-elsif Msg_1.Id = 3 then
-   -- Do stuff 3
-elsif Msg_1.Id = 4 then
-   Buffer := Msg_1.Data;
-   Buffer_Ready_Toggle := not Buffer_Ready_Toggle;
-end if;
-
-$$/code
+    :::ada
+    
+    if    Msg_1.Id = 1 then
+       -- Do stuff 1
+    elsif Msg_1.Id = 2 then
+       -- Do stuff 2
+    elsif Msg_1.Id = 3 then
+       -- Do stuff 3
+    elsif Msg_1.Id = 4 then
+       Buffer := Msg_1.Data;
+       Buffer_Ready_Toggle := not Buffer_Ready_Toggle;
+    end if;
 
 Please believe me that under the constraints of our system, this way of using a toggle is a correct way to send a message to another process:
 
-$$code(lang=Ada)
-
-if Local_Toggle /= Buffer_Ready_Toggle then
-   Local_Toggle := Buffer_Ready_Toggle;
-
-   -- Now do stuff with buffer ...
-   
-end if;
-
-$$/code
-
+    :::ada
+    if Local_Toggle /= Buffer_Ready_Toggle then
+       Local_Toggle := Buffer_Ready_Toggle;
+    
+       -- Now do stuff with buffer ...
+       
+    end if;
 
 I was present during the resolution of the conflict. It was late at night, and after some manual editing of the merge result we produced following result:
 
-$$code(lang=Ada)
-
-procedure Proc_Msg( Msg : Msg_Type ) is
-begin
-   if    Msg.Id = 1 then
-      -- Do stuff 1
-   elsif Msg.Id = 2 then
-      -- Do stuff 2
-   elsif Msg.Id = 3 then
-      -- Do stuff 3
-   elsif Msg.Id = 4 then
-      Buffer := Msg_1.Data;
-      Buffer_Ready_Toggle := not Buffer_Ready_Toggle;
-   end if;
-
-end;
-
--- ...
-
-Proc_Msg( Msg_1 );
-Proc_Msg( Msg_2 );
-
-$$/code
+    :::ada
+    procedure Proc_Msg( Msg : Msg_Type ) is
+    begin
+       if    Msg.Id = 1 then
+          -- Do stuff 1
+       elsif Msg.Id = 2 then
+          -- Do stuff 2
+       elsif Msg.Id = 3 then
+          -- Do stuff 3
+       elsif Msg.Id = 4 then
+          Buffer := Msg_1.Data;
+          Buffer_Ready_Toggle := not Buffer_Ready_Toggle;
+       end if;
+    end;
+    
+    -- ...
+    
+    Proc_Msg( Msg_1 );
+    Proc_Msg( Msg_2 );
 
 Unfortunately, this code contains two problems. It was pure luck that we noticed them. Compilation error in another part of the file caused us to recheck the whole file.
 
@@ -138,8 +124,6 @@ The first mistake is that the line ```Buffer := Msg_1.Data``` should actually be
 The second problem is a bug that will happen if both messages have ```Id``` of ```4```. In this case, the toggle changes will cancel each other.
 
 The disturbing part of this story is that these problems could not have been detected by tests. Each developer's tests, even when run on the merged version would have passed successfully. 
-
-
 
 
 ## Conclusion

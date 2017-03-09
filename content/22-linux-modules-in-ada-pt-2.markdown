@@ -24,13 +24,11 @@ The existence of the secondary stack allows functions to return objects of uncon
 
 For example:
 
-$$code(lang=ada)
-function Get_Answer return String is
-begin
-   return "Forty Two";
-end Get_Answer;
-$$/code
-
+    :::ada
+    function Get_Answer return String is
+    begin
+       return "Forty Two";
+    end Get_Answer;
 
 The length of the returned ```String``` is unknown during compilation, and therefore it is problematic to allocate space for it on the primary stack. In this particular example the compiler might deduce the maximum size statically but generally, the size of the returned string could also depend on user input.
 
@@ -51,11 +49,10 @@ A [compiler switch](https://gcc.gnu.org/onlinedocs/gnat_ugn/Switches-for-gnatbin
 >    For certain targets, notably VxWorks 653, the secondary stack is allocated by carving off a fixed ratio chunk of the primary task stack. The -D option is used to define the size of the environment task's secondary stack.
 >
 
-$$code(lang=ada)
-task A_Task with
-  Storage_Size         => 20 * 1024,
-  Secondary_Stack_Size => 10 * 1024;
-$$/code
+    :::ada
+    task A_Task with
+      Storage_Size         => 20 * 1024,
+      Secondary_Stack_Size => 10 * 1024;
 
 As can be understood from the example, each task has it's own secondary stack. We of course need only one secondary stack as there are no tasks in our run time.
 
@@ -80,27 +77,26 @@ In the original code, dynamic stack is allocated on the heap as a linked list of
 
 For static stack, if a stack of less that 10K is required than a memory chunk that is defined as a global in the package is used. Otherwise a memory chunk of the appropriate size is dynamically allocated.
 
-$$code(lang=ada)
-   Default_Secondary_Stack_Size : Natural := 10 * 1024;
-   --  Default size of a secondary stack. May be modified by binder -D switch
-   --  which causes the binder to generate an appropriate assignment in the
-   --  binder generated file.
-$$/code
+    :::ada
+       Default_Secondary_Stack_Size : Natural := 10 * 1024;
+       --  Default size of a secondary stack. May be modified by binder -D switch
+       --  which causes the binder to generate an appropriate assignment in the
+       --  binder generated file.
 
 Throughout the code, static and dynamic cases are distinguished with ```SS_Ratio_Dynamic```. There is almost no shared code.
 
-$$code(lang=ada)
-   SS_Ratio_Dynamic : constant Boolean :=
-                        Parameters.Sec_Stack_Percentage = Parameters.Dynamic;
-   --  There are two entirely different implementations of the secondary
-   --  stack mechanism in this unit, and this Boolean is used to select
-   --  between them (at compile time, so the generated code will contain
-   --  only the code for the desired variant). If SS_Ratio_Dynamic is
-   --  True, then the secondary stack is dynamically allocated from the
-   --  heap in a linked list of chunks. If SS_Ration_Dynamic is False,
-   --  then the secondary stack is allocated statically by grabbing a
-   --  section of the primary stack and using it for this purpose.
-$$/code
+    :::ada
+       SS_Ratio_Dynamic : constant Boolean :=
+                            Parameters.Sec_Stack_Percentage = Parameters.Dynamic;
+       --  There are two entirely different implementations of the secondary
+       --  stack mechanism in this unit, and this Boolean is used to select
+       --  between them (at compile time, so the generated code will contain
+       --  only the code for the desired variant). If SS_Ratio_Dynamic is
+       --  True, then the secondary stack is dynamically allocated from the
+       --  heap in a linked list of chunks. If SS_Ration_Dynamic is False,
+       --  then the secondary stack is allocated statically by grabbing a
+       --  section of the primary stack and using it for this purpose.
+
 
 Since currently the run time does not support any kind of dynamic allocations, I removed all the dynamic stack branches, as well as the dynamic allocation of the static stack. This renders **```-D```** flag to have no effect on the code, a 10K stack is always allocated.
 
@@ -108,29 +104,26 @@ It is true that dynamic allocation in the kernel can be done with ```kmalloc```,
 
 To allow the module code use the stack, I had to comment out a pragma restriction in the **gnat.adc** file.
 
-$$code(lang=ada)
---pragma Restrictions (No_Secondary_Stack);
-$$/code
+    :::ada
+    --pragma Restrictions (No_Secondary_Stack);
 
 This file contains a set of pragmas that are applied globally to the project. A gpr file configuration of the _adc_ file might look like this:
 
-$$code(lang=ada)
- package Builder is
-      for Global_Configuration_Pragmas use "gnat.adc";
-   end Builder;
-$$/code
+    :::ada
+    package Builder is
+       for Global_Configuration_Pragmas use "gnat.adc";
+    end Builder;
 
 There are many other restrictions in that file that prevent using run time features that are not implemented.
 
 After doing all this and adding a test module that demonstrates a function that return unconstrained string, I stumbled upon a strange error:
 
-$$code(lang=bash)
-$sudo insmod hello.ko 
-insmod: ERROR: could not insert module hello.ko: Invalid module format
-$dmesg | tail -2
-[36648.395725] module: overflow in relocation type 10 val ffffffffc04da000
-[36648.395731] module: `hello' likely not compiled with -mcmodel=kernel
-$$/code
+    :::shell
+    $sudo insmod hello.ko 
+    insmod: ERROR: could not insert module hello.ko: Invalid module format
+    $dmesg | tail -2
+    [36648.395725] module: overflow in relocation type 10 val ffffffffc04da000
+    [36648.395731] module: `hello' likely not compiled with -mcmodel=kernel
 
 It turns out I had to add the "```-mcmodel=kernel```" flag to the compilation section in the _gpr_ file.
 
