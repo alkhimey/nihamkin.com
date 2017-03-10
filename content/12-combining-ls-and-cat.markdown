@@ -12,7 +12,7 @@ Therfore, it is natural for these commands to be combined into a single one. So,
 
 The following shell script will choose to run "ls" or "cat" depending on the type of the parameter (file or directory).
      
-    ::sh
+    :::sh
 
     #!/bin/sh
     

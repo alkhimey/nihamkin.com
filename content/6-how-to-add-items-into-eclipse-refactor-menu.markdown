@@ -11,58 +11,57 @@ I tried to figure this from the documentation and examples that I dug from googl
  
 Here is the correct plugin.xml snippet:
 
-$$code(lang=xml)
-
-
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.2"?>
-<plugin>
-
-<extension
-         point="org.eclipse.ui.actionSets">
-      <actionSet
-            description="Spartan Refactoring Actions"
-            id="il.ac.technion.cs.ssdl.spartan.refactoring.actionSet"
-            label="Spartanization"
-            visible="true">
- 		<menu
-               label="Refactor"
-               path="edit"
-               id="org.eclipse.jdt.ui.refactoring.menu">
-            <separator name="undoRedoGroup"/>
-            <separator name="reorgGroup"/>
-            <separator name="codingGroup"/>
-            <separator name="reorgGroup2"/>
-            <separator name="typeGroup"/>
-            <separator name="typeGroup2"/>
-            <separator name="codingGroup2"/>
-            <separator name="typeGroup3"/>
-            <separator name="spartanGroup"/>
-            <separator name="scriptGroup"/>
-		</menu>
-	  	<menu
-               id="il.ac.technion.cs.ssdl.spartan.refactoring.menu"
-               label="Spartanization"
-               path="org.eclipse.jdt.ui.refactoring.menu/spartanGroup">
-            <separator name="group" />    
-		</menu>
-
-         <action
-               class="il.ac.technion.cs.ssdl.spartan.refactoring.ShortestBranchAction"
-               enablesFor="*"
-               id="il.ac.technion.cs.ssdl.spartan.refactoring.actions.ShortestBranchAction"
-               label="Shortest Conditional Branch First..."  
-               menubarPath="org.eclipse.jdt.ui.refactoring.menu/il.ac.technion.cs.ssdl.spartan.refactoring.menu/group"
-               style="push">
-         </action>        
-		 
-		<!-- More actions -->
+    :::xml
+    
+    
+    <?xml version="1.0" encoding="UTF-8"?>
+    <?eclipse version="3.2"?>
+    <plugin>
+    
+    <extension
+             point="org.eclipse.ui.actionSets">
+          <actionSet
+                description="Spartan Refactoring Actions"
+                id="il.ac.technion.cs.ssdl.spartan.refactoring.actionSet"
+                label="Spartanization"
+                visible="true">
+     		<menu
+                   label="Refactor"
+                   path="edit"
+                   id="org.eclipse.jdt.ui.refactoring.menu">
+                <separator name="undoRedoGroup"/>
+                <separator name="reorgGroup"/>
+                <separator name="codingGroup"/>
+                <separator name="reorgGroup2"/>
+                <separator name="typeGroup"/>
+                <separator name="typeGroup2"/>
+                <separator name="codingGroup2"/>
+                <separator name="typeGroup3"/>
+                <separator name="spartanGroup"/>
+                <separator name="scriptGroup"/>
+    		</menu>
+    	  	<menu
+                   id="il.ac.technion.cs.ssdl.spartan.refactoring.menu"
+                   label="Spartanization"
+                   path="org.eclipse.jdt.ui.refactoring.menu/spartanGroup">
+                <separator name="group" />    
+    		</menu>
+    
+             <action
+                   class="il.ac.technion.cs.ssdl.spartan.refactoring.ShortestBranchAction"
+                   enablesFor="*"
+                   id="il.ac.technion.cs.ssdl.spartan.refactoring.actions.ShortestBranchAction"
+                   label="Shortest Conditional Branch First..."  
+                   menubarPath="org.eclipse.jdt.ui.refactoring.menu/il.ac.technion.cs.ssdl.spartan.refactoring.menu/group"
+                   style="push">
+             </action>        
+		     
+		    <!-- More actions -->
       
-	  </actionSet>
-   </extension>
-</plugin>
+    	  </actionSet>
+       </extension>
+    </plugin>
 
-$$/code
 
 The Refactor *menu* tag is a copy of the original "Refactor" menu definition from *org.eclipse.jdt.ui*. It is important to copy all the separator definitions. For my plug-in, I have also added a new separator called *spartanGroup*.
 

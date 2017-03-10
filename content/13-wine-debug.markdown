@@ -17,9 +17,8 @@ The problem I had, was not with the game itself but with it's installer. The ins
 
 Finding which file is missing can be done by reading the debug messages. The debug messages are enabled by setting the _WINEDEBUG_ environment variable before running the program:
 
-$$code(lang=shell)
-$ export WINEDEBUG=warn+all
-$$/code
+    :::shell
+    $ export WINEDEBUG=warn+all
 
 The number of messages produced by even a boilerplate program is very big, the console will spit text long after the application is closed, and it will be hard to determine cause and effect behavior.  Therefore different "debug" channels exist. In the example above I have used the "all" channel and limited it only to warnings. Other scenarios would require other channels. In the following [link](http://wiki.winehq.org/DebugChannels) a complete documentation of all the channels can be found.
 
@@ -29,22 +28,16 @@ So I set the environment variable and run the installer. Just before clicking th
 
 It is now clear what the problem is. 
 
-$$code(lang=shell)
-warn:ntdll:NtQueryAttributesFile L"\\??\\C:\\windows\\system32\\EAREMOVE.EXE" not found (c0000034)
-warn:file:OpenFile (C:\windows\system32\EAREMOVE.EXE): return = HFILE_ERROR error= 2
-warn:ntdll:NtQueryAttributesFile L"\\??\\C:\\Janes\\F15\\EAREMOVE.EXE" not found (c0000034)
-warn:file:OpenFile (C:\Janes\F15\EAREMOVE.EXE): return = HFILE_ERROR error= 2
-warn:ntdll:NtQueryAttributesFile L"\\??\\E:\\EAREMOVE.EXE" not found (c0000034)
-warn:file:OpenFile (.\EAREMOVE.EXE): return = HFILE_ERROR error= 2
-$$/code
-
+    :::shell
+    warn:ntdll:NtQueryAttributesFile L"\\??\\C:\\windows\\system32\\EAREMOVE.EXE" not found (c0000034)
+    warn:file:OpenFile (C:\windows\system32\EAREMOVE.EXE): return = HFILE_ERROR error= 2
+    warn:ntdll:NtQueryAttributesFile L"\\??\\C:\\Janes\\F15\\EAREMOVE.EXE" not found (c0000034)
+    warn:file:OpenFile (C:\Janes\F15\EAREMOVE.EXE): return = HFILE_ERROR error= 2
+    warn:ntdll:NtQueryAttributesFile L"\\??\\E:\\EAREMOVE.EXE" not found (c0000034)
+    warn:file:OpenFile (.\EAREMOVE.EXE): return = HFILE_ERROR error= 2
 
 The installer searches for a file called "EAREMOVE.EXE", first in system32 directory, then inside the directory where the game is about to be installed, and finally on the installation disk. I do not know what is the logic behind this behavior and why this file was missing. 
 
 Creating an empty file named "EAREMOVE.EXE" in the system32 directory solved the problem and allowed the installer to continue. The game was installed correctly and I was able to run it.
-
-
-
-
 
 

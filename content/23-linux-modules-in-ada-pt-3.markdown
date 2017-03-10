@@ -22,84 +22,79 @@ The [```'Image```](http://www.adaic.org/resources/add_content/standards/05rm/htm
 
 The run-time have a separate implementation of the attribute for each supported type. Here is the list of files from my native run-time:
 
-$$code(lang=bash)
-/usr/gnat/lib/gcc/x86_64-pc-linux-gnu/4.9.4/rts-native/adainclude$  lsg img
-s-imgbiu.adb
-s-imgbiu.ads
-s-imgboo.adb
-s-imgboo.ads
-s-imgcha.adb
-s-imgcha.ads
-s-imgdec.adb
-s-imgdec.ads
-s-imgenu.adb
-s-imgenu.ads
-s-imgint.adb
-s-imgint.ads
-s-imgllb.adb
-s-imgllb.ads
-s-imglld.adb
-s-imglld.ads
-s-imglli.adb
-s-imglli.ads
-s-imgllu.adb
-s-imgllu.ads
-s-imgllw.adb
-s-imgllw.ads
-s-imgrea.adb
-s-imgrea.ads
-s-imguns.adb
-s-imguns.ads
-s-imgwch.adb
-s-imgwch.ads
-s-imgwiu.adb
-s-imgwiu.ads
-$$/code
-
+    :::bash
+    /usr/gnat/lib/gcc/x86_64-pc-linux-gnu/4.9.4/rts-native/adainclude$  lsg img
+    s-imgbiu.adb
+    s-imgbiu.ads
+    s-imgboo.adb
+    s-imgboo.ads
+    s-imgcha.adb
+    s-imgcha.ads
+    s-imgdec.adb
+    s-imgdec.ads
+    s-imgenu.adb
+    s-imgenu.ads
+    s-imgint.adb
+    s-imgint.ads
+    s-imgllb.adb
+    s-imgllb.ads
+    s-imglld.adb
+    s-imglld.ads
+    s-imglli.adb
+    s-imglli.ads
+    s-imgllu.adb
+    s-imgllu.ads
+    s-imgllw.adb
+    s-imgllw.ads
+    s-imgrea.adb
+    s-imgrea.ads
+    s-imguns.adb
+    s-imguns.ads
+    s-imgwch.adb
+    s-imgwch.ads
+    s-imgwiu.adb
+    s-imgwiu.ads
+        
 These packages are not preset in our module's run-time, so when attempting to compile something like this:
 
-$$code(lang=ada)
-package body Ada_Foo_Pack is
-   procedure Ada_Foo is
-      S : String := Integer'Image (42) & Character'Val (0);
-   begin
-      Print_Kernel (S);
-   end Ada_Foo;
-begin
-   null;
-end Ada_Foo_Pack;
-$$/code
-
+    :::ada
+    package body Ada_Foo_Pack is
+       procedure Ada_Foo is
+          S : String := Integer'Image (42) & Character'Val (0);
+       begin
+          Print_Kernel (S);
+       end Ada_Foo;
+    begin
+       null;
+    end Ada_Foo_Pack;
+    
 Will result in compiler error:
 
-$$code(lang=bash)
-ada_foo_pack.adb:3:22: construct not allowed in configurable run-time mode
-ada_foo_pack.adb:3:22: file s-imgint.ads not found
-ada_foo_pack.adb:3:22: entity "System.Img_Int.Image_Integer" not available
-$$/code
-
+    :::bash
+    ada_foo_pack.adb:3:22: construct not allowed in configurable run-time mode
+    ada_foo_pack.adb:3:22: file s-imgint.ads not found
+    ada_foo_pack.adb:3:22: entity "System.Img_Int.Image_Integer" not available
+    
 ### First Step
 
 The first step would be to copy one of the native implementations as is.
 
 Unfortunately, the compilation results in the following errors:
 
-$$code(lang=bash)
-s-imgint.adb:75:10: violation of restriction "No_Recursion" at /home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/gnat.adc:18
-s-imgint.ads:42:07: violation of restriction "No_Default_Initialization" at /home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/gnat.adc:74
-$$/code
-
+    :::bash
+    s-imgint.adb:75:10: violation of restriction "No_Recursion" at /home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/gnat.adc:18
+    s-imgint.ads:42:07: violation of restriction "No_Default_Initialization" at /home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/gnat.adc:74
 
 ### No_Default_Initialization
 
 The second violation points to the _out_ parameter ```P``` of the following declaration
 
-$$code(lang=ada)
-   procedure Image_Integer
-     (V : Integer;
-      S : in out String;
-      P : out Natural);
-$$/code
+    :::ada
+    procedure Image_Integer
+      (V : Integer;
+       S : in out String;
+       P : out Natural);
+
 
 After some reading documentation and asking for help at the #ada irc channel, I understood that this violation happens because _gnat.adc_ has both the [```No_Default_Initialization```](https://docs.adacore.com/gnat_rm-docs/html/gnat_rm/gnat_rm/standard_and_implementation_defined_restrictions.html#no-default-initialization) restriction and the [```Normalize_Scalars```](http://www.adaic.org/resources/add_content/standards/05rm/html/RM-H-1.html) pragma.
 
@@ -111,62 +106,59 @@ As explained in [part 1](/2016/10/23/writing-linux-modules-in-ada-part-1/), the 
 
 This one is simple, the code have a recursion:
 
-$$code(lang=ada)
-   procedure Set_Digits
-     (T : Integer;
-      S : in out String;
-      P : in out Natural)
-   is
-   begin
-      if T <= -10 then
-         Set_Digits (T / 10, S, P);
-         P := P + 1;
-         S (P) := Character'Val (48 - (T rem 10));
-      else
-         P := P + 1;
-         S (P) := Character'Val (48 - T);
-      end if;
-   end Set_Digits;
-$$/code
+    :::ada
+    procedure Set_Digits
+      (T : Integer;
+       S : in out String;
+       P : in out Natural)
+    is
+    begin
+       if T <= -10 then
+          Set_Digits (T / 10, S, P);
+          P := P + 1;
+          S (P) := Character'Val (48 - (T rem 10));
+       else
+          P := P + 1;
+          S (P) := Character'Val (48 - T);
+       end if;
+    end Set_Digits;
 
 The following version I wrote does not use recursion:
 
-$$code(lang=ada)
-   procedure Set_Digits
-     (T : Integer;
-      S : in out String;
-      P : in out Natural)
-   is
-      D : Natural := 0; -- will store number of digits
-   begin
-
-      declare
-         T2 : Integer := T;
-      begin
-         while T2 /= 0 loop
-            D := D + 1;
-            T2 := T2 / 10;
-         end loop;
-      end;
-
-      if D = 0 then
-         P := P + 1;
-         S (P) := '0';
-      else
-         for I in reverse 0 .. D - 1 loop
-            P := P + 1;
-            S (P) := Character'Val (48 - (T / 10 ** I) rem 10);
-         end loop;
-      end if;
-   end Set_Digits;
-$$/code
-
+    :::ada
+    procedure Set_Digits
+      (T : Integer;
+       S : in out String;
+       P : in out Natural)
+    is
+       D : Natural := 0; -- will store number of digits
+    begin
+ 
+       declare
+          T2 : Integer := T;
+       begin
+          while T2 /= 0 loop
+             D := D + 1;
+             T2 := T2 / 10;
+          end loop;
+       end;
+ 
+       if D = 0 then
+          P := P + 1;
+          S (P) := '0';
+       else
+          for I in reverse 0 .. D - 1 loop
+             P := P + 1;
+             S (P) := Character'Val (48 - (T / 10 ** I) rem 10);
+          end loop;
+       end if;
+    end Set_Digits;
+ 
 The exponent operator I used in the code required copying additional files to the run-time:
 
-$$code(lang=bash)
-s-exnint.ads
-s-exnint.adb
-$$/code
+    :::bash
+    s-exnint.ads
+    s-exnint.adb
 
 It was very tempting to rewrite this package completely, as it is not the most efficient implementation possible and does not use the Ada type system intelligently.
 
@@ -176,44 +168,39 @@ But as I already explained, I am guided by the principle of doing as little chan
 
 After the changes made, compiling the module resulted in a warning:
 
-$$code(lang=bash)
-WARNING: "system__img_int__image_integer" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
-$$/code
+    :::bash
+    WARNING: "system__img_int__image_integer" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
 
 Trying to insert the module resulted in an error:
 
-$$code(lang=bash)
-$sudo insmod hello.ko
-insmod: ERROR: could not insert module hello.ko: Unknown symbol in module
-$dmesg | tail -1
-[132897.268341] hello: Unknown symbol system__img_int__image_integer (err 0)
-$$/code
-
+    :::bash
+    $sudo insmod hello.ko
+    insmod: ERROR: could not insert module hello.ko: Unknown symbol in module
+    $dmesg | tail -1
+    [132897.268341] hello: Unknown symbol system__img_int__image_integer (err 0)
+    
 It turns out that I forgot to add the run-time lib (_```libgnat.a```_) to the module's makefile. I am a little bit puzzled about why the previous stuff worked.
 
-After adding _"```rts/adalib/libgnat.a```"_ to _```hello-y``` variable the module loaded and produced the desired output:
+After adding _"```rts/adalib/libgnat.a```"_ to _```hello-y``` variable, the module loaded and produced the desired output:
 
-$$code(lang=bash)
-$ sudo insmod hello.ko 
-$ dmesg | tail -1
-[76863.379199]  42
-$$/code
+    :::bash
+    $ sudo insmod hello.ko 
+    $ dmesg | tail -1
+    [76863.379199]  42
 
 ### Enumeration
 
 To make the ```Image``` attribute work with enumeration types I had to copy two additional files from the native run time:
 
-$$code(lang=bash)
-s-imenne.ads
-s-imenne.adb
-$$/code
+    :::bash
+    s-imenne.ads
+    s-imenne.adb
 
 I also had to comment two additional restrictions in the ```gnat.adc```:
 
-$$code(lang=ada)
--- pragma Discard_Names;
--- pragma Restrictions (No_Enumeration_Maps);
-$$/code
+    :::ada
+    -- pragma Discard_Names;
+    -- pragma Restrictions (No_Enumeration_Maps);
 
 What happens here is that the compiler will generate the strings and store them in the compiled binary.
 
@@ -225,35 +212,33 @@ Notice that ```Some_Value``` can also be a variable, that is why the string must
 
 To add support for ```Image``` of real types (fixed and floating point), a bunch of additional files should be copied:
 
-$$code(lang=bash)
-s-exnlli.adb
-s-exnlli.ads
-s-expllu.adb
-s-expllu.ads
-s-expuns.adb
-s-expuns.ads
-s-fatllf.ads
-s-flocon.adb
-s-flocon.ads
-s-imglli.adb
-s-imglli.ads
-s-imgllu.adb
-s-imgllu.ads
-s-imgrea.adb
-s-imgrea.ads
-s-imguns.adb
-s-imguns.ads
-s-powtab.ads
-s-unstyp.ads
-$$/code
+    :::bash
+    s-exnlli.adb
+    s-exnlli.ads
+    s-expllu.adb
+    s-expllu.ads
+    s-expuns.adb
+    s-expuns.ads
+    s-fatllf.ads
+    s-flocon.adb
+    s-flocon.ads
+    s-imglli.adb
+    s-imglli.ads
+    s-imgllu.adb
+    s-imgllu.ads
+    s-imgrea.adb
+    s-imgrea.ads
+    s-imguns.adb
+    s-imguns.ads
+    s-powtab.ads
+    s-unstyp.ads
 
 I modified one of the file, ```s-flocon.adb``` and removed the import of ```__gnat_init_float```. The Code that supposed to [initialize](http://wiki.osdev.org/FPU) the FPU does nothing now. I have no problems with that, so far. After all, the Linux kernel should have already did the initialization before our module is being insert.
 
 Additionally a fixed point restriction should be lifted from ```gnat.adc```:
 
-$$code(lang=ada)
---  pragma Restrictions (No_Fixed_Point);
-$$/code
+    :::ada
+    --  pragma Restrictions (No_Fixed_Point);
 
 ### Final Words
 

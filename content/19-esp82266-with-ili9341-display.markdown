@@ -45,14 +45,11 @@ Make sure you connect all display's pins. Some tutorials do not mention RESET an
 
 Now you need to alter the example sketch to reflect the fact that we chose D1 and D2 for CS and DC. Edit the configuration lines to be:
 
-$$code(lang=C++)
-
-// For the Adafruit shield, these are the default.
-#define TFT_DC D1
-#define TFT_CS D2
-
-$$/code
-
+    :::c
+    
+    // For the Adafruit shield, these are the default.
+    #define TFT_DC D1
+    #define TFT_CS D2
 
 Now connect the board to the computer, build and upload. You should be able to see a a test pattern start running on the TFT screen.
 
@@ -60,48 +57,46 @@ Unfortunately, at some point the test pattern will freeze or even reset the devi
 
 If you open serial monitor, you will see something like this:
 
-$$code
-
-���ԅu�D�ILI9341 Test!
-Display Power Mode: 0x9C
-MADCTL Mode: 0x48
-Pixel Format: 0x5
-Image Format: 0x0
-Self Diagnostic: 0xC0
-Benchmark                Time (microseconds)
-Screen fill              2259125
-Text                     161736
-Lines                    
-Soft WDT reset
-
-ctx: cont 
-sp: 3ffef8d0 end: 3ffefbd0 offset: 01b0
-
->>>stack>>>
-3ffefa80:  016e3600 00000001 3ffeea58 000007e0  
-3ffefa90:  00000080 00000008 3ffeea58 402032f8  
-3ffefaa0:  3ffeea9c 00000001 3ffeea58 0000006c  
-3ffefab0:  0000006d 0000002a 3ffeea58 40203378  
-3ffefac0:  3ffeea9c 000000f6 3ffeea58 402037b2  
-3ffefad0:  000000f7 000000f6 3ffeea9c 402027ab  
-3ffefae0:  016e3600 00000001 3ffeea58 000007ff  
-3ffefaf0:  0000006c 000000f6 3ffeea58 40203876  
-3ffefb00:  016e3600 00000001 3ffeeb7c 00000000  
-3ffefb10:  00000000 000000f0 3ffeea58 000000ef  
-3ffefb20:  0000006c 000000ef 0000005f 402046e1  
-3ffefb30:  00000000 00000001 000007ff 00000085  
-3ffefb40:  3ffeea58 000000f6 402044b8 00000144  
-3ffefb50:  000000f0 000007ff 3ffeea58 00cb82d4  
-3ffefb60:  000000ba 000007ff 3ffeea58 40201c40  
-3ffefb70:  0000013f 000000ef 00000140 000000ef  
-3ffefb80:  000000ef 3ffeeba8 402044b8 3ffeebb0  
-3ffefb90:  3ffeeb7c 00000018 4022d52d 3ffeeba8  
-3ffefba0:  00000000 000000c0 3ffeeb7c 40202398  
-3ffefbb0:  3fffdc20 00000000 3ffeeba0 402044f6  
-3ffefbc0:  00000000 00000000 3ffeebb0 40100114  
-<<<stack<<<
-
-$$/code
+    :::
+    ���ԅu�D�ILI9341 Test!
+    Display Power Mode: 0x9C
+    MADCTL Mode: 0x48
+    Pixel Format: 0x5
+    Image Format: 0x0
+    Self Diagnostic: 0xC0
+    Benchmark                Time (microseconds)
+    Screen fill              2259125
+    Text                     161736
+    Lines                    
+    Soft WDT reset
+    
+    ctx: cont 
+    sp: 3ffef8d0 end: 3ffefbd0 offset: 01b0
+    
+    >>>stack>>>
+    3ffefa80:  016e3600 00000001 3ffeea58 000007e0  
+    3ffefa90:  00000080 00000008 3ffeea58 402032f8  
+    3ffefaa0:  3ffeea9c 00000001 3ffeea58 0000006c  
+    3ffefab0:  0000006d 0000002a 3ffeea58 40203378  
+    3ffefac0:  3ffeea9c 000000f6 3ffeea58 402037b2  
+    3ffefad0:  000000f7 000000f6 3ffeea9c 402027ab  
+    3ffefae0:  016e3600 00000001 3ffeea58 000007ff  
+    3ffefaf0:  0000006c 000000f6 3ffeea58 40203876  
+    3ffefb00:  016e3600 00000001 3ffeeb7c 00000000  
+    3ffefb10:  00000000 000000f0 3ffeea58 000000ef  
+    3ffefb20:  0000006c 000000ef 0000005f 402046e1  
+    3ffefb30:  00000000 00000001 000007ff 00000085  
+    3ffefb40:  3ffeea58 000000f6 402044b8 00000144  
+    3ffefb50:  000000f0 000007ff 3ffeea58 00cb82d4  
+    3ffefb60:  000000ba 000007ff 3ffeea58 40201c40  
+    3ffefb70:  0000013f 000000ef 00000140 000000ef  
+    3ffefb80:  000000ef 3ffeeba8 402044b8 3ffeebb0  
+    3ffefb90:  3ffeeb7c 00000018 4022d52d 3ffeeba8  
+    3ffefba0:  00000000 000000c0 3ffeeb7c 40202398  
+    3ffefbb0:  3fffdc20 00000000 3ffeeba0 402044f6  
+    3ffefbc0:  00000000 00000000 3ffeebb0 40100114  
+    <<<stack<<<
+    
 
 The problem here is that ESP8266 has a watchdog set to one second. The *lines* test pattern takes longer than one second to execute and therefore the watchdog resets the processor.
 

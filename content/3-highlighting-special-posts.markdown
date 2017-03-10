@@ -10,20 +10,18 @@ This is quite straightforward hack, all you have to do is to modify the "_templa
 
 Replace the line:
 
-$$code(lang=mako)
-<div class="blog_post">
-$$/code
+    :::mako
+    <div class="blog_post">
 
 with the following snippet:
 
-$$code(lang=mako)
-% if "Special" in [x.name for x in post.categories]:
-<div class="blog_post" style="background-color: gold;">
-% else:
-<div class="blog_post">
-% endif
-$$/code
-
+    :::mako
+    % if "Special" in [x.name for x in post.categories]:
+    <div class="blog_post" style="background-color: gold;">
+    % else:
+    <div class="blog_post">
+    % endif
+    
 As can be seen, we check for the existence of the category name "Style" in a list that contains the names of all the categories of the current post. 
 If this name exists we output the div element with custom style.
 
@@ -31,18 +29,19 @@ If this name exists we output the div element with custom style.
 This is enough for simple usage, but the idea can be extended for multiple category names and styles, allowing us to style each category differently.
 
 Add the following code at the top of "_templates/site.mako":
-$$code(lang=mako)
-<%
-category_styles = {"Special" : "background-color: gold;",
-                   "Another Example" : "border: 3px dashed black;" }
-category_names = [x.name for x in post.categories]
-style = "".join([v for k,v in category_styles.items() if k in category_names])
-%>
-$$/code
+    
+    :::mako
+    <%
+    category_styles = {"Special" : "background-color: gold;",
+                       "Another Example" : "border: 3px dashed black;" }
+    category_names = [x.name for x in post.categories]
+    style = "".join([v for k,v in category_styles.items() if k in category_names])
+    %>
 
 As you can see, it is possible to add more category-style pairs into the "category_styles" dictionary. Ideally we would like to put this into the _config.py file , but currently I do not know how to do it.
 
 And finally, we need to update the div element to look like this:
-$$code(lang=mako)
-<div class="blog_post" style="${style}">
-$$/code
+
+    :::mako
+    <div class="blog_post" style="${style}">
+

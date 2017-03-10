@@ -39,6 +39,6 @@ STATIC_PATHS = ['files']
 # Theme related
 #
 
-THEME = "./pelican-themes/backdrop"
+THEME = "./pelican-themes/Flex"
 
-PAGINATED_DIRECT_TEMPLATES = ('categories', 'archives')
+

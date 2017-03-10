@@ -1,7 +1,7 @@
 Tags: Ada, C++, Math 
-date: 2016/06/12 02:00:00
+date: 2018/06/12 02:00:00
 title: Fixed Point Types and BAMs
-draft: True
+Status: draft
 
 Floating point is the most widely used representation of real numbers. It is so common that some programmers synonimize **real** with **float**, unaware that there are other ways of reperesenting real numbers on a computer.
 

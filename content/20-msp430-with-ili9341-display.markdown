@@ -43,31 +43,29 @@ DC and CS can be any of the GPIO pins, yet they need to be consistent with the v
 
 Here are the results of the benchmark, textTest did not run therefore its results are 0.
 
-$$code
-
-ILI9341 Test!
-Display Power Mode: 0x9C
-MADCTL Mode: 0x48
-Pixel Format: 0x5
-Image Format: 0x0
-Self Diagnostic: 0xC0
-Benchmark                Time (microseconds)
-Screen fill              3986432
-Text                     0
-Lines                    6518272
-Horiz/Vert Lines         345088
-Rectangles (outline)     235520
-Rectangles (filled)      8283648
-Circles (filled)         2135552
-Circles (outline)        2848768
-Triangles (outline)      2067456
-Triangles (filled)       3433984
-Rounded rects (outline)  1003008
-Rounded rects (filled)   9315840
-Done!
-
-$$/code
-
+    :::
+    
+    ILI9341 Test!
+    Display Power Mode: 0x9C
+    MADCTL Mode: 0x48
+    Pixel Format: 0x5
+    Image Format: 0x0
+    Self Diagnostic: 0xC0
+    Benchmark                Time (microseconds)
+    Screen fill              3986432
+    Text                     0
+    Lines                    6518272
+    Horiz/Vert Lines         345088
+    Rectangles (outline)     235520
+    Rectangles (filled)      8283648
+    Circles (filled)         2135552
+    Circles (outline)        2848768
+    Triangles (outline)      2067456
+    Triangles (filled)       3433984
+    Rounded rects (outline)  1003008
+    Rounded rects (filled)   9315840
+    Done!
+    
 It is also possible to use software SPI the example sketch has a commented section that describes how to perform this. Being said, this option is extremely slow and I do not advice using it with MSP430.
 
 

@@ -30,44 +30,41 @@ First, I investigated the current process of writing and building modules. An ex
 
 In an nutshell, it is required to create a file that looks like this:
 
-$$code(lang=c)
-
-
-/*  
- *  hello-1.c - The simplest kernel module.
- */
-#include <linux/module.h>	/* Needed by all modules */
-#include <linux/kernel.h>	/* Needed for KERN_INFO */
-
-int init_module(void)
-{
-	printk(KERN_INFO "Hello world 1.\n");
-
-    /* 
-     * A non 0 return means init_module failed; module can't be loaded. 
+    :::c
+    
+    
+    /*  
+     *  hello-1.c - The simplest kernel module.
      */
-	return 0;
-}
-
-void cleanup_module(void)
-{
-	printk(KERN_INFO "Goodbye world 1.\n");
-}
-
-$$/code
+    #include <linux/module.h>	/* Needed by all modules */
+    #include <linux/kernel.h>	/* Needed for KERN_INFO */
+    
+    int init_module(void)
+    {
+    	printk(KERN_INFO "Hello world 1.\n");
+    
+        /* 
+         * A non 0 return means init_module failed; module can't be loaded. 
+         */
+    	return 0;
+    }
+    
+    void cleanup_module(void)
+    {
+    	printk(KERN_INFO "Goodbye world 1.\n");
+    }
+    
 
 Additionally, a _mkefile_ that looks like this:
 
-$$code(lang=make)
-obj-m += hello-1.o
-
-all:
-	make  -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
-clean:
-	make  -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
-
-$$/code
-
+    :::make
+    obj-m += hello-1.o
+    
+    all:
+    	make  -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+    clean:
+    	make  -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+    
 Calling make will produce a *_.ko_* file which is the actual loadable module. It can be loaded and removed using the ```insmodule``` and ```rmodule```.
 
 The difference between a _.ko_ and _.o_ file is the additional memory sections added by the linker.
@@ -84,64 +81,60 @@ So instead, I envision the following strategy. All the "logic" of the module wil
 
 The Ada files contain a function which always return a constant 42. ```pragma Export``` is used to export the ```ada_foo``` symbol.
 
-$$code(lang=Ada)
-package Ada_Foo_Pack is
-
-   function Ada_Foo return Integer;
-
-private
-   pragma Export
-      (Convention    => C,
-       Entity        => Ada_Foo,
-       External_Name => "ada_foo");
-end Ada_Foo_Pack;
-$$/code
-
-$$code(lang=Ada)
-package body Ada_Foo_Pack is
-
-   Ultimate_Unswer : Integer := 0;
-
-   function Ada_Foo return Integer is
-   begin
-
-      return Ultimate_Unswer;
-
-   end Ada_Foo;
-
-begin
-
-   --  This line of code will run during elaboration
-   --
-   Ultimate_Unswer := 42;
-
-end Ada_Foo_Pack;
-$$/code
-
+    :::ada
+    package Ada_Foo_Pack is
+    
+       function Ada_Foo return Integer;
+    
+    private
+       pragma Export
+          (Convention    => C,
+           Entity        => Ada_Foo,
+           External_Name => "ada_foo");
+    end Ada_Foo_Pack;
+    
+    :::ada
+    package body Ada_Foo_Pack is
+    
+       Ultimate_Unswer : Integer := 0;
+    
+       function Ada_Foo return Integer is
+       begin
+    
+          return Ultimate_Unswer;
+    
+       end Ada_Foo;
+    
+    begin
+    
+       --  This line of code will run during elaboration
+       --
+       Ultimate_Unswer := 42;
+    
+    end Ada_Foo_Pack;
+    
 The _C_ file performs the elaboration of Ada libraries by calling ```adakernelmoduleinit```, and then calls ```prink``` with the value returned by the Ada function.
 
-$$code(lang=C)
-#include <linux/module.h> /* Needed by all modules */
-#include <linux/kernel.h> /* Needed for KERN_INFO */
-
-extern void adakernelmoduleinit- (void);
-extern int ada_foo(void);
-
-int init_module(void)
-{
-    adakernelmoduleinit();
-    printk(KERN_ERR "Hello Ada %d.\n", ada_foo());
- 
-    return 0;
-}
-
-
-void cleanup_module(void)
-{
-    printk(KERN_ERR "Goodbye Ada.\n");
-}
-$$/code
-
+    :::c
+    #include <linux/module.h> /* Needed by all modules */
+    #include <linux/kernel.h> /* Needed for KERN_INFO */
+    
+    extern void adakernelmoduleinit- (void);
+    extern int ada_foo(void);
+    
+    int init_module(void)
+    {
+        adakernelmoduleinit();
+        printk(KERN_ERR "Hello Ada %d.\n", ada_foo());
+     
+        return 0;
+    }
+    
+    
+    void cleanup_module(void)
+    {
+        printk(KERN_ERR "Goodbye Ada.\n");
+    }
 
 So far nothing too complicated. However when building the module, _kbuild_ complaints about many missing symbols. These missing symbols are part of the "Run Time". The calls to these methods are either produced by a compiler (for example ```delay 0.1;``` will implicitly call functions from the calendar package) or produced by the binder (initialization of the run time).
 
@@ -162,48 +155,44 @@ To summarize, for building a run time, you will need _adainclude_ and _adalib_ d
 
 When building the kernel module library, every relevant tool needs to be called with the "```--RTS=```" flag that specify the path to the directory that contains the above two.
 
-Deprating a little bit from Luke's tutorial, I did some modifications to the directory structure, the compiler flags, removed of the console package and changed the _last chance handler_ into a _null_ function.
+Deprating a little bit from Luke's tutorial, I did some modifications to the directory structure, the compiler flags, removed the console package and changed the _last chance handler_ into a _null_ function.
 
-The final directory structure would look like the following diagram. I have uploaded the complete project to githhub, and you can find this version of the project by looking for the [_blog-post-pt-1)_ git tag](https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/tree/blog-post-pt-1).
+The final directory structure would look like the following diagram. I have uploaded the complete project to githhub, and you can find this version of the project by looking for the [_blog-post-pt-1_ git tag](https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/tree/blog-post-pt-1).
 
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/archive/blog-post-pt-1.zip" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download alkhimey/Ada_Kernel_Module_Toolkit on GitHub">Download Pt-1</a>
 
-$$code
-.
-├── gnat.adc
-├── kernel_module_lib.gpr
-├── lib
-├── main.c
-├── Makefile
-├── obj
-├── rts
-│   ├── adainclude
-│   │   ├── ada.ads
-│   │   ├── a-unccon.ads
-│   │   ├── a-uncdea.ads
-│   │   ├── gnat.ads
-│   │   ├── g-souinf.ads
-│   │   ├── interfac.ads
-│   │   ├── last_chance_handler.adb
-│   │   ├── last_chance_handler.ads
-│   │   ├── s-atacco.adb
-│   │   ├── s-atacco.ads
-│   │   ├── s-maccod.ads
-│   │   ├── s-stoele.adb
-│   │   ├── s-stoele.ads
-│   │   └── system.ads
-│   ├── adalib
-│   ├── gnat.gpr
-│   └── obj
-└── src
-    ├── ada_foo_pack.adb
-    └── ada_foo_pack.ads
-$$/code
-
-
-
-
+    :::
+    .
+    ├── gnat.adc
+    ├── kernel_module_lib.gpr
+    ├── lib
+    ├── main.c
+    ├── Makefile
+    ├── obj
+    ├── rts
+    │   ├── adainclude
+    │   │   ├── ada.ads
+    │   │   ├── a-unccon.ads
+    │   │   ├── a-uncdea.ads
+    │   │   ├── gnat.ads
+    │   │   ├── g-souinf.ads
+    │   │   ├── interfac.ads
+    │   │   ├── last_chance_handler.adb
+    │   │   ├── last_chance_handler.ads
+    │   │   ├── s-atacco.adb
+    │   │   ├── s-atacco.ads
+    │   │   ├── s-maccod.ads
+    │   │   ├── s-stoele.adb
+    │   │   ├── s-stoele.ads
+    │   │   └── system.ads
+    │   ├── adalib
+    │   ├── gnat.gpr
+    │   └── obj
+    └── src
+        ├── ada_foo_pack.adb
+        └── ada_foo_pack.ads
 
 ## Conclusion
 
 The example module I have written is very simple proof of concept. The Ada part does not even use any of symbols exported by the kernel. In future articles I will make an attempt to write a usefull kernel module that actually does stuff.
+

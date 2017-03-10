@@ -22,32 +22,31 @@ I was surprised how smooth was the process of building and running a demo progra
 
 ## Project File
 
-* Create "*test.gpr*" file with the following contents:
+Create "*test.gpr*" file with the following contents:
 
-$$code(lang=Ada)
-
-project test is
-  for main use ("test");
-  
-  for Source_Dirs use ("./**");
-  
-  for Object_Dir use "obj";
-  
-  for Exec_Dir use ".";
-  
-  package Linker is
-     for Default_Switches("Ada") use ("-lX11");
-  end Linker;
-  
-  package Compiler is
-     for Default_Switches("Ada") use ("-gnateE", "-gnat2012"); 
-  end Compiler;
-  
-  for Languages use ("Ada", "C");
-
-end test;
-
-$$/code
+    :::ada
+    
+    project test is
+      for main use ("test");
+      
+      for Source_Dirs use ("./**");
+      
+      for Object_Dir use "obj";
+      
+      for Exec_Dir use ".";
+      
+      package Linker is
+         for Default_Switches("Ada") use ("-lX11");
+      end Linker;
+      
+      package Compiler is
+         for Default_Switches("Ada") use ("-gnateE", "-gnat2012"); 
+      end Compiler;
+      
+      for Languages use ("Ada", "C");
+    
+    end test;
+    
 
 ## Code ##
 
@@ -55,92 +54,85 @@ Being thin bindings, every *C* function of X11 library has an equivalent Ada fun
 
 I used example program from the following [article](http://www.linuxjournal.com/article/4879) of Linux Magazine.
 
-
-$$code(lang=Ada)
-
-with Interfaces.C;
-with X;
-with X.Xlib;
-
-procedure Test is 
+    :::ada
+    
+    with Interfaces.C;
+    with X;
+    with X.Xlib;
+    
+    procedure Test is 
+       
+       use type Interfaces.C.Int;
+       use type Interfaces.C.Unsigned;
+       use type X.Xlib.XDisplay_access;
+       
+       Cant_Open_Display_Error: exception;
+       
+       Display          : X.Xlib.XDisplay_access;
+       Screen_Num       : Interfaces.C.Int;   
+       Win              : X.Window;
+       Graphics_Context : X.Xlib.GC;
+       Report           : aliased X.Xlib.XEvent;
+       
+    begin
+    
+       Display := X.Xlib.XOpenDisplay( null );
+       
+       if Display = null  then	 
+          raise Cant_Open_Display_Error;
+       end if;
+       
+       Screen_num     := X.Xlib.DefaultScreen(Display);
+       
+       Win := X.Xlib.XCreateSimpleWindow
+         (Display      => Display, 
+          Parent       => X.Xlib.RootWindow(Display, Screen_Num), 
+          XX           => 50, 
+          Y            => 50, 
+          Width        => 200, 
+          Height       => 200, 
+          Border_Width => 0, 
+          Border       => X.Xlib.BlackPixel(Display, Screen_Num), 
+          Background   => X.Xlib.WhitePixel(Display, Screen_Num));
+       
+       X.Xlib.XMapWindow(display, Win);
+       
+       X.Xlib.XSelectInput(Display, Win, X.StructureNotifyMask);
    
-   use type Interfaces.C.Int;
-   use type Interfaces.C.Unsigned;
-   use type X.Xlib.XDisplay_access;
-   
-   Cant_Open_Display_Error: exception;
-   
-   Display          : X.Xlib.XDisplay_access;
-   Screen_Num       : Interfaces.C.Int;   
-   Win              : X.Window;
-   Graphics_Context : X.Xlib.GC;
-   Report           : aliased X.Xlib.XEvent;
-   
-begin
-
-   Display := X.Xlib.XOpenDisplay( null );
-   
-   if Display = null  then	 
-      raise Cant_Open_Display_Error;
-   end if;
-   
-   Screen_num     := X.Xlib.DefaultScreen(Display);
-   
-   Win := X.Xlib.XCreateSimpleWindow
-     (Display      => Display, 
-      Parent       => X.Xlib.RootWindow(Display, Screen_Num), 
-      XX           => 50, 
-      Y            => 50, 
-      Width        => 200, 
-      Height       => 200, 
-      Border_Width => 0, 
-      Border       => X.Xlib.BlackPixel(Display, Screen_Num), 
-      Background   => X.Xlib.WhitePixel(Display, Screen_Num));
-   
-   X.Xlib.XMapWindow(display, Win);
-   
-   X.Xlib.XSelectInput(Display, Win, X.StructureNotifyMask);
-   
-   loop
-      X.Xlib.XNextEvent(Display, Report'access);
-      
-      exit when Report.Event_Type = X.MapNotify;
-   end loop;
-   
-   Graphics_Context := X.Xlib.XDefaultGC(Display, Screen_Num);
- 
-   X.Xlib.XSetForeground(Display, Graphics_Context, X.Xlib.BlackPixel(Display, Screen_Num));
-   
-   X.Xlib.XDrawLine(Display, X.Drawable(Win), Graphics_Context, 10, 10, 190, 190);
-   X.Xlib.XDrawLine(Display, X.Drawable(Win), Graphics_Context, 10, 190, 190, 10);
-   
-   X.Xlib.XSelectInput
-     (Display, 
-      Win, 
-      Interfaces.C.Long( Interfaces.C.Unsigned( X.ButtonPressMask) or X.ButtonReleaseMask)
-     );
-   
-   loop
-      X.Xlib.XNextEvent(Display, Report'access);
-      
-      exit when Report.Event_Type = X.ButtonRelease;
-   end loop;
-   
-   X.Xlib.XDestroyWindow(Display, Win);
-   X.Xlib.XCloseDisplay(Display);   
-   
-end Test;
-
-$$/code
-
+       loop
+          X.Xlib.XNextEvent(Display, Report'access);
+          
+          exit when Report.Event_Type = X.MapNotify;
+       end loop;
+       
+       Graphics_Context := X.Xlib.XDefaultGC(Display, Screen_Num);
+     
+       X.Xlib.XSetForeground(Display, Graphics_Context, X.Xlib.BlackPixel(Display, Screen_Num));
+       
+       X.Xlib.XDrawLine(Display, X.Drawable(Win), Graphics_Context, 10, 10, 190, 190);
+       X.Xlib.XDrawLine(Display, X.Drawable(Win), Graphics_Context, 10, 190, 190, 10);
+       
+       X.Xlib.XSelectInput
+         (Display, 
+          Win, 
+          Interfaces.C.Long( Interfaces.C.Unsigned( X.ButtonPressMask) or X.ButtonReleaseMask)
+         );
+       
+       loop
+          X.Xlib.XNextEvent(Display, Report'access);
+          
+          exit when Report.Event_Type = X.ButtonRelease;
+       end loop;
+       
+       X.Xlib.XDestroyWindow(Display, Win);
+       X.Xlib.XCloseDisplay(Display);   
+       
+    end Test;
+    
 Building with gprbuild:
 
-$$code
-
-gprbuild -P test.gpr
-
-$$/code
-
+    :::shell
+    gprbuild -P test.gpr
 
 And that is all it takes to use 20 years old software package.
 
