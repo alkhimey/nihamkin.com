@@ -1,6 +1,8 @@
 Tags: Blogofile, Web Development, About
 date: 2012/09/02 01:00:00
 title: Why I Chose Blogofile as my Blogging Platform
+url: 2012/09/02/why-i-chose-blogofile-as-my-blogging-platform/
+save_as: 2012/09/02/why-i-chose-blogofile-as-my-blogging-platform/index.html
 
 Blogofile is the blogging engine behind this blog.
 

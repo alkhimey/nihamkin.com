@@ -1,6 +1,9 @@
 Tags: About
 date: 2012/09/01 17:00:00
 title: About this Blog
+url: 2012/09/01/about-this-blog/
+save_as: 2012/09/01/about-this-blog/index.html
+
 
 ## Welcome!
 
@@ -23,6 +26,7 @@ I do not expect people to follow my blog closely. My expectations are that indiv
 </a>    <a href="https://projecteuler.net/progress=Artium"><img src="https://projecteuler.net/profile/Artium.png" width="208" height="58" alt="Project Euler flair"></a>
 
 You always can reach me by the following email:
+
 [![email captcha](/files/email3.gif)](http://captchanim.cs.technion.ac.il)
 
 
