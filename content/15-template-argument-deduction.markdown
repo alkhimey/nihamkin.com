@@ -1,7 +1,8 @@
 Tags: C++, generics
 date: 2014/05/04 23:00:00
 title: Template Argument Deduction
-draft: False
+url: 2014/05/04/template-argument-deduction/
+save_as: 2014/05/04/template-argument-deduction/index.html
 
 With automatic template deduction, it is possible to omit the template argument when instantiating a template function. The compiler will deduce the type from the actual parameter sent to the function. This is of course assuming there are no ambiguities.
 

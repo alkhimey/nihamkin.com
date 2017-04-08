@@ -1,7 +1,8 @@
 Tags: Blogofile
 date: 2013/02/22 20:00:00
 title: Start New Blogofile Post With a Single Command
-draft: False
+url: 2013/02/22/start-new-blogofile-post-with-a-single-command/
+save_as: 2013/02/22/start-new-blogofile-post-with-a-single-command/index.html
 
 
 

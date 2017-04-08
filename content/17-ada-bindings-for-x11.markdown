@@ -1,7 +1,8 @@
 Tags: Ada, X11
 date: 2015/09/01 17:00:00
 title: Trying Ada Bindings for X11
-draft: False
+url: 2015/09/01/trying-ada-bindings-for-x11/
+save_as: 2015/09/01/trying-ada-bindings-for-x11/index.html
 
 Ada bindings for X11 were written Intermentics company and sponsored by Ada Joint Program Office (AJPO).
 
@@ -69,7 +70,7 @@ I used example program from the following [article](http://www.linuxjournal.com/
        Cant_Open_Display_Error: exception;
        
        Display          : X.Xlib.XDisplay_access;
-       Screen_Num       : Interfaces.C.Int;   
+       Screen_Num       : Interfaces.C.Int;
        Win              : X.Window;
        Graphics_Context : X.Xlib.GC;
        Report           : aliased X.Xlib.XEvent;
@@ -78,7 +79,7 @@ I used example program from the following [article](http://www.linuxjournal.com/
     
        Display := X.Xlib.XOpenDisplay( null );
        
-       if Display = null  then	 
+       if Display = null  then
           raise Cant_Open_Display_Error;
        end if;
        
@@ -134,7 +135,7 @@ Building with gprbuild:
     :::shell
     gprbuild -P test.gpr
 
-And that is all it takes to use 20 years old software package.
+And that is all it takes to use 20 years old software package!
 
 
 

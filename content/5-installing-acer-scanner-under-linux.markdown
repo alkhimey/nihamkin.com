@@ -1,7 +1,8 @@
 Tags: Linux
 date: 2012/11/12 14:00:00
 title: How to Install an Acer Scanner Under Linux
-draft: false
+url: 2012/11/12/how-to-install-an-acer-scanner-under-linux/
+save_as: 2012/11/12/how-to-install-an-acer-scanner-under-linux/index.html
 
 
 I own an old Acer szw4300U scanner. Making it work with Linux is not exactly a plug and play, but not very complex either. Here is how it is done.

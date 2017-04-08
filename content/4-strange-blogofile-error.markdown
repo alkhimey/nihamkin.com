@@ -1,11 +1,11 @@
 Tags: Blogofile, Emacs
 date: 2012/10/13 15:00:00
 title: Strange Blogofile IO Error
-draft: false
-url: 
-save_as:
+url: 2012/10/13/strange-blogofile-io-error/
+save_as: 2012/10/13/strange-blogofile-io-error/index.html
+summary: Sometimes when building a blogofile site I encounter "No such file or directory" IO error. In this article I will explain the cause of the error as well as how to prevent it.
 
-Sometimes when building a blogofile site I encounter the following IO error (excuse me for the text spill):
+Sometimes when building a blogofile site I encounter the following IO error:
     
     :::python
     Traceback (most recent call last):

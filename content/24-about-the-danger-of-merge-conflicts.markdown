@@ -1,7 +1,8 @@
 Tags: Ada,  Software Engineering, Source Control
 date: 2016/12/31 14:00:00
 title: About the Pitfalls of Merge Conflicts
-draft: False
+url: 2016/12/31/about-the-pitfalls-of-merge-conflicts/
+save_as: 2016/12/31/about-the-pitfalls-of-merge-conflicts/index.html
 
 I do not consider myself a novice software developer. And yet I still have not exceeded the list of things I can learn "the hard way".
 

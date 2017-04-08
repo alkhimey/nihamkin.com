@@ -2,7 +2,8 @@ Tags: shell, sh, linux
 date: 2013/08/17 04:00:00
 updated: 2013/09/25 04:30:00
 title: Combining ls and cat Commands
-draft: False
+url: 2013/08/17/combining-ls-and-cat-commands/
+save_as: 2013/08/17/combining-ls-and-cat-commands/index.html
 
         
 
@@ -42,7 +43,7 @@ The following shell script will choose to run "ls" or "cat" depending on the typ
     # Find the argument that is file/directory name and test it
     # to find out if it is an existing directory. Other arguments are 
     # options and thus will begin with an "-".
-    #    
+    #
     for v in "$@" 
     do
         if [ '-' != `echo "$v" | cut -c1 ` ] 

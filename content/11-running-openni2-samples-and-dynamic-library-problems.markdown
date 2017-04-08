@@ -2,7 +2,8 @@ Tags: openni, linux
 date: 2013/08/02 17:00:00
 updated: 2013/09/25 04:30:00
 title: OpenNI2 Samples and Dynamic Library Problems
-draft: false
+url: 2013/08/02/openni2-samples-and-dynamic-library-problems/
+save_as: 2013/08/02/openni2-samples-and-dynamic-library-problems/index.html
 
 While experimenting with the OpenNI2 samples, I sometimes would get the following error when trying to run one of the executables:
 

@@ -1,7 +1,8 @@
 Tags: Economics, Tips
 date: 2013/04/01 16:00:00
 title: How to Save Money in Israel
-draft: false
+url: 2013/04/01/how-to-save-money-in-israel/
+save_as: 2013/04/01/how-to-save-money-in-israel/index.html
 
 It is always good to cut on household expenses, especially at times when product prices are rising. In this post I have gathered several tips that will help you save money monthly with only small impact on your quality of life.
 

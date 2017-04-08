@@ -1,7 +1,8 @@
 Tags: Eclipse, Plug-In, JDT
 date: 2013/02/16 17:00:00
 title: How to Add Items Into Eclipse's Refactor Menu
-draft: false
+url: 2013/02/16/how-to-add-items-into-eclipse-s-refactor-menu/
+save_as: 2013/02/16/how-to-add-items-into-eclipse-s-refactor-menu/index.html
 
 Recently, I was writing a plug-in that performs some refactoring (of which I will write in a separate post). 
 
