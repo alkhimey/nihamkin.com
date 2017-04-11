@@ -1,7 +1,7 @@
 Tags:  ili9341, msp430, embedded
 date: 2016/04/30 20:00:00
 title: Connecting MSP430 with ILI9341 TFT Display
-url: 2016/04/30/connecting-msp430-with-ili9341-tft-display/
+url: 2016/04/30/connecting-msp430-with-ili9341-tft-display
 save_as: 2016/04/30/connecting-msp430-with-ili9341-tft-display/index.html
 
 <center>

@@ -1,7 +1,7 @@
 Tags: Linux, Windows, Wine
 date: 2013/11/09 14:00:00
 title: Making Legacy Software Work On Windows
-url: 2013/11/09/making-legacy-software-work-on-windows/
+url: 2013/11/09/making-legacy-software-work-on-windows
 save_as: 2013/11/09/making-legacy-software-work-on-windows/index.html
 
 It sometimes happens that programs written for old versions of Windows will not work on new versions even with compatibility mode enabled. It is not uncommon for such program to crash and show some cryptic message that even a person of technical background can not understand.  Sometimes only a simple fix is required, like providing a missing DLL or creating a registry key, yet the program will not tell us what it actually expected to find. Recently I have discovered a technique that can help debug such situations. It might surprise the reader the the solution comes from the Linux world.

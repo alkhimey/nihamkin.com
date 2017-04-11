@@ -1,7 +1,7 @@
 Tags: Linux
 date: 2012/11/12 14:00:00
 title: How to Install an Acer Scanner Under Linux
-url: 2012/11/12/how-to-install-an-acer-scanner-under-linux/
+url: 2012/11/12/how-to-install-an-acer-scanner-under-linux
 save_as: 2012/11/12/how-to-install-an-acer-scanner-under-linux/index.html
 
 

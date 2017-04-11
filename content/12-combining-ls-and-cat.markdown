@@ -2,7 +2,7 @@ Tags: shell, sh, linux
 date: 2013/08/17 04:00:00
 updated: 2013/09/25 04:30:00
 title: Combining ls and cat Commands
-url: 2013/08/17/combining-ls-and-cat-commands/
+url: 2013/08/17/combining-ls-and-cat-commands
 save_as: 2013/08/17/combining-ls-and-cat-commands/index.html
 
         

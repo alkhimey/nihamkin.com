@@ -1,7 +1,7 @@
 Tags: About
 date: 2012/09/01 17:00:00
 title: About this Blog
-url: 2012/09/01/about-this-blog/
+url: 2012/09/01/about-this-blog
 save_as: 2012/09/01/about-this-blog/index.html
 
 

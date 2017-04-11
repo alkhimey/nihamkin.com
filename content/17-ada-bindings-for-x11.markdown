@@ -1,7 +1,7 @@
 Tags: Ada, X11
 date: 2015/09/01 17:00:00
 title: Trying Ada Bindings for X11
-url: 2015/09/01/trying-ada-bindings-for-x11/
+url: 2015/09/01/trying-ada-bindings-for-x11
 save_as: 2015/09/01/trying-ada-bindings-for-x11/index.html
 
 Ada bindings for X11 were written Intermentics company and sponsored by Ada Joint Program Office (AJPO).

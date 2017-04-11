@@ -1,7 +1,7 @@
 Tags: Emacs
 date: 2013/12/04 14:00:00
 title: How to Enable Logging of Chat Sessions in ERC
-url: 2013/12/04/how-to-enable-logging-of-chat-sessions-in-erc/
+url: 2013/12/04/how-to-enable-logging-of-chat-sessions-in-erc
 save_as: 2013/12/04/how-to-enable-logging-of-chat-sessions-in-erc/index.html
 
 

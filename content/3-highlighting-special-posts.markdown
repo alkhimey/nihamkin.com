@@ -2,7 +2,7 @@ Tags: Blogofile, Special
 date: 2012/09/25 17:00:00
 title: Highlighting Special Posts in Blogofile
 draft: false
-url: 2012/09/25/highlighting-special-posts-in-blogofile/
+url: 2012/09/25/highlighting-special-posts-in-blogofile
 save_as: 2012/09/25/highlighting-special-posts-in-blogofile/index.html
 
 
