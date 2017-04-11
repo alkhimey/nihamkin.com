@@ -5,11 +5,11 @@ from __future__ import unicode_literals
 AUTHOR = u'Artium Nihamkin'
 SITENAME = u"Artium Nihamkin's Blog"
 
-SITETITLE = 'Artium Nihamkin\'s Blog'
-SITESUBTITLE = 'Software development with focus on embedded'
+SITETITLE = 'Artium\'s Blog'
+SITESUBTITLE = 'Records of software development <br> (and other stuff)'
 # SITEDESCRIPTION = 'Foo Bar\'s Thoughts and Writings' # Not used in this theme
 
-SITEURL = 'http://nihamkin.com'
+SITEURL = 'http://127.0.0.1:8000'
 
 PATH = 'content'
 
@@ -25,7 +25,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-#LINKS = (('Portfolio', 'http://google.com'),)
+#LINKS = (('Google', 'http://google.com'),)
 
 # Social widget
 SOCIAL = (('github', 'https://github.com/alkhimey'),
@@ -52,11 +52,9 @@ EXTRA_PATH_METADATA = {
 
 THEME = "./pelican-themes/Flex"
 
-#PYGMENTS_STYLE = 'monokai'
+PYGMENTS_STYLE = 'monokai'
 
 MAIN_MENU = True
-
-
 
 MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
@@ -64,28 +62,14 @@ MENUITEMS = (('Archives', '/archives.html'),
              
 COPYRIGHT_YEAR = '2012-2017'   
  
-FAVICON  = 'favicon.ico'
-SITELOGO = 'servbot.png'
+FAVICON  = '/favicon.ico'
+SITELOGO = '/servbot.png'
 
 GITHUB_URL = 'https://github.com/alkhimey'
 
+DISQUS_SITENAME = 'local-artiumsblog'
+#GOOGLE_ANALYTICS = "UA-36977465-1"
 
-### DISQUS_SITENAME
-
-### GOOGLE_ANALYTICS
-
-### ROBOTS
-
-#
-# :url: override/url/
-# :save_as: override/url/index.html
-#
-
-
-#
-# DISQUS_SITENAME = 'yoursite'
-# GOOGLE_ANALYTICS = 'UA-1234-5678'
-#
 
 
 #YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
