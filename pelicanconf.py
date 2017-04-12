@@ -72,12 +72,12 @@ SITELOGO = '/servbot.png'
 GITHUB_URL = 'https://github.com/alkhimey'
 
 DISQUS_SITENAME = 'local-artiumsblog'
+DISQUS_COMMENT_COUNT = True
 #GOOGLE_ANALYTICS = "UA-36977465-1"
 
 
 # Specific to the Flex theme
 #
-DISABLE_PAGE_LINKS = True
 DISABLE_PAGE_BLANK_TARGET = True
 
 
