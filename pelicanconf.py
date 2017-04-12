@@ -7,7 +7,7 @@ SITENAME = u"Artium Nihamkin's Blog"
 
 SITETITLE = 'Artium\'s Blog'
 SITESUBTITLE = 'Records of software development <br> (and other stuff)'
-# SITEDESCRIPTION = 'Foo Bar\'s Thoughts and Writings' # Not used in this theme
+# SITEDESCRIPTION = 'Foo Bar\'s Thoughts and Writings' # Not used in Flex theme theme
 
 SITEURL = 'http://127.0.0.1:8000'
 
@@ -25,7 +25,9 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-#LINKS = (('Google', 'http://google.com'),)
+LINKS = (('Blog', '/'),
+         ('Projects', '/projects'),
+         ('About', '/2012/09/01/about-this-blog/#about-this-blog') )
 
 # Social widget
 SOCIAL = (('github', 'https://github.com/alkhimey'),
@@ -34,8 +36,10 @@ SOCIAL = (('github', 'https://github.com/alkhimey'),
 
 DEFAULT_PAGINATION = 10
 
+#ROBOTS = u'index, follow'
+
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 
 STATIC_PATHS = [
@@ -70,6 +74,11 @@ GITHUB_URL = 'https://github.com/alkhimey'
 DISQUS_SITENAME = 'local-artiumsblog'
 #GOOGLE_ANALYTICS = "UA-36977465-1"
 
+
+# Specific to the Flex theme
+#
+DISABLE_PAGE_LINKS = True
+DISABLE_PAGE_BLANK_TARGET = True
 
 
 #YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
