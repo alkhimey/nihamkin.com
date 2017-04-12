@@ -3,6 +3,7 @@ date: 2016/11/25 20:00:00
 title: Writing Linux Modules in Ada - Part 3
 url: 2016/11/25/writing-linux-modules-in-ada-part-3
 save_as: 2016/11/25/writing-linux-modules-in-ada-part-3/index.html
+summary: In this article I will continue to extend the runtime running in the kernel module. We have not touched the kernel module part itself yet, just laying the infrastructure. <br> The next step is to implement the ```Image``` attribute. This requires some work as this attribute is implemented differently for each basic type it can be used on.
 
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/"  data-style="mega" aria-label="View alkhimey/Ada_Kernel_Module_Toolkit on GitHub">View on Github</a>
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit" data-icon="octicon-star" data-style="mega" data-count-href="/alkhimey/Ada_Kernel_Module_Toolkit/stargazers" data-count-api="/repos/alkhimey/Ada_Kernel_Module_Toolkit#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star alkhimey/Ada_Kernel_Module_Toolkit on GitHub">Star on Github</a>

@@ -3,6 +3,7 @@ date: 2016/11/5 17:30:00
 title: Writing Linux Modules in Ada - Part 2
 url: 2016/11/05/writing-linux-modules-in-ada-part-2
 save_as: 2016/11/05/writing-linux-modules-in-ada-part-2/index.html
+summary: In this article I will focus on implementing the secondary stack of the runtime. <br> Secondary stack is required if we desire functions to return objects of unconstrained types. This in turn required for the ```'Image``` attribute, which is used extensively in the ```Interfaces.C``` package.
 
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/"  data-style="mega" aria-label="View alkhimey/Ada_Kernel_Module_Toolkit on GitHub">View on Github</a>
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit" data-icon="octicon-star" data-style="mega" data-count-href="/alkhimey/Ada_Kernel_Module_Toolkit/stargazers" data-count-api="/repos/alkhimey/Ada_Kernel_Module_Toolkit#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star alkhimey/Ada_Kernel_Module_Toolkit on GitHub">Star on Github</a>

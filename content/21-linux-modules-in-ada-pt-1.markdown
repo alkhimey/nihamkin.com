@@ -3,6 +3,7 @@ date: 2016/10/23 13:30:00
 title: Writing Linux Modules in Ada - Part 1
 url: 2016/10/23/writing-linux-modules-in-ada-part-1
 save_as: 2016/10/23/writing-linux-modules-in-ada-part-1/index.html
+summary: In the following series of blog posts I will document my attempts to write Linux modules using the Ada language. <br> In part 1, I will demonstrate how to write in Ada and build a simple "hello world" Linux kernel module. <br> Additionally, I will introduce a basic customized Ada runtime to support our "hello world" module. This runtime will be extended in subsequent articles in the series.
 
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/"  data-style="mega" aria-label="View alkhimey/Ada_Kernel_Module_Toolkit on GitHub">View on Github</a>
 <a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit" data-icon="octicon-star" data-style="mega" data-count-href="/alkhimey/Ada_Kernel_Module_Toolkit/stargazers" data-count-api="/repos/alkhimey/Ada_Kernel_Module_Toolkit#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star alkhimey/Ada_Kernel_Module_Toolkit on GitHub">Star on Github</a>
