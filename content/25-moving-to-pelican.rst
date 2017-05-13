@@ -1,7 +1,7 @@
 Migrating Blogofile to Pelican
 ###############################
 
-:date: 2017/06/06 02:00:00
+:date: 2017/05/13 23:00:00
 :tags: Blogofile, Pelican
 :authors: Artium Nihamkin
 
