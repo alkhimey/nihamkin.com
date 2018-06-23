@@ -5,6 +5,10 @@ Migrating Blogofile to Pelican
 :tags: Blogofile, Pelican
 :authors: Artium Nihamkin
 
+.. role:: ada(code)
+   :language: ada
+
+
 Since I started writing this blog in 2012, I used `Blogofile <https://github.com/EnigmaCurry/blogofile>`_ as the blogging platform. 
 
 Blogofile is a static website generator, meaning that the content is written and stored in a structured format like `Markdown <https://en.wikipedia.org/wiki/Markdown>`_, then it is compiled offline into a set of HTML pages that can be hosted on any web server, iregardless of it's technology. It can be even hosted cheaply on Amazon S3, which is what I am doing with this website. 
