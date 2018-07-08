@@ -1,5 +1,5 @@
-My Creations
-############
+Projects
+########
 
 :tags: projects
 :slug: projects
@@ -7,7 +7,7 @@ My Creations
 :url: projects
 :save_as: projects/index.html
 
-This page is dedicated to differnet hobbyist projects I run throught the years. 
+This page is dedicated to differnet hobbyist projects I run throught the years.
 
 Since I am a software engineer, most of these projects are software related.
 
@@ -16,15 +16,18 @@ Other projects too small to be important can be found on my `Github page`_.
 .. _Github page: https://github.com/alkhimey/
 
 
-Linux Kernek Modules with Ada
+Linux Kernel Modules with Ada
 ==============================
 
 - **Year:** 2016-2018
 - **Source:** https://github.com/alkhimey/Ada_Kernel_Module_Toolkit
 
-My attempt to develop **Linux Kernel Modules** using the **Ada** programming langugage. 
+My attempt to develop **Linux Kernel Modules** using the **Ada** programming
+langugage.
 
-This is a proof of concept that I am still working on. My goal is to demonstrate the usefullness of Ada's strong typing system for this kind of application.
+This is a proof of concept that I am still working on. My goal is to
+demonstrate the usefulness of Ada's strong typing system for this kind of
+application.
 
 Follow my blog to see how I progress.
 

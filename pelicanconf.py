@@ -36,6 +36,9 @@ SOCIAL = (('github', 'https://github.com/alkhimey'),
 
 DEFAULT_PAGINATION = 10
 
+DISPLAY_PAGES_ON_MENU = False
+PAGE_PATHS = ['pages']
+
 #ROBOTS = u'index, follow'
 
 # Uncomment following line if you want document-relative URLs when developing
