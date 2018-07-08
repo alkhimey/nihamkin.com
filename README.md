@@ -1,12 +1,12 @@
 nihamkin.com
 ============
 
-This is the source code behind my bolg. It is based on Pelican and is sttically generated.
+This is the source code used for my bolg. It is based on Pelican and is sttically generated.
 
-The output is served statically from AWS s3.
+The output is served statically from AWS S3.
 
 
-Setting-up Pelican
+Setting-Up Pelican
 -------------------
 
 ```
@@ -27,3 +27,4 @@ firefox http://127.0.0.1:8000/
 
 Upload to s3
 -------------
+TBD
