@@ -26,7 +26,7 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (('Blog', '/'),
-         ('Projects', '/projects'),
+         #('Projects', '/projects'),
          ('About', '/2012/09/01/about-this-blog/#about-this-blog') )
 
 # Social widget
