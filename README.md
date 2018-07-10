@@ -27,4 +27,11 @@ firefox http://127.0.0.1:8000/
 
 Upload to s3
 -------------
-TBD
+```
+apt-get install s3cmd
+Created IAM User and Access Key
+s3cmd --configure 
+
+make publish
+make s3_upload
+

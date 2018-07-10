@@ -1,0 +1,294 @@
+Writing Linux Modules in Ada - Part 4 
+######################################
+
+:date: 
+:tags: Linux, Ada
+:title: Writing Linux Modules in Ada - Part 4 
+:authors: Artium Nihamkin
+:summary: In this installment ....
+
+.. role:: ada(code)
+   :language: ada
+
+
+<a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/"  data-style="mega" aria-label="View alkhimey/Ada_Kernel_Module_Toolkit on GitHub">View on Github</a>
+<a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit" data-icon="octicon-star" data-style="mega" data-count-href="/alkhimey/Ada_Kernel_Module_Toolkit/stargazers" data-count-api="/repos/alkhimey/Ada_Kernel_Module_Toolkit#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star alkhimey/Ada_Kernel_Module_Toolkit on GitHub">Star on Github</a>
+<a class="github-button" href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit/archive/blog-post-pt-4.zip" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download alkhimey/Ada_Kernel_Module_Toolkit on GitHub">Download Pt-4</a>
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!--
+<a href="https://github.com/alkhimey/Ada_Kernel_Module_Toolkit"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+-->
+
+
+
+This time, I am adding the *Interfaces.C* package, memory allocation and exceptions (sort of). After this part is finished, the next step will be to actually write a useful character device.
+
+First I would like to shout out to Marc Enzmann who `forked <https://github.com/MEnzmann/Ada_Kernel_Module_Toolkit>`_ this project and advanced independantly . 
+
+
+Marc implemented everything described in this article and more. There is a `note https://github.com/MEnzmann/Ada_Kernel_Module_Toolkit/blob/master/NOTES.txt`_ describing the changes he did.
+
+I looked at Marc's version and took some ideas, but I still wanted to try to implement it myself with a goal of learning a bit how GNAT is working under the hood. 
+
+
+Linux package
+=============
+
+Created the linux package in `rts\adainclude`. This package and it's subpackages will contain all the Linux relevant Ada code. Both stuff used exlusively by the RTS as well as stuff used by the module code.
+
+Print_Kernel
+============
+
+The [prink](http://www.makelinux.net/ldd3/chp-4-sect-2) function will be used to demonstrate that Interfaces.C package is working.
+
+The reason is that it has a string parameter (not a trivial type to inteface) and it will be handy in the future anyway.
+
+Later I will describe how the interfacing itself is implemented.
+
+Interfaces.C first steps
+========================
+
+Copied the `Interfaces.C` and `Interfaces.C.String` packages into the runtime:
+
+```
+i-c.adb
+i-c.ads
+i-cstrin.adb
+i-cstrin.ads
+``` 
+
+The linker complained that some symbols are missing:
+
+```
+WARNING: "__gnat_free" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+WARNING: "__gnat_malloc" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+```
+
+Indeed, the way `Kernel_IO.Put` is implemented, requires allocation of memory.
+
+Memory allocation in Gnat
+=========================
+
+
+
+
+An aexplenation about the flow ca lloc import (s-crtl.ads)-> s-memory functiuon -> __gnat_free export
+
+Generated compiler code uses __gnat_free as well a c-strin (./rts/adainclude/i-cstrin.adb) pragma Import (C, Memory_Alloc, System.Parameters.C_Malloc_Linkname);
+
+
+
+System.Memory and Linux.Memory
+===============================
+
+
+
+Copied:
+
+rts/adainclude/s-memory.ads
+rts/adainclude/s-memory.adb
+s-crtl.ads -- c runtime 
+
+Recurtsion again:
+
+s-memory.adb:107:20: violation of restriction "No_Recursion" at /home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/gnat.adc:18
+
+
+ function Alloc (Size : size_t) return System.Address is
+      Result : System.Address;
+   begin
+      --  A previous version moved the check for size_t'Last below, into the
+      --  "if Result = System.Null_Address...". So malloc(size_t'Last) should
+      --  return Null_Address, and then we can check for that special value.
+      --  However, that doesn't work on VxWorks, because malloc(size_t'Last)
+      --  prints an unwanted warning message before returning Null_Address.
+
+      if Size = size_t'Last then
+         raise Storage_Error with "object too large";
+      end if;
+
+      if Parameters.No_Abort then
+         Result := c_malloc (System.CRTL.size_t (Size));
+      else
+         Abort_Defer.all;
+         Result := c_malloc (System.CRTL.size_t (Size));
+         Abort_Undefer.all;
+      end if;
+
+      if Result = System.Null_Address then
+
+         --  If Size = 0, we can't allocate 0 bytes, because then two different
+         --  allocators, one of which has Size = 0, could return pointers that
+         --  compare equal, which is wrong. (Nonnull pointers compare equal if
+         --  and only if they designate the same object, and two different
+         --  allocators allocate two different objects).
+
+         --  malloc(0) is defined to allocate a non-zero-sized object (in which
+         --  case we won't get here, and all is well) or NULL, in which case we
+         --  get here. We also get here in case of error. So check for the
+         --  zero-size case, and allocate 1 byte. Otherwise, raise
+         --  Storage_Error.
+
+         --  We check for zero size here, rather than at the start, for
+         --  efficiency.
+
+         if Size = 0 then
+            return Alloc (1);
+         end if;
+
+         raise Storage_Error with "heap exhausted";
+      end if;
+
+      return Result;
+   end Alloc;
+
+
+After fixing the recursion, we sould use vmalloc not malloc!
+
+
+* Removing Abort
+
+--  If you are not using Ada constructs containing the "abort" keyword, then
+--  you can remove the calls to Abort_Defer.all and Abort_Undefer.all from
+--  this unit.
+
+
+WARNING: "system__soft_links__abort_defer" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+
+
+
+
+After this, still get 
+
+WARNING: "free" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+WARNING: "ada__exceptions__raise_exception" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+WARNING: "realloc" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+WARNING: "malloc" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+WARNING: "print_kernel_chars" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+
+
+created Linux and Linux.Memory package. commented out s-ctrl.ads functions
+
+kmalloc modifiers (gfp_flags from gfp.h linux header)
+
+
+replaced 
+
+   function c_malloc (Size : System.CRTL.size_t) return System.Address
+    renames System.CRTL.malloc;
+with 
+       function c_malloc (Size : System.CRTL.size_t) return System.Address
+    renames Linux.kmalloc;
+
+
+
+
+There is a Linux package in RTS. All bindings will go there.
+
+
+Added linux-wrappers.c in the root - explain why
+
+Interfacing Printk with C. Explain why use intermidiate type.
+
+
+
+
+Now I get WARNING: "ada__exceptions__raise_exception" [/home/artium/Projects/Ada_Kernel_Module_Toolkit/hello.ko] undefined!
+
+Try to avoid but now Exceptions starting to get on my nerve. Decided to deal with using Marc's code
+
+
+Ada.Exception
+=============
+
+
+Copied for Mrac's code `a-except.ad*` files and got stragne error:
+
+```
+make
+gprbuild -Prts/gnat.gpr --create-missing-dirs
+warning: switch -a is ignored and no additional source is compiled
+gcc -c -gnat05 -O0 -g3 -gnatg -gnatd.n -O0 -g3 -ffunction-sections -fdata-sections -mcmodel=kernel s-memory.adb
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/system.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/s-memory.adb
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/s-memory.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/s-crtl.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/s-parame.ads
+/usr/gnat/lib/gcc/x86_64-pc-linux-gnu/4.9.4/adainclude/s-soflin.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/ada.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/a-except.ads
+/usr/gnat/lib/gcc/x86_64-pc-linux-gnu/4.9.4/adainclude/s-stache.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/s-stoele.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/linux.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/linux-memory.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/interfac.ads
+/home/artium/Projects/Ada_Kernel_Module_Toolkit/rts/adainclude/s-unstyp.ads
+s-soflin.ads:48:33: "Exception_Occurrence_Access" not declared in "Exceptions"
+s-soflin.ads:49:32: "Exception_Occurrence" not declared in "Exceptions"
+gprbuild: *** compilation phase failed
+Makefile:5: recipe for target 'all' failed
+make: *** [all] Error 4
+```
+
+
+Looked at enzman's project file:
+
+```
+     "-nostdlib",
+     "-nostdinc",
+```
+
+How could I miss this initially?? :\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######################
+PART 5
+#####################
+
+
+Started implementing the register_chardev
+
+A hole in a hole in a hole:
+
+file operation -> file -> inode -> many mode...
+
+Decided to try "various" type for pointers I do not want to implement.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
