@@ -6,6 +6,7 @@ Writing Linux Modules in Ada - Part 4
 :title: Writing Linux Modules in Ada - Part 4 
 :authors: Artium Nihamkin
 :summary: In this installment ....
+:category: Ada Linux Kernel Module
 
 .. role:: ada(code)
    :language: ada

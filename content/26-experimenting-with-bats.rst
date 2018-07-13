@@ -4,6 +4,7 @@ Experimenting with Bats
 :date: 2018/08/07 23:00:00
 :tags: bats, linux, kernel, testing, bash
 :authors: Artium Nihamkin
+:category: Ada Linux Kernel Module
 
 .. role:: ada(code)
    :language: ada

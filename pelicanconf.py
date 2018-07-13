@@ -80,9 +80,24 @@ DISQUS_COMMENT_COUNT = True
 #
 DISABLE_PAGE_BLANK_TARGET = True
 
-
 #YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 #MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
+
+
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['neighbors', 'related_posts']
+
+# RELATED_POSTS_MAX = 10
+
+
+
+
+
+
+
+
+
+
 
 
 
