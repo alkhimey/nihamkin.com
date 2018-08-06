@@ -1,7 +1,7 @@
 Experimenting with Bats
 #######################
 
-:date: 2018/08/07 23:00:00
+:date: 2018/07/08 23:00:00
 :tags: bats, linux, kernel, testing, bash
 :authors: Artium Nihamkin
 :category: Ada Linux Kernel Module
@@ -18,12 +18,12 @@ needs to be developed.
 At current stage, I do not even know which Ada features are supported. The
 framework is so fragile that any change can cause regression problems.
 
-Therfore I decided to explore testing with Bats - `Bash Automated Testing System <https://github.com/bats-core/bats-core>`_.
+Therefore I decided to explore testing with Bats - `Bash Automated Testing System <https://github.com/bats-core/bats-core>`_.
 
 Strategy
 ========
 
-How does one test a **famework**?
+How does one test a **framework**?
 
 My approach is to write a set of kernel modules that would demonstrate the
 different Ada features and Linux kernel API bindings that are supported by the
