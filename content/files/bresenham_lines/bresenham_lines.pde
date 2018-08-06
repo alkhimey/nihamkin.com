@@ -102,7 +102,7 @@ void setup() {
 void draw() {
 
   clear();
-  background(255);
+  background(200);
   
   // At current time, only slopes 0 < m < 1 are supported.
   int start_x = 50;

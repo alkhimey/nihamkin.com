@@ -11,6 +11,10 @@ Line Rasterisation
 
 Sometimes even the simplest things are not as simple as they look.
 
+.. image:: files/bresenham_lines/bresenham_lines.png
+   :alt: Screenshot of the drawing results
+   :align: center
+
 Recently, I had a task that required me to understand circle rasterisation.
 So I went back to my computer graphics course notes which I took many years ago
 to remind myself about how lines are drawn on a computer screen.
