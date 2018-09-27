@@ -39,7 +39,7 @@ CelloWar
 
 - **Description:** An android multiplayer game created during
   Global Game Jam 2018.
-- **Year:** 2017
+- **Year:** 2018
 - **Source:** https://github.com/alex-ilgayev/CelloWar
 - **GGJ Page:** https://globalgamejam.org/2018/games/cellowar
 - **Partners:** Alex Ilgayev
@@ -62,7 +62,7 @@ Let There be Light
 ==================
 
 - **Description:** A game created with Construct 2 during Global Game Jam 2017.
-- **Year:** 2018
+- **Year:** 2017
 - **Source:** https://github.com/alkhimey/Wave/
 - **Demo:** http://ggj17.s3-website.eu-central-1.amazonaws.com/
 - **GGJ Page:** http://globalgamejam.org/2017/games/let-there-be-light
@@ -160,6 +160,29 @@ for every component of our system.
    :width: 400 px
    :alt: High level design diagram of our IAVA building system
 
+Spartanization Plug-in for Ecplise
+==================================
+
+- **Description:** An Eclipse plugin that can refactor you code to minimize
+  token count.
+- **Year:** 2012-2014
+- **Source:** https://bitbucket.org/alkhimey/spartanrefactoring
+- **Blog post:** `Link </2013/03/09/spartanization-plug-in-for-eclipse>`_
+
+Spartan programming is a coding style which tries to minimize the elements of
+code.
+
+I developed an **eclipse plugin** that allows to perform three automatic
+refactoring commands that will make your code more "spartan".
+
+My professor continued to offer a project course for expanding the plugin. The
+final product which is the work of many students can be found
+`here <https://github.com/SpartanRefactoring/Main>`_ and it is much more
+advanced than my version.
+
+.. image:: /files/spartanization_refactoring.png
+  :width: 400 px
+  :alt: Refactoring ternary expressions
 
 3D Model Viewer
 ===============
@@ -184,30 +207,6 @@ like manga drawings.
 .. image:: /files/project_images/171100_1723940412200_5928512_o.jpg
    :width: 400 px
    :alt: Another demonstration of cell shader we developed
-
-Spartanization Plug-in for Ecplise
-==================================
-
-- **Description:** An Eclipse plugin that can refactor you code to minimize
-  token count.
-- **Year:** 2013
-- **Source:** https://bitbucket.org/alkhimey/spartanrefactoring
-- **Blog post:** `Link </2013/03/09/spartanization-plug-in-for-eclipse>`_
-
-Spartan programming is a coding style which tries to minimize the elements of
-code.
-
-I developed an **eclipse plugin** that allows to perform three automatic
-refactoring commands that will make your code more "spartan".
-
-My professor continued to offer a project course for expanding the plugin. The
-final product which is the work of many students can be found
-`here <https://github.com/SpartanRefactoring/Main>`_ and it is much more
-advanced than my version.
-
-.. image:: /files/spartanization_refactoring.png
-  :width: 400 px
-  :alt: Refactoring ternary expressions
 
 
 .. Tower Defense with Kinect
