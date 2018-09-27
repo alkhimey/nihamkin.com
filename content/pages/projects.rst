@@ -8,11 +8,11 @@ Projects
 :url: projects
 :save_as: projects/index.html
 
-This page is dedicated to several of my hobbyist projects.
+This page is dedicated to a selection of my hobbyist projects.
 
 Since I am a software engineer, most of these projects are software related.
 
-Additional projects not mentioned here can be found on my `Github page`_.
+Some projects that are not mentioned here can be found on my `Github page`_.
 
 .. _Github page: https://github.com/alkhimey/
 
@@ -73,8 +73,8 @@ This game was created during Global Game Jam 2017. We used
 **Construct 2** as the game engine.
 
 Moving the mouse up and down will alter the path that the glowing moon is
-following. The player must guide the moon to consume the glowing orbs, otherwise
-it will fade and die.
+following. The player must guide the moon to consume the glowing orbs,
+otherwise it will fade and die.
 
 .. image:: /files/project_images/screenshot_from_2017-01-21_21-49-28.png
    :width: 400 px
@@ -185,28 +185,37 @@ like manga drawings.
    :width: 400 px
    :alt: Another demonstration of cell shader we developed
 
-.. Spartanization Plug-in for Ecplise
-.. ==================================
-..
-.. - **Description:** An Eclipse pluging that can refactor you code to minimize
-.. token count.
-.. - **Year:** 2013
-.. - **Source:** https://bitbucket.org/alkhimey/spartanrefactoring
-.. - **Blog post:** TBD
-..
-.. This is a project I
-..
+Spartanization Plug-in for Ecplise
+==================================
+
+- **Description:** An Eclipse plugin that can refactor you code to minimize
+  token count.
+- **Year:** 2013
+- **Source:** https://bitbucket.org/alkhimey/spartanrefactoring
+- **Blog post:** `Link </2013/03/09/spartanization-plug-in-for-eclipse>`_
+
+Spartan programming is a coding style which tries to minimize the elements of
+code.
+
+I developed an **eclipse plugin** that allows to perform three automatic
+refactoring commands that will make your code more "spartan".
+
+My professor continued to offer a project course for expanding the plugin. The
+final product which is the work of many students can be found
+`here <https://github.com/SpartanRefactoring/Main>`_ and it is much more
+advanced than my version.
+
 .. image:: /files/spartanization_refactoring.png
-..   :width: 400 px
-..   :alt: Refactoring ternary expressions
+  :width: 400 px
+  :alt: Refactoring ternary expressions
 
 
-Tower Defense with Kinect
-=========================
-- **Description:** A game that uses player gestures to attack advancing
-  enemies.
-- **Year:** TBD
-- **Partners:** Alex Ilgayev
-
-Back in the day when Kinect was a novelty poineering cheap real time 3d scanning,
-we recieved a 
+.. Tower Defense with Kinect
+.. =========================
+.. - **Description:** A game that uses player gestures to attack advancing
+..   enemies.
+.. - **Year:** TBD
+.. - **Partners:** Alex Ilgayev
+..
+.. Back in the day when Kinect was a novelty poineering cheap real time 3d scanning,
+.. we recieved a 
