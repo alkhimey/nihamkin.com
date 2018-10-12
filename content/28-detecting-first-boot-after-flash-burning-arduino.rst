@@ -1,5 +1,5 @@
-Detecting First Boot after Burning to Flash
-###########################################
+How to Detect First Boot After Burning Program to Flash
+########################################################
 
 :date: 2018/10/12 22:00:00
 :tags: Arduino, Embedded
