@@ -16,6 +16,25 @@ Some projects that are not mentioned here can be found on my `Github page`_.
 
 .. _Github page: https://github.com/alkhimey/
 
+Light the Room
+===============
+- **Description:** A game that was developed during `Universe Game Jam 2018 <https://www.facebook.com/events/1715973618438998/>`_.
+- **Year:** 2018
+- **Play Online:** https://alkhimey.github.io/LightTheRoom/ (Doesn't work on Firefox)
+- **Partners:** Stav Cinader, Nir Jacob Younessi, Noam Steiner, Yrden Vin,
+  Meshi Sanker, Aviad Mai, Illai Perez
+
+The team of programmers, artists and a sound designer was formed ad-hock by
+the Jam organizers. We used **Unity** as our game engine.
+
+.. image:: /files/project_images/lighttheroom_menu.png
+   :width: 400 px
+   :alt: Main menu of the game
+
+.. image:: /files/project_images/lighttheroom_gameplay.gif
+   :width: 400 px
+   :alt: Demo of the gameplay
+   :target: /files/project_images/lighttheroom_gameplay.mp4
 
 Linux Kernel Modules with Ada
 ==============================
@@ -64,7 +83,7 @@ Let There be Light
 - **Description:** A game created with Construct 2 during Global Game Jam 2017.
 - **Year:** 2017
 - **Source:** https://github.com/alkhimey/Wave/
-- **Demo:** http://ggj17.s3-website.eu-central-1.amazonaws.com/
+- **Play Online:** http://ggj17.s3-website.eu-central-1.amazonaws.com/
 - **GGJ Page:** http://globalgamejam.org/2017/games/let-there-be-light
 - **Partners:** Andrey Smirnov (art), Yuval Neumann (programming),
   Ben Saban (design).
