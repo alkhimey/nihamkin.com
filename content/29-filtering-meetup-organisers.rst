@@ -27,15 +27,15 @@ organizers I am interested in, but I want to select which organizers I am not
 interested in. I still want to see new stuff, but if I decided that something
 is not relevant to me, then I want to filter it out in the future.
 
-Meetup does not allow filtering out specific organizers, So I decided to write
+Meetup does not allow filtering out specific organizers. So I decided to write
 a `Greasemonkey <https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/>`_
 script to do this for me.
 
 Greasemonkey is plugin for firefox that allows running user defined scripts
-written using Javascript. The scripts will run only when a page matching a
+written with Javascript. The scripts will run only when a page matching a
 specific pattern is opened by the browser.
 
-Here is the script which does the filtering. It is pretty simple. You can allo
+Here is the script which does the filtering. It is pretty simple. You can also
 install it from `here <https://greasyfork.org/en/scripts/375325-filter-out-meetup-search-results>`_.
 
 .. code-block:: javascript
