@@ -62,7 +62,7 @@ and robust:
     * fresh program was loaded into the flash.
     */
     boolean is_initial_program_load()
-    {        
+    {
         const String version_date = __DATE__ __TIME__;
         uint16_t len = version_date.length();
         boolean is_ipl = false;
@@ -73,7 +73,7 @@ and robust:
             if (EEPROM.read(addr) != version_date[i]) {
                 EEPROM.write(addr, version_date[i]);
                 is_ipl = true;
-            } 
+            }
         }
 
         return is_ipl;
