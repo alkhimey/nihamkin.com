@@ -16,12 +16,26 @@ Some projects that are not mentioned here can be found on my `Github page`_.
 
 .. _Github page: https://github.com/alkhimey/
 
+Hints Highlighting for AGS
+===========================
+- **Description:** Hints highlighting module for Adventure Game Studio
+- **Year:** 2018
+- **Source:** https://github.com/alkhimey/HintsHighlight
+
+This module for AGS (*Adventure Game Studio*) adds an overlay which highlights
+all the visible and clickable objects, hotspots and characters.
+
+.. image:: https://raw.githubusercontent.com/alkhimey/HintsHighlight/master/screenshots/demo.gif
+   :width: 400 px
+   :alt: Screenshot from AGS
+
+
 Light the Room
 ===============
 - **Description:** A game that was developed during `Universe Game Jam 2018 <https://www.facebook.com/events/1715973618438998/>`_.
 - **Year:** 2018
 - **Play Online:** https://alkhimey.github.io/LightTheRoom/ (Doesn't work on Firefox)
-- **Partners:** Stav Cinader, Nir Jacob Younessi, Noam Steiner, Yrden Vin,
+- **Partners:** Stav Cinader, Nir Jacob Younessi, Noam Steiner, Yarden Vin,
   Meshi Sanker, Aviad Mai, Illai Perez
 
 The team of programmers, artists and a sound designer was formed ad-hock by
