@@ -22,7 +22,7 @@ Hints Highlighting for AGS
 - **Year:** 2018
 - **Source:** https://github.com/alkhimey/HintsHighlight
 
-This module for AGS (*Adventure Game Studio*) adds an overlay which highlights
+This module for `AGS <https://www.adventuregamestudio.co.uk/>`_ (**Adventure Game Studio**) adds an overlay which highlights
 all the visible and clickable objects, hotspots and characters.
 
 .. image:: https://raw.githubusercontent.com/alkhimey/HintsHighlight/master/screenshots/demo.gif
