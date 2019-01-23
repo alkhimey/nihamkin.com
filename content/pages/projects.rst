@@ -16,6 +16,26 @@ Some projects that are not mentioned here can be found on my `Github page`_.
 
 .. _Github page: https://github.com/alkhimey/
 
+Sports Arena Portable
+======================
+- **Description:** Little toy that was inspired by *Sports Arena* prize
+  redemption game.
+- **Year:** 2018-2019
+- **Source:** https://github.com/alkhimey/SportsArenaPortable
+
+This is an **Arduino** project that use Arduino Mini Pro, WS2812 LED ring, a
+buzzer and a vibration actuator. My first project that use perfboard and
+soldering.
+
+.. image:: https://raw.githubusercontent.com/alkhimey/SportsArenaPortable/master/doc/internals.jpg
+   :width: 400 px
+   :alt: Internals of the toy
+   :target: https://raw.githubusercontent.com/alkhimey/SportsArenaPortable/master/doc/internals.jpg
+
+.. image:: https://raw.githubusercontent.com/alkhimey/SportsArenaPortable/master/doc/fail.gif
+   :width: 400 px
+   :alt: Example of failing the game
+
 Hints Highlighting for AGS
 ===========================
 - **Description:** Hints highlighting module for Adventure Game Studio
