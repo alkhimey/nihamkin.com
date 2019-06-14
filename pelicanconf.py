@@ -64,7 +64,7 @@ MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
              ('Tags', '/tags.html'),)
              
-COPYRIGHT_YEAR = '2012-2017'   
+COPYRIGHT_YEAR = '2012-2019'
  
 FAVICON  = '/favicon.ico'
 SITELOGO = '/servbot.png'
@@ -85,7 +85,12 @@ DISABLE_PAGE_BLANK_TARGET = True
 
 
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['neighbors', 'related_posts']
+
+PLUGINS = ['neighbors', 'related_posts', ] # TODO: add 'better_figures_and_images' and fix errors
+
+
+# http://duncanlock.net/blog/2013/05/29/better-figures-images-plugin-for-pelican/
+RESPONSIVE_IMAGES = True
 
 # RELATED_POSTS_MAX = 10
 
