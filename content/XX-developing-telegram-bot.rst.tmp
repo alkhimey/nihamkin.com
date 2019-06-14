@@ -1,0 +1,115 @@
+Developing a Telegram Bot
+#########################
+
+:date: 2018/09/09 23:00:00
+:tags: web, nodejs, azure,telegram
+:authors: Artium Nihamkin
+
+.. role:: javascript(code)
+   :language: javascript
+
+
+
+One of the special things that Telegram messaging app has is the ability to
+create custom bots. This allows rich interactions between individual and a bot
+as well as between groups and a bot.
+
+In this article I will try to lay out a step by step description of how to
+launch your own bot.
+
+
+Architecture
+============
+
+
+
+Telegram bots
+==============
+    architecture
+    bot father
+    commands
+
+Node + azure
+=============
+    Not using telegraf so far
+    Setting up a new web app
+    Web hook
+    ping
+    port number
+    logging
+
+
+
+A Problem
+=========
+
+It seems that everything is playing smoothly but there actually a problem that
+surfaces when the web app is left to run for a long period of time.
+
+The problem is that sometimes the web app goes into idle, or restarted manually
+or might even crash and restart itself. When one of these things happen,
+all global variables that are in the memory are wiped out.
+
+Additional problem is when the web app is in idle mode, scheduled job will
+not run.
+
+Idle mode is something Azure specific, the intention is to save resources.
+There is an assumption behind this is that web apps will be lean and stateless.
+It is possible to disable this in Azure's config, but this is a half-ass
+solution.
+
+Lets try doing something smarter.
+
+Schedule
+--------
+
+To solve scheduling problem, we will abolish :code:`node-schedule` library and
+use Azure's :code:`Schedule` service instead.
+
+It's propose is::
+
+  Invoke actions such as calling HTTP/S endpoints or posting a message to a
+  storage queue on any schedule. With Microsoft Azure Scheduler, you create
+  jobs in the cloud that reliably call services both inside and outside of
+  Microsoft Azure and run those jobs on demand or on a regularly recurring
+  schedule, or designate them for a future date. This service is currently
+  available as a standalone API.
+
+  Use Scheduler to:
+
+    Invoke a Web Service over HTTP/s
+    Post a message to an Azure Storage Queue
+    Post a message to an Azure Service Bus Queue
+    Post a message to an Azure Service Bus Topic
+
+
+
+
+.. code-block:: javascript
+
+    app.post('/weather-job', function(req, res) {
+      ...
+    }
+
+
+
+Important: Start date!!!
+
+Debug by firting event manually
+
+Redis
+-----
+
+To solve critical data loss problem, we will use Redis for storage:
+
+::
+
+  Microsoft Azure Redis Cache is based on the popular open source Redis Cache.
+  It gives users access to a secure, dedicated Redis Cache, managed by
+  Microsoft. Users get the best of both worlds, the rich Redis feature set
+  and ecosystem, and reliable hosting and monitoring from Microsoft.
+
+We do not need the whole set of Redis features. The most relevant
+feature is the fact that data will still be available 
+that it is possible to persist data.https://redis.io/topics/persistence
+

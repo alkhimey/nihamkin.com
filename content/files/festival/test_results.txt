@@ -1,0 +1,280 @@
+~/Festival/festival$ make test
+test fest (script)
+basic 
+utt feats 
+info and help
+fest script completed
+95c95
+< Festival Speech Synthesis System: 2.5.0:release December 2017
+---
+> Festival Speech Synthesis System: 2.4:beta December 2014
+fest script status: INCORRECT
+
+
+test text (script)
+text 
+text script completed
+text script status: CORRECT
+
+
+test voice (script)
+multi-voices 
+SIOD ERROR: unbound variable : voice_cmu_us_slt_cg
+closing a file left open: data/voices.scm
+voice script status: FAILED
+
+
+test modes (script)
+text modes 
+SIOD ERROR: unbound variable : voice_cmu_us_slt_arctic_hts
+festival: text modes, caught error and tidying up
+modes script completed
+33,37c33,37
+< 0.2488 100 We
+< 0.3977 100 can
+< 0.5363 100 say
+< 0.7333 100 things
+< 1.0496 100 fast
+---
+> 0.2456 100 We
+> 0.3975 100 can
+> 0.5532 100 say
+> 0.7675 100 things
+> 1.0376 100 fast
+39,40c39,40
+< 0.4122 100 and
+< 1.7105 100 slowly
+---
+> 0.4145 100 and
+> 1.6015 100 slowly
+57,73c57,73
+< 0.5964 100 This
+< 0.8210 100 is
+< 0.9007 100 a
+< 1.3956 100 slow
+< 2.2553 100 example
+< #
+< #
+< 0.9264 100 This
+< 1.3096 100 is
+< 1.4416 100 a
+< 2.0451 100 very
+< 2.8597 100 slow
+< 4.1962 100 example
+< #
+< 0.2219 100 a
+< 0.5991 100 normal
+< 0.9651 100 one
+---
+> 0.6725 100 This
+> 0.9124 100 is
+> 0.9781 100 a
+> 1.4984 100 slow
+> 2.3918 100 example
+> #
+> #
+> 1.0347 100 This
+> 1.4041 100 is
+> 1.5196 100 a
+> 2.2010 100 very
+> 2.9970 100 slow
+> 4.4190 100 example
+> #
+> 0.2256 100 a
+> 0.6647 100 normal
+> 1.0413 100 one
+76,110c76,110
+< 0.4117 100 a
+< 0.7802 100 fast
+< 1.1379 100 talking
+< 1.6729 100 example
+< #
+< 0.2467 100 Maybe
+< 0.3782 100 this
+< 0.5226 100 one
+< 0.6139 100 is
+< 0.7066 100 too
+< 0.9914 100 fast
+< #
+< #
+< 0.3751 100 My
+< 0.6999 100 name
+< 0.8695 100 is
+< 1.3336 100 Mike
+< #
+< 0.3822 100 m
+< 0.5596 100 i
+< 0.8387 100 k
+< 1.0707 100 e
+< #
+< 0.3521 100 My
+< 1.0344 100 telephone
+< 1.4963 100 number
+< 1.7797 100 is
+< #
+< 0.5720 100 six
+< 0.9363 100 five
+< 1.4862 100 zero
+< 1.8549 100 two
+< 2.2863 100 seven
+< 2.4894 100 eight
+< 2.9663 100 seven
+---
+> 0.3990 100 a
+> 0.8220 100 fast
+> 1.2018 100 talking
+> 1.7704 100 example
+> #
+> 0.2693 100 Maybe
+> 0.4129 100 this
+> 0.5545 100 one
+> 0.6439 100 is
+> 0.7683 100 too
+> 1.0700 100 fast
+> #
+> #
+> 0.3977 100 My
+> 0.7424 100 name
+> 0.9284 100 is
+> 1.4371 100 Mike
+> #
+> 0.3075 100 m
+> 0.4917 100 i
+> 0.7783 100 k
+> 1.0070 100 e
+> #
+> 0.3807 100 My
+> 1.0291 100 telephone
+> 1.4310 100 number
+> 1.7364 100 is
+> #
+> 0.5268 100 six
+> 0.9183 100 five
+> 1.4268 100 zero
+> 1.7948 100 two
+> 2.2058 100 seven
+> 2.4521 100 eight
+> 2.9536 100 seven
+112,113c112,113
+< 0.4926 100 Mike
+< 0.8194 100 here
+---
+> 0.4811 100 Mike
+> 0.8075 100 here
+151,188c151,188
+< 0.3538 100 I'm
+< 0.6659 100 looking
+< 0.8497 100 for
+< 0.8868 100 a
+< 1.2141 100 demo
+< 1.5069 100 mail
+< 2.0192 100 message
+< 2.3684 100 for
+< 3.0054 100 Festival
+< 3.3570 100 but
+< 3.6695 100 can't
+< 3.9223 100 seem
+< 4.0284 100 to
+< 4.4504 100 find
+< 4.6647 100 any
+< 5.1809 100 suitable
+< #
+< 0.2887 100 It
+< 0.5310 100 should
+< 0.6809 100 at
+< 0.9908 100 least
+< 1.1597 100 have
+< 1.4555 100 some
+< 1.9185 100 quoted
+< 2.5649 100 text
+< 2.8782 100 and
+< 3.0512 100 have
+< 3.2650 100 some
+< 3.8183 100 interesting
+< 4.4706 100 tokens
+< 4.8567 100 like
+< 4.8972 100 a
+< 5.0954 100 U
+< 5.3443 100 R
+< 5.6271 100 L
+< 5.9671 100 or
+< 6.3366 100 such
+< 6.7652 100 like
+---
+> 0.3288 100 I'm
+> 0.6680 100 looking
+> 0.8646 100 for
+> 0.9079 100 a
+> 1.2169 100 demo
+> 1.5192 100 mail
+> 2.0264 100 message
+> 2.3382 100 for
+> 2.9966 100 Festival
+> 3.3299 100 but
+> 3.6226 100 can't
+> 3.8911 100 seem
+> 3.9974 100 to
+> 4.3597 100 find
+> 4.5942 100 any
+> 5.1401 100 suitable
+> #
+> 0.2946 100 It
+> 0.5420 100 should
+> 0.6891 100 at
+> 1.0428 100 least
+> 1.2159 100 have
+> 1.4558 100 some
+> 1.8934 100 quoted
+> 2.5100 100 text
+> 2.8172 100 and
+> 2.9738 100 have
+> 3.2205 100 some
+> 3.7405 100 interesting
+> 4.3659 100 tokens
+> 4.7799 100 like
+> 4.8230 100 a
+> 5.0490 100 U
+> 5.2006 100 R
+> 5.4659 100 L
+> 5.7574 100 or
+> 6.1057 100 such
+> 6.5152 100 like
+190c190
+< 0.4636 100 Alan
+---
+> 0.4687 100 Alan
+248,254c248,254
+< 0.3673 100 P
+< 0.5622 100 S
+< 0.7467 100 Will
+< 0.9178 100 you
+< 1.2842 100 attend
+< 1.3426 100 the
+< 1.8415 100 course
+---
+> 0.3350 100 P
+> 0.5774 100 S
+> 0.7758 100 Will
+> 0.9539 100 you
+> 1.3255 100 attend
+> 1.3857 100 the
+> 1.9213 100 course
+modes script status: INCORRECT
+
+
+test parse (script)
+parse script completed
+parse script status: CORRECT
+
+
+test scherr (script)
+scherr script completed
+10c10
+< Festival Speech Synthesis System 2.5.0:release December 2017
+---
+> Festival Speech Synthesis System 2.4:beta December 2014
+14c14
+< clustergen_engine: Copyright (C) Carnegie Mellon University 2005-2017
+---
+> clustergen_engine: Copyright (C) Carnegie Mellon University 2005-2014
+scherr script status: INCORRECT
