@@ -16,6 +16,29 @@ Some projects that are not mentioned here can be found on my `Github page`_.
 
 .. _Github page: https://github.com/alkhimey/
 
+Spline Module for AGS
+======================
+- **Description:** Spline Module for Adventure Game Studio
+- **Year:** 2019
+- **Source:** https://github.com/alkhimey/Spline
+
+This is a module for `AGS <https://www.adventuregamestudio.co.uk/>`_ (**Adventure Game Studio**) engine.
+
+This module provide two related functions:
+
+1. The ability to draw splines.
+2. The ability to create a spline path that can be used for animations.
+
+It uses Catmull Rom for calculating the splines.
+
+.. image:: https://github.com/alkhimey/Spline/raw/master/screenshots/demo1.gif
+   :width: 400 px
+   :alt: Drawing splines.
+
+.. image:: https://github.com/alkhimey/Spline/raw/master/screenshots/demo2.gif
+   :width: 400 px
+   :alt: Use splines for animation.
+
 Sports Arena Portable
 ======================
 - **Description:** Little toy that was inspired by *Sports Arena* prize
