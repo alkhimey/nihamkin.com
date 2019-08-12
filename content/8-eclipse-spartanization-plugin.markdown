@@ -6,7 +6,7 @@ save_as: 2013/03/09/spartanization-plug-in-for-eclipse/index.html
 
 I would like to share an Eclipse plug-in that I have recently developed. It possible to install it from the following  update site: [http://update.nihamkin.com/spartan/](http://update.nihamkin.com/spartan/). 
 
-<p align="center">
+<!--<p align="center">
 <script type="text/javascript">
        url_site = 'http://marketplace.eclipse.org/node/722342';
 </script>
@@ -15,7 +15,7 @@ I would like to share an Eclipse plug-in that I have recently developed. It poss
 <a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=722342" title="Drag and drop into a running Eclipse Indigo workspace to install Spartan Refactoring">
   <img src="http://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/>
 </a>
-</p>
+</p>-->
 
 If you are not familiar with "spartan programming", you can read about it on [this](http://www.codinghorror.com/blog/2008/07/spartan-programming.html) Jeff Atwood's post or [here](http://ssdl-wiki.cs.technion.ac.il/wiki/index.php/Spartan_programming) for more detailed description.
 
