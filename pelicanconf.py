@@ -86,7 +86,7 @@ DISABLE_PAGE_BLANK_TARGET = True
 
 PLUGIN_PATHS = ['pelican-plugins']
 
-PLUGINS = ['neighbors', 'related_posts', ] # TODO: add 'better_figures_and_images' and fix errors
+PLUGINS = ['neighbors', 'related_posts'] # , 'better_figures_and_images' 
 
 
 # http://duncanlock.net/blog/2013/05/29/better-figures-images-plugin-for-pelican/

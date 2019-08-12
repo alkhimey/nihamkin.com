@@ -14,6 +14,16 @@ Since I am a software engineer, most of these projects are software related.
 
 Some projects that are not mentioned here can be found on my `Github page`_.
 
+
+Lectures
+========
+
+Here are presentations of lectures I have given to my colleagues in the past:
+
+* `Creativity <https://docs.google.com/presentation/d/1ROe6ESUXy3I4Yyv8mYyRIBJXEQXPcqebUkCN-OopQxI/edit?usp=sharing>`_ - An introduction to SIT method.
+* `Famous Bugs <https://docs.google.com/presentation/d/1hfCJ5KgeAdkhuw7fEkQlhh-Sr8lpCGQ3mvM9UYqliKg/edit?usp=sharing>`_ - Bugs that were discovered in production and caused substantial amount of damage.
+* `RGB LEDs for Makers <https://docs.google.com/presentation/d/15jLhuvbiDCWSwfFDPI_-EXfedidGWrVMXjrps8CFvrI/edit?usp=sharing>`_ - Introduction to individually addressable LEDs. Presented in a makers un-conference. 
+
 .. _Github page: https://github.com/alkhimey/
 
 Spline Module for AGS

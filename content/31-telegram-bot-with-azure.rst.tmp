@@ -1,7 +1,7 @@
 Building Telegram Bots with Azure
 #################################
 
-:date: 2018/12/08 18:00:00
+:date: 2020/12/08 18:00:00
 :tags: Javascript, Azure, Telegram, Node
 :authors: Artium Nihamkin
 
@@ -15,8 +15,8 @@ Building Telegram Bots with Azure
    :width: 20%
 
 This week I experimented with telegram bot development. I already built a
-telegram bot in the past, but this time I decided to do it properly and also
-use a framework.
+telegram bot in the past, but this time I decided to do it properly: use a
+common framework and host in on the cloud (hence the Azure part).
 
 The result is a bot called `unix_fortune_bot <https://web.telegram.org/#/im?p=@unix_fortune_bot>`_
 who's purpose is act similar to the unix `fortune <https://en.wikipedia.org/wiki/Fortune_(Unix)>`_
@@ -33,8 +33,8 @@ Before we begin with practical stuff, let us discuss how the architecture of a
 Telegram bot looks like. Everything is explained in the `documentation <https://core.telegram.org/bots>`_,
 but I feel that a little commentary is required.
 
-There are two parts to the bot: the frontend which is telegram's part and a
-backend which is bot developer's part.
+There are two parts to the bot: the **frontend** which is telegram's part and a
+**backend** which is bot developer's part.
 
 We will see how to create the frontend using the *FatherBot* interface. Once it
 is created, the connection to the backend is done through a secret token. The
@@ -50,7 +50,7 @@ method.
 Another issue is how the frontend delivers the the messages from the chats to
 the backend. There are two methods:
  
-* The backend can poll for messages
+* The backend can poll for messages.
 * The backend can register a callback. It gives telegram a url to which
   telegram should POST the messages once they arrive.
 
@@ -60,13 +60,14 @@ Registering a Bot
 =================
 To register a new bot you need to talk with `BotFather
 <https://t.me/botfather>`_ telegram bot and follow it's instructions. This step
-is rather unusually as one would expect telegram provide standard web interface
+is rather unusual as one would expect telegram provide standard web interface
 for registering and managing bots. It seems that telegram is trying to push the
 telegram app as a frontend for everything, and creating bots is part of this
 philosophy.
 
 A tip for you, I found that working with the `web interface
-<https://web.telegram.org>`_ to telegram is more convenient when developing.
+<https://web.telegram.org>`_ to telegram is more convenient for development
+than using a phone.
 
 After giving it a name and a username, BotFather will give you a token. We will
 meet BotFather again soon, but for now this token is all we need. *This token
@@ -74,27 +75,21 @@ should be kept secret*. I also advice to revoke it using BotFather at the end
 of the development process, just in case you accidentally exposed it in the git
 history or in a screenshot like I did here.
 
-.. image:: files/telebot/newbot.png
-   :alt: Telegram and Azure logos
+.. figure:: files/telebot/newbot.png
    :align: center
    :width: 50%
+   :alt: Registering new bot with BotFather
 
-Now you can open a chat with your bot, add it to groups etc. It will not do much
-because no backend is receiving the messages and sending responses yet.
+Now you can open a chat with your bot, add it to groups etc. It will not do
+much because no backend is receiving the messages and sending responses yet.
 
 .. figure:: files/telebot/botemptychat.png
    :align: center
-   :alt: Telegram and Azure logos
+   :width: 100%
+   :alt: Bot does not respond in the chat
 
-   Telegram and Azure logos
+balblabla
 
-   Telegram and Azure logos
-
-
-.. image:: files/telebot/botemptychat.png
-   :alt: Telegram and Azure logos
-   :align: center
-   :width: 50%
 
 .. code-block:: javascript
 
