@@ -3,7 +3,7 @@ date: 2016/03/04 15:00:00
 title: Connecting ESP8266 with ILI9341 TFT Display
 url: 2016/03/04/connecting-esp8266-with-ili9341-tft-display
 save_as: 2016/03/04/connecting-esp8266-with-ili9341-tft-display/index.html
-
+category: ESP8266/ESP32
 
 ESP8266 was popular with hobbyists for a long time. Recently I decided to join the hype and bought this module along with a super cheap color TFT display (ILI9341). In this post I will describe the process of connecting those two, using already available code written for Arduino.
 
@@ -16,6 +16,10 @@ First step is to set up Arduino IDE to work with ESP8266.
 There is an excellent [tutorial](https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/installing-the-esp8266-arduino-addon)  on Sparkfun's website that explains how to do this.
 
 Once Arduino IDE is setup, you need to get the Adafruit ILI9341 library. Currently version 1.0.1 is available through Arduino IDE's "*manage libraries*" interface. Unfortunately this version is broken for ESP8266.
+
+**Update 2019:** There is a faster library with more features called TFT_eSPI
+and you can use it instead. See explanation in the
+[ follow up blog post](better-tft-library-for-esp8266).
 
 Until this is fixed, you have to get it directly from the [Adafruit repository](https://github.com/adafruit/Adafruit_ILI9341). One can `git clone` it or download the zip. Put it into the arduino *library* folder. The exact location is OS and IDE version depndent.
 
