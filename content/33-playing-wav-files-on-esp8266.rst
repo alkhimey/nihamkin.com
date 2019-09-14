@@ -5,6 +5,7 @@ Playing WAV Files on ESP8266
 :tags: esp8266, arduino, embedded, ili9341
 :authors: Artium Nihamkin
 :category: ESP8266/ESP32
+:cover: files/esp8266/waveform.png
 
 .. role:: c(code)
    :language: c
@@ -107,7 +108,8 @@ reinterpret the unsigned value into a signed value (that is what stored in the
 data array in the first place).
 
 Since this is part of a project with a goal to run speech synthesis on the ESP
-hardware, the next thing is to actually port `flite <http://www.festvox.org/flite/>`_ to ESP.
+hardware, the next thing is to actually port `flite
+<http://www.festvox.org/flite/>`_ to ESP.
 
 
 
