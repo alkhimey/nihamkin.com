@@ -2,7 +2,7 @@ PCM Audio on ESP8266 using the PCM5102 Chip
 ###########################################
 
 :date: 2019/08/22 23:00:00
-:tags: esp8266, arduino, embedded, ili9341
+:tags: esp8266, arduino, embedded
 :authors: Artium Nihamkin
 :category: ESP8266/ESP32
 

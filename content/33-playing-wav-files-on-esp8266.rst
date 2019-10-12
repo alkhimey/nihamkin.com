@@ -2,7 +2,7 @@ Playing WAV Files on ESP8266
 ############################
 
 :date: 2019/09/15 03:00:00
-:tags: esp8266, arduino, embedded, ili9341
+:tags: esp8266, arduino, embedded, wav
 :authors: Artium Nihamkin
 :category: ESP8266/ESP32
 :cover: files/esp8266/waveform.png
