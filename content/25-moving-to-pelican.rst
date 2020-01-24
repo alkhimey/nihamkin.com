@@ -32,7 +32,7 @@ Unfortunately, this does not work "out of the box". Some transformations on the 
 Removing ---
 ------------
 
-Blogofile uses the *---* sequences to mark the header part of the Markdown file. Pelican does not need it and in fact will render it into the output html.
+Blogofile uses the triple dash (*---*) sequences to mark the header part of the Markdown file. Pelican does not need it and in fact will renders it into the output html.
 
 The problem is that one needs to be careful not to remove legitimate sequences like those that are part of a table definition.
 
@@ -110,7 +110,7 @@ In pelican, it is possible to force a specific URL for a blog post.
 
 Here is an example of how it is done. Put the following code in the header section of the markdown file:
 
-.. code-block::text
+.. code-block:: text
     
     url: 2016/11/25/writing-linux-modules-in-ada-part-3
     save_as: 2016/11/25/writing-linux-modules-in-ada-part-3/index.html
