@@ -64,7 +64,7 @@ MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
              ('Tags', '/tags.html'),)
              
-COPYRIGHT_YEAR = '2012-2019'
+COPYRIGHT_YEAR = '2012-2020'
  
 FAVICON  = '/favicon.ico'
 SITELOGO = '/servbot.png'
@@ -94,6 +94,7 @@ RESPONSIVE_IMAGES = True
 
 # RELATED_POSTS_MAX = 10
 
+#SUMMARY_MAX_LENGTH = 50
 
 
 

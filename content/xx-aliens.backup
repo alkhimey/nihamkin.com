@@ -1,0 +1,56 @@
+Building Telegram Bots with Azure
+#################################
+
+:date: 2020/12/08 18:00:00
+:tags: Javascript, Azure, Telegram, Node
+:authors: Artium Nihamkin
+
+.. role:: javascript(code)
+   :language: javascript
+
+
+.. image:: files/telebot/telegram_azure.jpg
+   :alt: Telegram and Azure logos
+   :align: center
+   :width: 20%
+
+
+
+
+
+Instead of asking the question of why aliens have not made contact with us yet, let's look at the problem from a different angle. Why would an alien civilization make contatc with us?
+
+* Research - 
+* Curiousity - 
+* Earth's Resources - 
+* Expansion - 
+* Enslavemnt - 
+
+For a sufficently advanced spieces, humans and human civilizartion as a whole would be analagous to mold groing in a cave in the dessert. We don't send research expiditions to this mold, we don't try to communicate with it and the chances of accidently running it over with a dozer are slim.
+
+
+
+
+aaaaa
+=============
+
+
+
+|pic1| |pic2|
+
+
+.. |pic2| image:: files/greasemonkey/after.png
+   :alt: After running greasemonkey on my search results
+   :width: 45%
+
+.. |pic1| image:: files/greasemonkey/before.png
+   :alt: Before running greasemonkey on my search results
+   :width: 45%
+
+
+.. image:: files/greasemonkey/link.png
+   :alt: How to determine the href using the the built-in browser inspector
+   :align: center
+   :width: 80%
+
+

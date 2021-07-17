@@ -1,0 +1,37 @@
+Logging JavasScript Objects: None of Both Worlds
+#################################################
+
+:date: 2229/09/15 03:00:00
+:tags: javascript, debugging
+:authors: Artium Nihamkin
+:cover: ???
+
+Debugging techniques can be roughly categorized into two groups:
+
+1. Logging the state of a system while it operating and analyzing it after it
+finished running.  
+2. Halting the operation of a system and then inspecting
+it's momentary state is real time.
+
+There are different manifestations of the first technique. Using `printf` is
+probably most abundantly used. Dumps files, log files, profiling data can be
+also very helpful.  Embedded systems usually provide real time alternatives for
+`printf` or `log` that do not affect the timing. Some go further and probe and
+log the memory lines during the execution.
+
+Watching variables of a program while it stopped at a breakpoint and stepping
+through states is an example of the second technique. This can includes 
+analysis of memory a dump as well. The idea here is the the whole system is 
+available for analysis at a particular instance of time. It is an interactive
+way of debugging.
+
+Each techniques has it's own advantages and disadvantages. And a software
+engineer faced with a problem must decide which technique to employ.
+
+ Now enters JavaScript. At first glance, it's :code:`console.log` method looks
+ exactly like logging. It is even has it in the name. What one would expect it
+ to do is to log the provided input at the moment of execution.
+
+ Let's look at it's documentation:
+
+ 
