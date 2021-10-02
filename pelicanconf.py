@@ -6,7 +6,7 @@ AUTHOR = u'Artium Nihamkin'
 SITENAME = u"Artium Nihamkin's Blog"
 
 SITETITLE = 'Artium\'s Blog'
-SITESUBTITLE = 'Records of software development <br> (and other stuff)'
+SITESUBTITLE = 'Software, Technology, Life'
 # SITEDESCRIPTION = 'Foo Bar\'s Thoughts and Writings' # Not used in Flex theme theme
 
 SITEURL = 'http://127.0.0.1:8000'
@@ -64,7 +64,7 @@ MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
              ('Tags', '/tags.html'),)
              
-COPYRIGHT_YEAR = '2012-2019'
+COPYRIGHT_YEAR = '2012-2021'
  
 FAVICON  = '/favicon.ico'
 SITELOGO = '/servbot.png'
@@ -94,6 +94,7 @@ RESPONSIVE_IMAGES = True
 
 # RELATED_POSTS_MAX = 10
 
+#SUMMARY_MAX_LENGTH = 50
 
 
 

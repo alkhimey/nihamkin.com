@@ -51,7 +51,7 @@ It stands for *Generator Control Unit*, this is an embedded device which
 controls the generation of electric power produced by rotation of the engines.
 Usually there is one generator for each engine but the Dreamliner has two.
 
-Loosing the GCU's can potentially lead to losing all power. On modern aircraft,
+Loosing the GCUs can potentially lead to losing all power. On modern aircraft,
 the pilot is not controlling the flight surfaces directly. Instead, stick and
 throttle movements, along with a bunch of sensor data, are used as an input
 into a flight computer. The computer calculates how the flight surfaces should
@@ -61,7 +61,7 @@ work which means the pilot can not control the aircraft anymore.
 Overflow
 --------
 
-We also know that the GCU went into a failsafe more due to counter overflow
+We also know that the GCUs went into a failsafe mode due to counter overflow
 after 248 days. So what is so special about 248 days?
 
 .. table::
@@ -87,7 +87,7 @@ Solution
 --------
 
 Until a software fix was ready, the AD requires aircraft operators to cycle
-power to the GCU's every 120 days.
+power to the GCUs every 120 days.
 
     AD Requirements
 

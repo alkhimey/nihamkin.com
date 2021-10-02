@@ -24,7 +24,7 @@ Zune
 
 `Zune 30 <https://en.wikipedia.org/wiki/Zune_30>`_ was a 30GB media
 players developed by Microsoft and released in 2006.  It was the era of the
-iPod and Microsoft wanted a portable media player oas well.
+iPod and Microsoft wanted a portable media player as well.
 
 .. image:: files/zune/zune30.jpg
    :alt: Photo of Zune30
